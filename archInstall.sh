@@ -38,7 +38,7 @@ echo 127.0.0.1 localhost.localdomain localhost > /etc/hosts
 
 #Definir voce como um sudoer e adicionar como usuario 
 useradd -m -g users -G wheel lambert
-echo lambert ALL=(ALL) ALL
+echo lambert ALL=(ALL) ALL >> /etc/sudoers
 
 #Gerar um Initramfs
 mkinitcpio -P
