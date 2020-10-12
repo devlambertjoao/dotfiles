@@ -32,22 +32,24 @@ echo KEYMAP=br-abnt2 > /etc/vconsole.conf
 echo lambert > /etc/hostname
 
 #Definir hosts em /etc/hosts
-echo 127.0.0.1 localhost.localdomain localhost > /etc/hosts
-::1 localhost.localdomain localhost >> /etc/hosts
-127.0.1.1	lambert.localdomain	lambert >> /etc/hosts
+echo "127.0.0.1 localhost.localdomain localhost" > /etc/hosts
+echo "::1 localhost.localdomain localhost" >> /etc/hosts
+echo "127.0.1.1	dev.localdomain dev" >> /etc/hosts
 
 #Definir voce como um sudoer e adicionar como usuario 
 useradd -m -g users -G wheel lambert
-echo lambert ALL=(ALL) ALL >> /etc/sudoers
+echo "lambert ALL=(ALL) ALL" >> /etc/sudoers
 
 #Gerar um Initramfs
 mkinitcpio -P
 
 #Definir senha do root
+clear
 echo "Digite a senha do root"
 passwd
 
 #Definir a senha da sua conta
+clear
 echo "Digite a senha do usuario lambert"
 passwd lambert
 
