@@ -3,7 +3,7 @@
 ############################### A Partir daqui pode rodar tudo automaticamente ############################### 
 
 #Instalar o basico
-pacman -S nano sudo dosfstools os-prober mtools networkmanager grub-efi-x86_64 efibootmgr iwd xorg-server nvidia nvidia-libgl mesa netctl wireless_tools dhcpcd wpa_supplicant dialog 
+pacman -S nano sudo dosfstools os-prober mtools networkmanager grub-efi-x86_64 efibootmgr iwd pulseaudio alsa-utils xorg-server nvidia nvidia-libgl mesa netctl wireless_tools dhcpcd wpa_supplicant dialog 
 systemctl enable netctl
 systemctl enable dhcpcd
 systemctl enable NetworkManager
