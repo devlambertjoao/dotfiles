@@ -28,8 +28,8 @@ echo LANG=pt_BR.UTF-8 > /etc/locale.conf
 #Persistir layout do teclado, digite no arquivo KEYMAP=br-abnt2
 echo KEYMAP=br-abnt2 > /etc/vconsole.conf
 
-#Crie o arquivo e defina seu hostname (colocar nome  do usuario)
-echo lambert > /etc/hostname
+#Crie o arquivo e defina seu hostname (colocar nome da maquina)
+echo dev > /etc/hostname
 
 #Definir hosts em /etc/hosts
 echo "127.0.0.1 localhost.localdomain localhost" > /etc/hosts
@@ -55,7 +55,7 @@ passwd lambert
 
 #Configurar grub
 
-grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub --recheck
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch --recheck
 
 cp /usr/share/locale/en@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
 
@@ -65,4 +65,4 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 #Instalar drivers e alguns utilitarios
 pacman -Sy
-sudo pacman -S git wget firefox curl neovim xorg-server
+sudo pacman -S git curl neovim
