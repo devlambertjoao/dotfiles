@@ -21,7 +21,7 @@ sudo rm ~/.vimrc && wget https://raw.githubusercontent.com/devlambertjoao/dotfil
 mkdir -p ~/.config/nvim
 echo "set runtimepath^=~/.vim runtimepath+=~/.vim/after" > ~/.config/nvim/init.vim
 echo "let &packpath=&runtimepath" >> ~/.config/nvim/init.vim
-echo "source .vimrc" >> ~/.config/nvim/init.vim
+echo "source ~/.vimrc" >> ~/.config/nvim/init.vim
 
 echo "Instalando nerd fonts"
 mkdir -p ~./Downloads && cd ~./Downloads
