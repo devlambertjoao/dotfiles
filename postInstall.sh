@@ -37,5 +37,12 @@ echo "Importando environments"
 wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/environment && sudo mv environment /etc/environment
 source /etc/environment
 
+echo "Instalando eclipse"
+cd && cd Downloads
+wget https://eclipse.c3sl.ufpr.br/technology/epp/downloads/release/2020-09/R/eclipse-jee-2020-09-R-linux-gtk-x86_64.tar.gz
+cd && sudo mv Downloads/eclipse-jee-*.tar.gz Programas && cd Programas 
+tar -zxvf eclipse-jee-*.tar.gz  && rm eclipse-jee-*.tar.gz
+cd
+
 echo "Instalando ohmyzsh"
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
