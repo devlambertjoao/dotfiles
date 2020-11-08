@@ -1,7 +1,5 @@
 #!/bin/bash
 
-############################### A Partir daqui pode rodar tudo automaticamente ############################### 
-
 #Instalar o basico
 pacman -S nano sudo dosfstools os-prober mtools networkmanager grub-efi-x86_64 efibootmgr iwd pulseaudio alsa-utils xorg-server nvidia nvidia-libgl mesa netctl wireless_tools dhcpcd wpa_supplicant dialog 
 systemctl enable netctl
@@ -60,10 +58,6 @@ grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch 
 cp /usr/share/locale/en@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
 
 grub-mkconfig -o /boot/grub/grub.cfg
-
-#Configurar Teclado
-setxkbmap br 
-localectl --no-convert set-x11-keymap br
 
 #Instalar drivers e alguns utilitarios
 pacman -Sy
