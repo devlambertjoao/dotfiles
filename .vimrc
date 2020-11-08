@@ -12,6 +12,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " sudo pacman -S the_silver_
 Plug 'junegunn/fzf.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'jiangmiao/auto-pairs'
+Plug 'majutsushi/tagbar'
 call plug#end()
 
 " Configurações Vim
@@ -56,11 +57,13 @@ nnoremap <leader>wq :wq<CR>
 nnoremap <leader>= :vertical resize +10<CR> 
 nnoremap <leader>- :vertical resize -10<CR> 
 nnoremap <C-n> :wincmd v<CR>
-:imap II <Esc>
 
 " Busca de arquivos com fzf e silver search
 nnoremap ; :GFiles<CR> 
 nnoremap <C-f> :Ag<CR>
+
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
 
 " NerdTree
 let g:NERDTreeIgnore = ['^node_modules$']
@@ -86,6 +89,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <leader>. :CocFix<CR>
 
 let g:coc_global_extensions = [
   \ 'coc-tsserver',
@@ -144,3 +148,4 @@ set bg=dark
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='simple'
 let g:airline_powerline_fonts = 1
+
