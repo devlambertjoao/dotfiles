@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Instalando pacotes"
-sudo pacman -Sy nodejs yarn npm maven the_silver_searcher zsh docker minikube kubectl adb ctags notepadqq
+sudo pacman -Sy nodejs yarn npm maven the_silver_searcher zsh docker minikube kubectl adb ctags notepadqq tmux
 
 echo "Instalando e configurando docker"
 sudo usermod -aG docker $USER
@@ -42,6 +42,11 @@ cd && cd Downloads
 wget https://eclipse.c3sl.ufpr.br/technology/epp/downloads/release/2020-09/R/eclipse-jee-2020-09-R-linux-gtk-x86_64.tar.gz
 cd && sudo mv Downloads/eclipse-jee-*.tar.gz Programas && cd Programas 
 tar -zxvf eclipse-jee-*.tar.gz  && rm eclipse-jee-*.tar.gz
+cd
+
+echo "Configurando tmux"
+cd
+https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/.tmux.conf
 cd
 
 echo "Instalando ohmyzsh"
