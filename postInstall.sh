@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Instalando pacotes"
-sudo pacman -Sy nodejs yarn npm maven the_silver_searcher zsh docker minikube kubectl adb ctags
+sudo pacman -Sy nodejs yarn npm maven the_silver_searcher zsh docker minikube kubectl adb ctags notepadqq
 
 echo "Instalando e configurando docker"
 sudo usermod -aG docker $USER
