@@ -13,6 +13,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'jiangmiao/auto-pairs'
 Plug 'majutsushi/tagbar'
+Plug 'prettier/vim-prettier'
+Plug 'neovim/nvim-lspconfig'
 call plug#end()
 
 " Configurações Vim
@@ -35,7 +37,7 @@ set nowrap
 set noswapfile
 set nobackup
 set nu
-set updatetime=300
+set updatetime=50
 set hidden
 set nobackup
 set nowritebackup
@@ -89,7 +91,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-nmap <leader>. :CocFix<CR>
+nnoremap <C-.> :CocFix<CR>
 
 let g:coc_global_extensions = [
   \ 'coc-tsserver',
@@ -149,3 +151,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='simple'
 let g:airline_powerline_fonts = 1
 
+" Vim prettier
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
