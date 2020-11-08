@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Instalando pacotes"
-sudo pacman -Sy nodejs yarn npm maven the_silver_searcher zsh docker minikube kubectl adb
+sudo pacman -Sy nodejs yarn npm maven the_silver_searcher zsh docker minikube kubectl adb ctags
 
 echo "Instalando e configurando docker"
 sudo usermod -aG docker $USER
@@ -9,7 +9,7 @@ sudo systemctl enable docker
 sudo chmod 777 /var/run/docker.sock
 
 echo "Configurando teclado para br"
-setxkbmap br 
+setxkbmap br
 localectl --no-convert set-x11-keymap br
 
 echo "Vim plug e configurações do nvim"
