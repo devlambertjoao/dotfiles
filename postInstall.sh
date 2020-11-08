@@ -24,7 +24,8 @@ echo "let &packpath=&runtimepath" >> ~/.config/nvim/init.vim
 echo "source ~/.vimrc" >> ~/.config/nvim/init.vim
 
 echo "Instalando nerd fonts"
-mkdir -p ~./Downloads && cd ~./Downloads
+cd
+mkdir Downloads && cd Downloads
 git clone https://aur.archlinux.org/nerd-fonts-hack.git && cd nerd-fonts-hack && makepkg --syncdeps && sudo pacman -U nerd-fonts-hack-*
 cd 
 
