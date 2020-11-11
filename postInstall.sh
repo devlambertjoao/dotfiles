@@ -42,6 +42,9 @@ cd && cd Downloads
 wget https://eclipse.c3sl.ufpr.br/technology/epp/downloads/release/2020-09/R/eclipse-jee-2020-09-R-linux-gtk-x86_64.tar.gz
 cd && sudo mv Downloads/eclipse-jee-*.tar.gz Programas && cd Programas 
 tar -zxvf eclipse-jee-*.tar.gz  && rm eclipse-jee-*.tar.gz
+cd && cd Downloads
+wget https://raw.githubusercontent.com/devlambertjoao/utils/master/eclipse.desktop
+sudo mv eclipse.desktop /usr/share/applications
 cd
 
 echo "Configurando tmux"
