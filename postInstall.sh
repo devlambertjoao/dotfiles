@@ -23,6 +23,13 @@ echo "set runtimepath^=~/.vim runtimepath+=~/.vim/after" > ~/.config/nvim/init.v
 echo "let &packpath=&runtimepath" >> ~/.config/nvim/init.vim
 echo "source ~/.vimrc" >> ~/.config/nvim/init.vim
 
+echo "{" > ~/.vim/coc-settings.json
+echo "  \"java.jdt.ls.vmargs\": \"-javaagent: /home/lambert/.vim/lombok.jar\" " >> ~/.vim/coc-settings.json
+echo "}" >> ~/.vim/coc-settings.json
+
+wget https://projectlombok.org/downloads/lombok.jar -P ~/.vim/
+
+
 echo "Instalando nerd fonts"
 cd
 mkdir Downloads && cd Downloads
@@ -46,6 +53,8 @@ cd && cd Downloads
 wget https://raw.githubusercontent.com/devlambertjoao/utils/master/eclipse.desktop
 sudo mv eclipse.desktop /usr/share/applications
 cd
+
+wget https://projectlombok.org/downloads/lombok.jar -P ~/Programas/eclipse/eclipse/
 
 echo "Configurando tmux"
 cd
