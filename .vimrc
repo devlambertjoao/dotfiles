@@ -8,18 +8,20 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'yggdroot/indentline'
 Plug 'neoclide/coc.nvim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " sudo pacman -S the_silver_searcher
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } 
 Plug 'junegunn/fzf.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'jiangmiao/auto-pairs'
 Plug 'majutsushi/tagbar'
-Plug 'prettier/vim-prettier'
-Plug 'neovim/nvim-lspconfig'
+Plug 'sheerun/vim-polyglot'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'OmniSharp/omnisharp-vim'
 call plug#end()
 
-" Configurações Vim
+" ### Vim Configs Start ######################################################
 filetype plugin on
 set path+=**
+set colorcolumn=80
 set wildmenu
 set wildignore+=**/node_modules/**
 set nocompatible
@@ -30,6 +32,8 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set incsearch
+set nobackup
+set nowritebackup
 set autoindent
 set backspace=indent,eol,start 
 syntax enable
@@ -46,8 +50,9 @@ set smartcase
 set noshowmode
 set encoding=UTF-8
 set termguicolors
+" ### Vim Configs End ########################################################
 
-" Atalhos
+" ### Vim Shortcuts Start ####################################################
 let mapleader = " "
 nnoremap <C-h> :wincmd h<CR>
 nnoremap <C-l> :wincmd l<CR>
@@ -59,51 +64,57 @@ nnoremap <leader>wq :wq<CR>
 nnoremap <leader>= :vertical resize +10<CR> 
 nnoremap <leader>- :vertical resize -10<CR> 
 nnoremap <C-n> :wincmd v<CR>
+nnoremap <C-t> :tabnew .<CR>
+" ### Vim Shortcuts End ######################################################
 
-" Busca de arquivos com fzf e silver search
+" ### Find files using Git, or find in files using silver searcher
 nnoremap ; :GFiles<CR> 
 nnoremap <C-f> :Ag<CR>
 
-" Tagbar
+" ### Tagbar
 nmap <F8> :TagbarToggle<CR>
 
-" NerdTree
-let g:NERDTreeIgnore = ['^node_modules$']
-" CTRL B para abrir
+" ### NerdTree
+let g:NERDTreeIgnore = ['^node_modules$', '^bin$', '^obj$']
 map <C-b> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 let g:NERDTreeGitStatusWithFlags = 1
+let NERDTreeShowHidden=1
 :let g:NERDTreeWinSize=40
 
-" Vim fugitive
+" ### Open nerdtree if file is not specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" ### Vim fugitive
 nmap <leader>gh :diffget //3<CR>
 nmap <leader>gu :diffget //2<CR>
 nmap <leader>gc :Gcommit<CR>
 nmap <leader>gs :G<CR>
 
-" Identguide
+" ### Identguide for show ident
 let g:indentLine_char = '┊'
 
-" Coc.nvim
+" ### Coc.nvim Configs Start #################################################
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-nnoremap <C-.> :CocFix<CR>
+nmap <silent> gf :CocFix<CR>
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+set shortmess+=c
 
 let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-angular',
   \ 'coc-css',
+  \ 'coc-java',
+  \ 'coc-omnisharp',
   \ ]
-" Don't pass messages to |ins-completion-menu|.
-set shortmess+=c
 
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -115,21 +126,13 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
 if exists('*complete_info')
   inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 else
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
-set nobackup
-set nowritebackup
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -139,18 +142,32 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Colorscheme
-colorscheme materialbox
+" For .NET 
+nmap <silent> <C-g>d :OmniSharpGotoDefinition<CR>
+
+" ### Coc.nvim Configs End ###################################################
+
+" ### Colorscheme
+colorscheme PerfectDark
 set bg=dark
 
-" Virairline
+" ### Virairline Configs Start ###############################################
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='simple'
 let g:airline_powerline_fonts = 1
+" ### Virairline Configs End #################################################
 
-" Vim prettier
-let g:prettier#autoformat = 1
-let g:prettier#autoformat_require_pragma = 0
+" ### Multiple Cursors Config Start ##########################################
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_start_word_key      = '<C-n>'
+let g:multi_cursor_select_all_word_key = '<A-n>'
+let g:multi_cursor_start_key           = 'g<C-n>'
+let g:multi_cursor_select_all_key      = 'g<A-n>'
+let g:multi_cursor_next_key            = '<C-n>'
+let g:multi_cursor_prev_key            = '<C-p>'
+let g:multi_cursor_skip_key            = '<C-x>'
+let g:multi_cursor_quit_key            = '<Esc>'
+" ### Multiple Cursors Configs End ############################################
+
