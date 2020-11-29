@@ -16,6 +16,7 @@ Plug 'majutsushi/tagbar'
 Plug 'sheerun/vim-polyglot'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'OmniSharp/omnisharp-vim'
+Plug 'scrooloose/syntastic'
 call plug#end()
 
 " ### Vim Configs Start ######################################################
@@ -42,6 +43,7 @@ set noswapfile
 set nobackup
 set nu
 set updatetime=50
+set shortmess+=c
 set hidden
 set nobackup
 set nowritebackup
@@ -65,6 +67,7 @@ nnoremap <leader>= :vertical resize +10<CR>
 nnoremap <leader>- :vertical resize -10<CR> 
 nnoremap <C-n> :wincmd v<CR>
 nnoremap <C-t> :tabnew .<CR>
+nnoremap <A-t> :tabnext <CR>
 " ### Vim Shortcuts End ######################################################
 
 " ### Find files using Git, or find in files using silver searcher
@@ -74,7 +77,7 @@ nnoremap <C-f> :Ag<CR>
 " ### Tagbar
 nmap <F8> :TagbarToggle<CR>
 
-" ### NerdTree
+" ### NerdTree Configs Start #################################################
 let g:NERDTreeIgnore = ['^node_modules$', '^bin$', '^obj$']
 map <C-b> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrows = 1
@@ -87,6 +90,21 @@ let NERDTreeShowHidden=1
 " ### Open nerdtree if file is not specified
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+                \ 'Modified'  :'✹',
+                \ 'Staged'    :'✚',
+                \ 'Untracked' :'✭',
+                \ 'Renamed'   :'➜',
+                \ 'Unmerged'  :'═',
+                \ 'Deleted'   :'✖',
+                \ 'Dirty'     :'✗',
+                \ 'Ignored'   :'☒',
+                \ 'Clean'     :'✔︎',
+                \ 'Unknown'   :'?',
+                \ }
+let g:NERDTreeGitStatusUseNerdFonts = 1
+
+" ### NerdTree Configs End ###################################################
 
 " ### Vim fugitive
 nmap <leader>gh :diffget //3<CR>
@@ -104,8 +122,13 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gf :CocFix<CR>
 nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-set shortmess+=c
+" For .NET 
+nmap <silent> <C-g>d :OmniSharpGotoDefinition<CR>
+nmap <silent> <C-g>r :OmniSharpFindUsages<CR>
+nmap <silent> <C-r>g :OmniSharpFixUsings<CR>
+nmap <silent> <C-r>r :OmniSharpRename<CR>
+nmap <silent> <C-g>y :OmniSharpFindImplementations<CR>
+nmap <silent> <C-g>f :OmniSharpCodeFormat<CR>
 
 let g:coc_global_extensions = [
   \ 'coc-tsserver',
@@ -113,6 +136,11 @@ let g:coc_global_extensions = [
   \ 'coc-css',
   \ 'coc-java',
   \ 'coc-omnisharp',
+  \ 'coc-snippets',
+  \ 'coc-highlight',
+  \ 'coc-tslint-plugin',
+  \ 'coc-eslint',
+  \ 'coc-sh',
   \ ]
 
 inoremap <silent><expr> <TAB>
@@ -143,10 +171,6 @@ function! s:show_documentation()
 endfunction
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" For .NET 
-nmap <silent> <C-g>d :OmniSharpGotoDefinition<CR>
-
 " ### Coc.nvim Configs End ###################################################
 
 " ### Colorscheme
@@ -157,6 +181,9 @@ set bg=dark
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='simple'
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 " ### Virairline Configs End #################################################
 
 " ### Multiple Cursors Config Start ##########################################
@@ -169,5 +196,16 @@ let g:multi_cursor_next_key            = '<C-n>'
 let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
-" ### Multiple Cursors Configs End ############################################
+" ### Multiple Cursors Configs End ###########################################
+" ### Syntastic Config Start #################################################
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" ### Syntastic Config End ###################################################
+
 
