@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Instalando pacotes"
-sudo pacman -Sy nodejs yarn npm maven the_silver_searcher zsh docker minikube kubectl adb ctags notepadqq tmux aspnet-runtime dotnet-sdk
+sudo pacman -Sy nodejs yarn npm maven the_silver_searcher zsh docker minikube kubectl adb ctags notepadqq tmux aspnet-runtime dotnet-sdk python python-pip
 
 echo "Instalando e configurando docker"
 sudo usermod -aG docker $USER
@@ -24,11 +24,12 @@ echo "let &packpath=&runtimepath" >> ~/.config/nvim/init.vim
 echo "source ~/.vimrc" >> ~/.config/nvim/init.vim
 
 echo "{" > ~/.vim/coc-settings.json
+echo "  \"eslint.autoFixOnSave\": \"true\", " >> ~/.vim/coc-settings.json
 echo "  \"java.jdt.ls.vmargs\": \"-javaagent: /home/lambert/.vim/lombok.jar\" " >> ~/.vim/coc-settings.json
 echo "}" >> ~/.vim/coc-settings.json
 
 wget https://projectlombok.org/downloads/lombok.jar -P ~/.vim/
-
+pip3 install pynvim
 
 echo "Instalando nerd fonts"
 cd
