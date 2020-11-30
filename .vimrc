@@ -138,8 +138,7 @@ let g:coc_global_extensions = [
   \ 'coc-omnisharp',
   \ 'coc-snippets',
   \ 'coc-highlight',
-  \ 'coc-tslint-plugin',
-  \ 'coc-eslint',
+  \ 'coc-prettier',
   \ 'coc-sh',
   \ ]
 
