@@ -60,6 +60,7 @@ wget https://projectlombok.org/downloads/lombok.jar -P ~/Programas/eclipse/eclip
 echo "Configurando tmux"
 cd
 wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/.tmux.conf
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 cd
 
 echo "Instalando ohmyzsh"
