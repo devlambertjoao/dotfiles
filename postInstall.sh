@@ -67,3 +67,4 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 echo "Configurando ruby on rails"
 gem install rails
+gem install solargraph
