@@ -17,6 +17,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'scrooloose/syntastic'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
 call plug#end()
 
 " ### Vim Configs Start ######################################################
@@ -140,6 +142,7 @@ let g:coc_global_extensions = [
   \ 'coc-highlight',
   \ 'coc-prettier',
   \ 'coc-sh',
+  \ 'coc-solargraph',
   \ ]
 
 inoremap <silent><expr> <TAB>
@@ -207,4 +210,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 " ### Syntastic Config End ###################################################
 
-
+" ### Ruby Settings ##########################################################
+autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType eruby setlocal expandtab shiftwidth=2 tabstop=2
+" ### Ruby Settings ##########################################################
