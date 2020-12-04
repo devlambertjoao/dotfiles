@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Instalando pacotes"
-sudo pacman -Sy nodejs yarn npm maven the_silver_searcher zsh docker minikube kubectl adb ctags notepadqq tmux aspnet-runtime dotnet-sdk python python-pip
+sudo pacman -Sy nodejs yarn npm maven the_silver_searcher zsh docker minikube kubectl adb ctags notepadqq tmux aspnet-runtime dotnet-sdk python python-pip ruby sqlite
 
 echo "Instalando e configurando docker"
 sudo usermod -aG docker $USER
@@ -64,3 +64,6 @@ cd
 
 echo "Instalando ohmyzsh"
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+echo "Configurando ruby on rails"
+gem install rails
