@@ -59,12 +59,15 @@ wget https://projectlombok.org/downloads/lombok.jar -P ~/Programas/eclipse/eclip
 
 echo "Configurando tmux"
 cd
-https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/.tmux.conf
+wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/.tmux.conf
 cd
 
 echo "Instalando ohmyzsh"
+cd
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/.zshrc
+cd
 
 echo "Configurando ruby on rails"
 gem install rails
