@@ -214,3 +214,16 @@ let g:syntastic_check_on_wq = 0
 autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
 autocmd FileType eruby setlocal expandtab shiftwidth=2 tabstop=2
 " ### Ruby Settings ##########################################################
+
+" ### Css and HTML Settings ##################################################
+autocmd FileType *.css,*.scss,*.html setlocal expandtab shiftwidth=4 tabstop=4
+" ### Css and HTML Settings ##################################################
+
+" ### Typescript and Javascript Settings ##################################### 
+autocmd InsertLeave *.ts,*.tsx,*.js,*.jsx :CocCommand prettier.formatFile 
+" ### Typescript and Javascript Settings ##################################### 
+
+" ### Dotnet Settings ########################################################
+autocmd FileType *.cs setlocal expandtab shiftwidth=4 tabstop=4
+autocmd InsertLeave *.cs :OmniSharpCodeFormat 
+" ### Dotnet Settings ########################################################
