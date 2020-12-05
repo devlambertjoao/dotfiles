@@ -97,3 +97,5 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias nv="nvim ."
+alias devc="tmux split-window -c $PWD -l 5"
+alias tks="tmux kill-server"
