@@ -99,3 +99,7 @@ source $ZSH/oh-my-zsh.sh
 alias nv="nvim ."
 alias devc="tmux split-window -c $PWD -l 5"
 alias tks="tmux kill-server"
+
+# Asdf
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
