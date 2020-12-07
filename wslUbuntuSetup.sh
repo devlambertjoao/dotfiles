@@ -61,12 +61,23 @@ echo "}" >> ~/.vim/coc-settings.json
 wget https://projectlombok.org/downloads/lombok.jar -P ~/.vim/
 pip3 install pynvim
 
+# Tmux
+sudo apt-get install -y tmux
+wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/.tmux.conf
+
+# Docker
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+sudo apt-get update
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+sudo service docker start 
+sudo chmod 777 /var/run/docker.sock
+
 # Zsh
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/.zshrc
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# Tmux
-sudo apt-get install -y tmux
-wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/.tmux.conf
 
