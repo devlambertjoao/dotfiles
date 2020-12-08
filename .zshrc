@@ -99,6 +99,7 @@ source $ZSH/oh-my-zsh.sh
 alias nv="nvim ."
 alias devc="tmux split-window -c $PWD -l 5"
 alias tks="tmux kill-server"
+alias sds="sudo service docker start"
 
 # Asdf
 . $HOME/.asdf/asdf.sh
