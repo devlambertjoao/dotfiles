@@ -56,6 +56,13 @@ set encoding=UTF-8
 set termguicolors
 " ### Vim Configs End ########################################################
 
+" ### Colorscheme
+" colorscheme github
+
+" colorscheme PerfectDark
+colorscheme github
+set bg=light
+
 " ### Vim Shortcuts Start ####################################################
 let mapleader = " "
 nnoremap <C-h> :wincmd h<CR>
@@ -80,7 +87,7 @@ nnoremap <C-f> :Ag<CR>
 nmap <F8> :TagbarToggle<CR>
 
 " ### NerdTree Configs Start #################################################
-let g:NERDTreeIgnore = ['^node_modules$', '^bin$', '^obj$']
+let g:NERDTreeIgnore = ['^node_modules$']
 map <C-b> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '▸'
@@ -175,13 +182,9 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 " ### Coc.nvim Configs End ###################################################
 
-" ### Colorscheme
-colorscheme PerfectDark
-set bg=dark
-
 " ### Virairline Configs Start ###############################################
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='simple'
+let g:airline_theme='atomic'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
@@ -220,7 +223,7 @@ autocmd FileType *.css,*.scss,*.html setlocal expandtab shiftwidth=4 tabstop=4
 " ### Css and HTML Settings ##################################################
 
 " ### Typescript and Javascript Settings ##################################### 
-autocmd InsertLeave *.ts,*.tsx,*.js,*.jsx :CocCommand prettier.formatFile 
+autocmd BufWritePre *.ts,*.tsx,*.js,*.jsx :CocCommand prettier.formatFile 
 " ### Typescript and Javascript Settings ##################################### 
 
 " ### Dotnet Settings ########################################################
