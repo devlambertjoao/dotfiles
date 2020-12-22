@@ -14,14 +14,10 @@ station dispositivo connect SSID
 #Digitar senha se houver
 
 #Exportar variavel com a linguagem 
-export LANG=pt_BR.UTF-8
+export LANG=en_US.UTF-8
 
 #DESCOBRIR TIPO BOOT, caso não ache o diretório, é BIOS, se não UEFI
 ls /sys/firmware/efi/efivars
-
-#VERIFICAR CONEXAO COM A INTERNET
-ip link
-ping www.google.com
 
 #Atualizar relógio do sistema
 timedatectl set-ntp true
@@ -30,10 +26,8 @@ timedatectl set-ntp true
 #Checar os discos
 fdisk -l
 
-#Formatar discos
+#Formatar discos e criar particoes na ferramenta (BIOS ROOT E SWAP)
 cfdisk /dev/sdX -> X o hdd/sdd que vai usar
-
-#Criar particoes na ferramenta (BIOS ROOT E SWAP)
 
 #Formatar partições no formato correto
 mkfs.ext4 /dev/sdXy -> ROOT
