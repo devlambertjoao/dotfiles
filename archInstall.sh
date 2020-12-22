@@ -21,7 +21,7 @@ echo en_US.UTF-8 UTF-8 > /etc/locale.gen
 locale-gen
 
 #Definir sua variavel linguagem, digite no arquivo LANG=pt_BR.UTF-8
-echo LANG=pt_BR.UTF-8 > /etc/locale.conf 
+echo LANG=en_US.UTF-8 > /etc/locale.conf 
 
 #Persistir layout do teclado, digite no arquivo KEYMAP=br-abnt2
 echo KEYMAP=br-abnt2 > /etc/vconsole.conf
