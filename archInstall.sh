@@ -15,7 +15,7 @@ ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 hwclock --systohc
 
 #Edite a linguagem do sistema, descomentando a linnha pt_BR.UTF8
-echo pt_BR.UTF-8 UTF-8 > /etc/locale.gen
+echo en_US.UTF-8 UTF-8 > /etc/locale.gen
 
 #Gerar os locales após
 locale-gen
@@ -52,7 +52,6 @@ echo "Digite a senha do usuario lambert"
 passwd lambert
 
 #Configurar grub
-
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch --recheck
 
 cp /usr/share/locale/en@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
