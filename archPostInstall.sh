@@ -1,14 +1,12 @@
 #!/bin/bash
 
 execute_install()
-
-execute_install()
 {
-	config_keyboard()
-	add_packages()
-	add_programs()
-	config_environments()
-	add_zsh()
+	config_keyboard
+	add_packages
+	add_programs
+	config_environments
+	add_zsh
 }
 
 config_keyboard()
@@ -19,22 +17,23 @@ config_keyboard()
 
 add_packages() 
 {
-	add_asdf()
-	add_node()
-	add_python()
-	add_docker()
-	add_java()
-	add_dotnet()	
-	add_ruby()
-	add_vim()
-	add_tmux()
+	add_asdf
+	add_node
+	add_python
+	add_docker
+	add_java
+	add_dotnet
+	add_ruby
+	add_vim
+	add_tmux
 }
 
 add_programs() 
 {
-	add_eclipse()
-	add_notepadqq()
+	add_eclipse
+	add_notepadqq
 }
+
 add_asdf()
 {
 	git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0
@@ -117,10 +116,12 @@ add_tmux()
 {
 	sudo pacman -S tmux
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+	wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/.tmux.conf
 }
 
 add_eclipse()
 {
+	mkdir -p ~/Programas
 	cd && cd Downloads
 	wget https://eclipse.c3sl.ufpr.br/technology/epp/downloads/release/2020-09/R/eclipse-jee-2020-09-R-linux-gtk-x86_64.tar.gz
 	cd && sudo mv Downloads/eclipse-jee-*.tar.gz Programas && cd Programas 
@@ -150,3 +151,5 @@ add_zsh()
 	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 	wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/.zshrc
 }
+
+execute_install
