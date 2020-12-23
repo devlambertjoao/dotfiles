@@ -1,12 +1,14 @@
 #!/bin/bash
 
 #Instalar o basico
-pacman -S nano sudo dosfstools os-prober mtools networkmanager grub-efi-x86_64 efibootmgr iwd pulseaudio alsa-utils xorg-server nvidia nvidia-libgl mesa netctl wireless_tools dhcpcd wpa_supplicant dialog 
-systemctl enable netctl
-systemctl enable dhcpcd
-systemctl enable NetworkManager
+pacman -Sy nano sudo dosfstools os-prober mtools grub-efi-x86_64 efibootmgr iwd pulseaudio alsa-utils xorg-server nvidia nvidia-libgl mesa dialog 
 
 #Problemas com wifi depois de instalar ? https://ostechnix.com/fix-job-netctl-service-failed-error-arch-linux/
+
+#pacman -S networkmanager netctl wireless_tools dhcpcd wpa_supplicant
+#systemctl enable netctl
+#systemctl enable dhcpcd
+#systemctl enable NetworkManager
 
 #Setar fuso horário de Brasilia
 ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
@@ -56,8 +58,10 @@ grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch 
 
 cp /usr/share/locale/en@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
 
+nano /etc/default/grub
+
 grub-mkconfig -o /boot/grub/grub.cfg
 
-#Instalar drivers e alguns utilitarios
-pacman -Sy
+#Instalar utilitarios
+pacman -S
 sudo pacman -S git curl neovim
