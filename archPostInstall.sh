@@ -100,6 +100,7 @@ add_vim()
 	wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/.vimrc
 
 	# Configs
+	mkdir -p ~/.config/nvim
 	echo "set runtimepath^=~/.vim runtimepath+=~/.vim/after" > ~/.config/nvim/init.vim
 	echo "let &packpath=&runtimepath" >> ~/.config/nvim/init.vim
 	echo "source ~/.vimrc" >> ~/.config/nvim/init.vim
