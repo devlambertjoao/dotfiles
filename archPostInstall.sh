@@ -79,7 +79,9 @@ add_ruby()
 {
 	# Sqlite for rails local development 
 	sudo pacman -S sqlite
+	sudo pacman -S --needed base-devel libffi libyaml openssl zlib
 	asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git
+	asdf plugin-add ruby
 	
 	echo rails > .default-gems
 	echo solargraph >> .default-gems
