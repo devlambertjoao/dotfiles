@@ -57,11 +57,13 @@ set termguicolors
 " ### Vim Configs End ########################################################
 
 " ### Colorscheme
-" colorscheme github
-
-" colorscheme PerfectDark
-colorscheme github
+" Dark theme
+colorscheme darkeclipse
 set bg=light
+
+" Light theme
+" colorscheme github
+" set bg=light
 
 " ### Vim Shortcuts Start ####################################################
 let mapleader = " "
