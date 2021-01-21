@@ -3,7 +3,7 @@
 #Instalar o basico
 pacman -Sy nano sudo dosfstools os-prober mtools grub-efi-x86_64 efibootmgr iwd pulseaudio alsa-utils xorg nvidia nvidia-libgl mesa
 pacman -S dialog networkmanager netctl wireless_tools dhcpcd wpa_supplicant file-roller
-
+# iwd dhclient
 #Instalar utilitarios
 pacman -S
 sudo pacman -S git curl neovim
