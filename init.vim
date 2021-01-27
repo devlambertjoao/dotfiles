@@ -12,6 +12,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'flazz/vim-colorschemes'
+Plug 'yggdroot/indentline'
+Plug 'tomtom/tcomment_vim'
 call plug#end()
 
 "" COMMANDS
@@ -26,10 +28,9 @@ call plug#end()
 " Space wq: Save and close file
 " Space nv: New window on side
 " Space nw: New window bellow
-" tt: New tab
-" tn: Next tab
-" tp: Previous tab
-" tc: Close tab
+
+" In visual mode
+" gc for comment block
 
 " In normal mode
 " gd go to definition 
@@ -37,7 +38,11 @@ call plug#end()
 " gr go to references
 " gf fix errors
 " rn for rename
-" ff for format file using prettier
+" tt: New tab
+" tn: Next tab
+" tp: Previous tab
+" tc: Close tab ff for format file using prettier
+" gcc for comment this line
 
 " Editor configs
 "" Indent and line configs
@@ -66,6 +71,7 @@ set termguicolors
 set noshowmode
 colorscheme gruvbox
 set bg=dark
+let g:indentLine_char = '|'
 
 "" Editor shortcuts
 let mapleader = " " 
@@ -131,7 +137,7 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gf :CocFix<CR>
-nmap <leader>rn <Plug>(coc-rename)
+nmap <silent>rn <Plug>(coc-rename)
 nmap <silent> ff :CocCommand prettier.formatFile<CR>
 
 inoremap <silent><expr> <TAB>
