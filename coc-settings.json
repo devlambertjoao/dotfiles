@@ -1,0 +1,9 @@
+{
+	"java.jdt.ls.vmargs": "-javaagent: /home/lambert/.vim/lombok.jar" ,
+	"prettier.disableLanguages": [
+		"vue",
+		"json"
+	],
+	"eslint.autoFixOnSave": true,
+	"eslint.format.enable": true
+}
