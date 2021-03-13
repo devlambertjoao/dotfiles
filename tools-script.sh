@@ -4,12 +4,15 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/.zshrc
 sudo mv .zshrc.1 .zshrc
 
-# Installing asdf
+# Asdf
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0
 echo ". $HOME/.asdf/asdf.sh" >> .bashrc
 echo ". $HOME/.asdf/completions/asdf.bash" >> .bashrc
 source .bashrc
 source .zshrc
+
+# Homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Java
 asdf plugin-add java https://github.com/halcyon/asdf-java.git
@@ -78,6 +81,10 @@ git clone https://aur.archlinux.org/android-studio.git
 cd android-studio
 makepkg --syncdeps
 sudo pacman -U android-studio-*.pkg.tar.zst
+
+# Watchman (Tool para react native)
+brew update
+brew install watchman
 
 # VS Code
 cd Downloads
