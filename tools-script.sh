@@ -68,3 +68,6 @@ mkdir Programs
 cd Programs
 wget https://download.springsource.com/release/STS4/4.9.0.RELEASE/dist/e4.18/spring-tool-suite-4-4.9.0.RELEASE-e4.18.0-linux.gtk.x86_64.tar.gz
 cd sts-4.9.0.RELEASE
+wget https://projectlombok.org/downloads/lombok.jar
+cd /usr/share/applications
+sudo wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/sts.desktop
