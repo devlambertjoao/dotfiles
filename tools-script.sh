@@ -85,3 +85,9 @@ git clone https://aur.archlinux.org/visual-studio-code-bin.git
 cd visual-studio-code-bin
 makepkg --syncdeps
 sudo pacman -U visual-studio-code-bin-*.pkg.tar.zst
+
+# Docker
+sudo pacman -S docker
+sudo systemctl enable docker.service
+sudo systemctl start docker.service
+sudo usermod -aG docker lambert
