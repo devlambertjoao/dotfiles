@@ -78,3 +78,10 @@ git clone https://aur.archlinux.org/android-studio.git
 cd android-studio
 makepkg --syncdeps
 sudo pacman -U android-studio-*.pkg.tar.zst
+
+# VS Code
+cd Downloads
+git clone https://aur.archlinux.org/visual-studio-code-bin.git
+cd visual-studio-code-bin
+makepkg --syncdeps
+sudo pacman -U visual-studio-code-bin-*.pkg.tar.zst
