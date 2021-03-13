@@ -16,6 +16,14 @@ asdf plugin-add java https://github.com/halcyon/asdf-java.git
 asdf install java openjdk-15
 asdf global java openjdk-15
 
+# Maven
+sudo pacman -S maven
+
+# JDK from oracle
+sudo mv jdk-11.0.10_linux-x64_bin.tar.gz /usr/lib/jvm
+cd /usr/lib/jvm 
+sudo tar -zxvf jdk-11.0.10_linux-x64_bin.tar.gz
+
 # Nodejs
 asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
@@ -33,10 +41,8 @@ echo bundler >> .default-gems
 asdf install ruby 3.0.0
 asdf global ruby 3.0.0
 
-# JDK from oracle
-sudo mv jdk-11.0.10_linux-x64_bin.tar.gz /usr/lib/jvm
-cd /usr/lib/jvm 
-sudo tar -zxvf jdk-11.0.10_linux-x64_bin.tar.gz
+# Python
+sudo pacman -S python
 
 # Neovim
 sudo pacman -S neovim the_silver_searcher ctags
@@ -56,3 +62,9 @@ nvim
 	"eslint.autoFixOnSave": true,
 	"eslint.format.enable": true
 }
+
+# STS
+mkdir Programs
+cd Programs
+wget https://download.springsource.com/release/STS4/4.9.0.RELEASE/dist/e4.18/spring-tool-suite-4-4.9.0.RELEASE-e4.18.0-linux.gtk.x86_64.tar.gz
+cd sts-4.9.0.RELEASE
