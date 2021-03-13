@@ -71,3 +71,10 @@ cd sts-4.9.0.RELEASE
 wget https://projectlombok.org/downloads/lombok.jar
 cd /usr/share/applications
 sudo wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/sts.desktop
+
+# Android Studio
+cd Downloads
+git clone https://aur.archlinux.org/android-studio.git
+cd android-studio
+makepkg --syncdeps
+sudo pacman -U android-studio-*.pkg.tar.zst
