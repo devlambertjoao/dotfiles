@@ -11,8 +11,9 @@ echo ". $HOME/.asdf/completions/asdf.bash" >> .bashrc
 source .bashrc
 source .zshrc
 
-# Homebrew
+# Homebrew e watchman
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install watchman
 
 # Java
 asdf plugin-add java https://github.com/halcyon/asdf-java.git
@@ -82,7 +83,7 @@ cd android-studio
 makepkg --syncdeps
 sudo pacman -U android-studio-*.pkg.tar.zst
 
-# Watchman (Tool para react native)
+# Watchman (Para react native)
 brew update
 brew install watchman
 
