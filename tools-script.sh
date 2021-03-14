@@ -99,3 +99,6 @@ sudo pacman -S docker
 sudo systemctl enable docker.service
 sudo systemctl start docker.service
 sudo usermod -aG docker lambert
+
+# Dbeaver
+sudo pacman -S dbeaver
