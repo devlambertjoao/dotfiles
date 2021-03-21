@@ -62,10 +62,11 @@ nvim
 :CocConfig
 # Colar esse json e salvar.
 {
-	"java.jdt.ls.vmargs": "-javaagent: /home/lambert/.config/nvim/lombok.jar" ,
+	"java.jdt.ls.vmargs": "-javaagent:/home/lambert/.config/nvim/lombok.jar -Xbootclasspath/a:/home/lambert/.config/nvim/lombok.jar",
 	"eslint.autoFixOnSave": true,
 	"eslint.format.enable": true
 }
+
 
 # STS
 mkdir Programs
