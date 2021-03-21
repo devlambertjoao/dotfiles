@@ -18,6 +18,7 @@ alias nv="nvim ."
 alias devc="tmux split-window -c $PWD -l 5"
 alias tks="tmux kill-server"
 alias sds="sudo service docker start"
+alias py="python3"
 
 # Android development
 export ANDROID_HOME=$HOME/Android/Sdk
