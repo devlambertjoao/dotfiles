@@ -1,4 +1,16 @@
+# For WSL "Run as root first"
+useradd -m -G wheel lambert
+# Adicionar em /etc/sudoers: lambert ALL=(ALL) ALL
+passwd lambert
+
+pacman-key --init
+pacman-key --populate
+pacman-key --refresh-keys
+pacman -Sy archlinux-keyring
+pacman -Syyu 
+
 # Zsh
+sudo pacman -S zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/.zshrc
