@@ -23,10 +23,6 @@ echo ". $HOME/.asdf/completions/asdf.bash" >> .bashrc
 source .bashrc
 source .zshrc
 
-# Homebrew e watchman
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install watchman
-
 # Java
 asdf plugin-add java https://github.com/halcyon/asdf-java.git
 asdf install java openjdk-15
@@ -79,7 +75,6 @@ nvim
 	"eslint.format.enable": true
 }
 
-
 # STS
 mkdir Programs
 cd Programs
@@ -96,10 +91,6 @@ git clone https://aur.archlinux.org/android-studio.git
 cd android-studio
 makepkg --syncdeps
 sudo pacman -U android-studio-*.pkg.tar.zst
-
-# Watchman (Para react native)
-brew update
-brew install watchman
 
 # VS Code
 cd Downloads
