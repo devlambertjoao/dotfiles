@@ -74,6 +74,8 @@ nvim
 	"eslint.autoFixOnSave": true,
 	"eslint.format.enable": true
 }
+# Abrir algum arquivo js e permitir o eslint e prettier
+:CocCommand eslint.showOutputChannel
 
 # STS
 mkdir Programs
