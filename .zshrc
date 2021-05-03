@@ -20,6 +20,10 @@ alias tks="tmux kill-server"
 alias sds="sudo service docker start"
 alias py="python3"
 
+# Java Home
+export JAVA_HOME=/usr/lib/jvm/jdk-11.0.11
+export PATH=$PATH:$JAVA_HOME
+
 # Android development
 export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
