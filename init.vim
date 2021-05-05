@@ -116,8 +116,8 @@ endfunction
 nnoremap <c-n> :call OpenTerminal()<CR>
 
 " FZF For find files configuration
-nnoremap <C-p> :FZF<CR>
-nnoremap <silent> <C-f> :Files<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <C-f> :Ag<CR>
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 " Coc for autocomplete and intellisense configuration
