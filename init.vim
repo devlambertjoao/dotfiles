@@ -22,6 +22,7 @@ call plug#end()
 " CTRL + N: open terminal inside vim
 " ALT + HJKL: navigate between windows inside vim 
 " CTRL + P: open fzf and find files
+" CTRL + F: open fzf and find inside files
 " F8 Tagbar toggle
 " Space q: Close file
 " Space w: Save file
@@ -116,6 +117,7 @@ nnoremap <c-n> :call OpenTerminal()<CR>
 
 " FZF For find files configuration
 nnoremap <C-p> :FZF<CR>
+nnoremap <silent> <C-f> :Files<CR>
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 " Coc for autocomplete and intellisense configuration
