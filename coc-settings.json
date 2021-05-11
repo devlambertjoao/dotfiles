@@ -1,5 +1,0 @@
-{
-	"java.jdt.ls.vmargs": "-javaagent:/home/lambert/.config/nvim/lombok.jar -Xbootclasspath/a:/home/lambert/.config/nvim/lombok.jar",
-	"eslint.autoFixOnSave": true,
-	"eslint.format.enable": true
-}
