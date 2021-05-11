@@ -109,3 +109,10 @@ sudo usermod -aG docker lambert
 
 # Dbeaver
 sudo pacman -S dbeaver
+
+# MongoDB Compass
+cd Downloads
+git clone https://aur.archlinux.org/mongodb-compass.git
+cd mongodb-compass
+makepkg --syncdeps
+sudo pacman -U mongodb-compass-*-x86_64.pkg.tar.zst 
