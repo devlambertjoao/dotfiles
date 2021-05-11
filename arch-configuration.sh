@@ -115,4 +115,12 @@ cd Downloads
 git clone https://aur.archlinux.org/mongodb-compass.git
 cd mongodb-compass
 makepkg --syncdeps
-sudo pacman -U mongodb-compass-*-x86_64.pkg.tar.zst 
+sudo pacman -U mongodb-compass-*-x86_64.pkg.tar.zst
+
+# Spotify
+cd Downloads
+git clone https://aur.archlinux.org/spotify.git
+cd spotify
+curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | gpg --import -
+makepkg --syncdeps
+sudo pacman -U spotify-*-x86_64.pkg.tar.zst
