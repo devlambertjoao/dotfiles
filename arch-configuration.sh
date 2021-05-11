@@ -54,7 +54,7 @@ asdf install ruby 3.0.0
 asdf global ruby 3.0.0
 
 # Python
-sudo pacman -S python
+sudo pacman -S python python-pip
 
 # Neovim
 sudo pacman -S neovim the_silver_searcher ctags
