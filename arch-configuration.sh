@@ -94,6 +94,11 @@ cd android-studio
 makepkg --syncdeps
 sudo pacman -U android-studio-*.pkg.tar.zst
 
+# Accept licenses
+sudo pacman -S jdk8-openjdk
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk 
+$ANDROID_HOME/tools/bin/sdkmanager --licenses 
+
 # VS Code
 cd Downloads
 git clone https://aur.archlinux.org/visual-studio-code-bin.git
