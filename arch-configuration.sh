@@ -87,6 +87,15 @@ wget https://projectlombok.org/downloads/lombok.jar
 cd /usr/share/applications
 sudo wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/sts.desktop
 
+# Eclipse
+cd Programs
+wget https://eclipse.c3sl.ufpr.br/technology/epp/downloads/release/2021-03/R/eclipse-jee-2021-03-R-linux-gtk-x86_64.tar.gz
+tar -zxvf eclipse-jee-2021-03-R-linux-gtk-x86_64.tar.gz
+cd eclipse
+wget https://projectlombok.org/downloads/lombok.jar
+cd /usr/share/applications
+sudo wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/eclipse.desktop
+
 # Android Studio
 cd Downloads
 git clone https://aur.archlinux.org/android-studio.git
