@@ -32,15 +32,15 @@ asdf global java openjdk-15
 sudo pacman -S maven
 
 # JDK from oracle
-sudo mv jdk-11.0.10_linux-x64_bin.tar.gz /usr/lib/jvm
+sudo mv jdk-11.0.11_linux-x64_bin.tar.gz /usr/lib/jvm
 cd /usr/lib/jvm 
-sudo tar -zxvf jdk-11.0.10_linux-x64_bin.tar.gz
+sudo tar -zxvf jdk-11.0.11_linux-x64_bin.tar.gz
 
 # Nodejs
 asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
-asdf install nodejs 14.16.0
-asdf global nodejs 14.16.0
+asdf install nodejs 14.17.0
+asdf global nodejs 14.17.0
 
 # Yarn
 sudo pacman -S yarn
@@ -95,9 +95,11 @@ makepkg --syncdeps
 sudo pacman -U android-studio-*.pkg.tar.zst
 
 # Accept licenses
+source .zshrc
 sudo pacman -S jdk8-openjdk
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk 
 $ANDROID_HOME/tools/bin/sdkmanager --licenses 
+source .zshrc
 
 # VS Code
 cd Downloads
