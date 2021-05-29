@@ -25,7 +25,7 @@ export JAVA_HOME=/usr/lib/jvm/jdk-11.0.11
 export PATH=$PATH:$JAVA_HOME
 
 # Android development
-export ANDROID_HOME=$HOME/Android/Sdk
+export ANDROID_HOME=$HOME/Programs/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
