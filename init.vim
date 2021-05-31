@@ -20,7 +20,7 @@ call plug#end()
 " CTRL + WW: change window
 " CTRL + B: open or close nerd tree
 " CTRL + N: open terminal inside vim
-" ALT + HJKL: navigate between windows inside vim 
+" CTRL + HJKL: navigate between windows inside vim 
 " CTRL + P: open fzf and find files
 " CTRL + F: open fzf and find inside files
 " F8 Tagbar toggle
@@ -87,14 +87,14 @@ nnoremap tp :tabprevious<CR>
 nnoremap tc :tabclose<CR>
 
 " Navigate between windows inside vim
-tnoremap <A-h> <C-\><C-n><C-w>h
-tnoremap <A-j> <C-\><C-n><C-w>j
-tnoremap <A-k> <C-\><C-n><C-w>k
-tnoremap <A-l> <C-\><C-n><C-w>l
-nnoremap <A-h> <C-w>h
-nnoremap <A-j> <C-w>j
-nnoremap <A-k> <C-w>k
-nnoremap <A-l> <C-w>l
+tnoremap <C-h> <C-\><C-n><C-w>h
+tnoremap <C-j> <C-\><C-n><C-w>j
+tnoremap <C-k> <C-\><C-n><C-w>k
+tnoremap <C-l> <C-\><C-n><C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " Configure NerdTree
 let g:NERDTreeShowHidden = 1
