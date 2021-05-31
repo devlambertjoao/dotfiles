@@ -70,7 +70,7 @@ set updatetime=25
 set encoding=UTF-8
 set termguicolors
 set noshowmode
-colorscheme gruvbox
+colorscheme ayu
 set bg=dark
 let g:indentLine_char = '|'
 
