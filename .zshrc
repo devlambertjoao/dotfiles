@@ -3,7 +3,7 @@ export ZSH="/home/lambert/.oh-my-zsh"
 
 # Themes
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="flazz"
+ZSH_THEME="jaischeema"
 
 # Settings
 ENABLE_CORRECTION="true"
