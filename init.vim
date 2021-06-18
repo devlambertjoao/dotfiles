@@ -29,6 +29,8 @@ call plug#end()
 " Space wq: Save and close file
 " Space nv: New window on side
 " Space nw: New window bellow
+" Space =: resize +
+" Space -: resize -
 
 " In visual mode
 " gc for comment block
@@ -70,7 +72,7 @@ set updatetime=25
 set encoding=UTF-8
 set termguicolors
 set noshowmode
-colorscheme ayu
+colorscheme materialtheme
 set bg=dark
 let g:indentLine_char = '|'
 
@@ -81,6 +83,9 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>wq :wq<CR>
 nnoremap <leader>nv :wincmd v<CR>
 nnoremap <leader>nw :wincmd S<CR>
+nnoremap <leader>nw :wincmd S<CR>
+nnoremap <leader>= :vertical resize +10<CR>
+nnoremap <leader>- :vertical resize -10<CR>
 nnoremap tt :tabnew .<CR>
 nnoremap tn :tabnext<CR>
 nnoremap tp :tabprevious<CR>
