@@ -7,7 +7,14 @@ pacman-key --init
 pacman-key --populate
 pacman-key --refresh-keys
 pacman -Sy archlinux-keyring
-pacman -Syyu 
+pacman -Syyu
+
+# Alacritty
+sudo pacman -S alacritty
+mkdir -p .config/alacritty
+cd .config/alacritty
+wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/alacritty.yml
+cd
 
 # Zsh
 sudo pacman -S zsh
