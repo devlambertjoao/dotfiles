@@ -14,23 +14,24 @@ Plug 'airblade/vim-gitgutter'
 Plug 'flazz/vim-colorschemes'
 Plug 'yggdroot/indentline'
 Plug 'tomtom/tcomment_vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 
 "" COMMANDS
 " CTRL + WW: change window
-" CTRL + B: open or close nerd tree
-" CTRL + N: open terminal inside vim
+" CTRL + b: open or close nerd tree
+" CTRL + n: open terminal inside vim
 " CTRL + HJKL: navigate between windows inside vim 
-" CTRL + P: open fzf and find files
-" CTRL + F: open fzf and find inside files
+" CTRL + p: open fzf and find files
+" CTRL + f: open fzf and find inside files
 " F8 Tagbar toggle
 " Space q: Close file
 " Space w: Save file
 " Space wq: Save and close file
 " Space nv: New window on side
 " Space nw: New window bellow
-" Space =: resize +
-" Space -: resize -
+" Space =: Vertical Resize +
+" Space -: Vertical Resize -
 
 " In visual mode
 " gc for comment block
@@ -72,7 +73,7 @@ set updatetime=25
 set encoding=UTF-8
 set termguicolors
 set noshowmode
-colorscheme materialtheme
+colorscheme dracula
 set bg=dark
 let g:indentLine_char = '|'
 
@@ -82,7 +83,6 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>wq :wq<CR>
 nnoremap <leader>nv :wincmd v<CR>
-nnoremap <leader>nw :wincmd S<CR>
 nnoremap <leader>nw :wincmd S<CR>
 nnoremap <leader>= :vertical resize +10<CR>
 nnoremap <leader>- :vertical resize -10<CR>
@@ -144,7 +144,7 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gf :CocFix<CR>
-nmap <silent>rn <Plug>(coc-rename)
+nmap <silent> rn <Plug>(coc-rename)
 nmap <silent> ff :CocCommand prettier.formatFile<CR>
 
 inoremap <silent><expr> <TAB>
