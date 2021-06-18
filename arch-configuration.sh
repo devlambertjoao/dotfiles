@@ -96,7 +96,8 @@ wget https://download.springsource.com/release/STS4/4.9.0.RELEASE/dist/e4.18/spr
 tar -zxvf spring-tool-suite-4-4.9.0.RELEASE-e4.18.0-linux.gtk.x86_64.tar.gz
 cd sts-4.9.0.RELEASE
 wget https://projectlombok.org/downloads/lombok.jar
-sudo cp SpringToolSuite4 /usr/bin/sts4
+sudo echo "~/Programs/sts-4.9.0.RELEASE/SpringToolSuite4" > /usr/bin/sts4
+sudo chmod + /usr/bin/sts
 cd /usr/share/applications
 sudo wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/sts.desktop
 
@@ -106,7 +107,8 @@ wget https://eclipse.c3sl.ufpr.br/technology/epp/downloads/release/2021-03/R/ecl
 tar -zxvf eclipse-jee-2021-03-R-linux-gtk-x86_64.tar.gz
 cd eclipse
 wget https://projectlombok.org/downloads/lombok.jar
-sudo cp eclipse /usr/bin/eclipse
+sudo echo "~/Programs/eclipse/eclipse" > /usr/bin/eclipse
+sudo chmod + /usr/bin/eclipse
 cd /usr/share/applications
 sudo wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/eclipse.desktop
 
