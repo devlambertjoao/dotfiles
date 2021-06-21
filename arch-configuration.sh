@@ -89,6 +89,12 @@ nvim
 # Abrir algum arquivo js e permitir o eslint e prettier
 :CocCommand eslint.showOutputChannel
 
+# Neovide
+sudo pacman -S rust llvm-libs
+cd Downloads
+https://aur.archlinux.org/neovide-git.git
+makepkg --syncdeps
+
 # STS
 mkdir Programs
 cd Programs
