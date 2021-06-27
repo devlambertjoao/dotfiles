@@ -58,7 +58,7 @@ asdf global nodejs 14.17.0
 sudo pacman -S yarn
 
 # Ruby
-sudo pacman -S gcc
+# If inside WSL: sudo pacman -S base-devel
 asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git
 echo rails > .default-gems
 echo solargraph >> .default-gems
