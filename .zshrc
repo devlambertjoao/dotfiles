@@ -34,3 +34,6 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 # Asdf
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
+
+# GUI Apps on WSL
+export DISPLAY="`sed -n 's/nameserver //p' /etc/resolv.conf`:0"
