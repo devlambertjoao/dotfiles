@@ -21,7 +21,7 @@ call plug#end()
 " CTRL + WW: change window
 " CTRL + b: open or close nerd tree
 " CTRL + n: open terminal inside vim
-" CTRL + HJKL: navigate between windows inside vim 
+" CTRL + H or L: navigate between windows inside vim 
 " CTRL + p: open fzf and find files
 " CTRL + f: open fzf and find inside files
 " F8 Tagbar toggle
@@ -93,12 +93,8 @@ nnoremap tc :tabclose<CR>
 
 " Navigate between windows inside vim
 tnoremap <C-h> <C-\><C-n><C-w>h
-tnoremap <C-j> <C-\><C-n><C-w>j
-tnoremap <C-k> <C-\><C-n><C-w>k
 tnoremap <C-l> <C-\><C-n><C-w>l
 nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " Configure NerdTree
