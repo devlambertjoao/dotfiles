@@ -57,7 +57,9 @@ asdf install nodejs 14.17.0
 asdf global nodejs 14.17.0
 
 # Yarn
-sudo pacman -S yarn
+sudo pacman -S yarn 
+# or
+# npm install -g yarn
 
 # Ruby
 # If inside WSL: sudo pacman -S base-devel
