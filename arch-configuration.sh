@@ -17,6 +17,7 @@ wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/alacritty.
 cd
 
 # Zsh
+# sudo apt install zsh
 sudo pacman -S zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -41,6 +42,7 @@ asdf install java openjdk-15
 asdf global java openjdk-15
 
 # Maven
+# sudo apt install maven
 sudo pacman -S maven
 
 # JDK from oracle
@@ -70,6 +72,7 @@ asdf global ruby 3.0.0
 sudo pacman -S python python-pip
 
 # Neovim
+# sudo apt install neovim silversearcher-ag ctags
 sudo pacman -S neovim the_silver_searcher ctags
 mkdir -p .config/nvim
 cd .config/nvim
@@ -126,7 +129,7 @@ cd android-studio
 makepkg --syncdeps
 sudo pacman -U android-studio-*.pkg.tar.zst
 
-# Accept licenses
+# Accept Android Studio licenses
 source .zshrc
 sudo pacman -S jdk8-openjdk
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk 
@@ -148,7 +151,6 @@ sudo usermod -aG docker lambert
 
 # Run SQL on docker for local development:
 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=password@1" -p 1433:1433 --name sql1 -h sql1 -d mcr.microsoft.com/mssql/server:2019-latest
-
 
 # Dbeaver
 sudo pacman -S dbeaver
