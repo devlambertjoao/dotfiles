@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0                                                                            
-Name=Spring Tool Suite
-Exec=/home/lambert/Programs/sts-4.9.0.RELEASE/SpringToolSuite4                
-StartupNotify=true
-Terminal=false
-Icon=/home/lambert/Programs/sts-4.9.0.RELEASE/icon.xpm
-Type=Application
-Categories=Development;
