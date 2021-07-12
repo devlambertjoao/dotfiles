@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0                                                                            
-Name=Eclipse
-Exec=/home/lambert/Programs/eclipse/eclipse                
-StartupNotify=true
-Terminal=false
-Icon=/home/lambert/Programs/eclipse/icon.xpm
-Type=Application
-Categories=Development;
