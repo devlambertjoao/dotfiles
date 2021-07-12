@@ -138,11 +138,10 @@ makepkg --syncdeps
 sudo pacman -U android-studio-*.pkg.tar.zst
 
 # Accept Android Studio licenses
-source .zshrc
 sudo pacman -S jdk8-openjdk
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk 
 $ANDROID_HOME/tools/bin/sdkmanager --licenses 
-source .zshrc
+source ~/.zshrc
 
 # VS Code
 cd ~/Downloads
@@ -152,9 +151,9 @@ makepkg --syncdeps
 sudo pacman -U visual-studio-code-bin-*.pkg.tar.zst
 
 # Docker
-sudo pacman -S docker &
-sudo systemctl enable docker.service &
-sudo systemctl start docker.service &
+sudo pacman -S docker
+sudo systemctl enable docker.service
+sudo systemctl start docker.service
 sudo usermod -aG docker lambert
 
 # Run SQL on docker for local development:
