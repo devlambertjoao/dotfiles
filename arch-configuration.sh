@@ -94,6 +94,7 @@ nvim
 :CocConfig
 # Colar esse json e salvar.
 {
+	"java.home": "/usr/lib/jvm/jdk-11.0.11",
 	"java.jdt.ls.vmargs": "-javaagent:/home/lambert/.config/nvim/lombok.jar -Xbootclasspath/a:/home/lambert/.config/nvim/lombok.jar",
 	"eslint.autoFixOnSave": true,
 	"eslint.format.enable": true
