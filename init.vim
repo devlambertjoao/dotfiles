@@ -14,7 +14,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'flazz/vim-colorschemes'
 Plug 'yggdroot/indentline'
 Plug 'tomtom/tcomment_vim'
-Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 
 "" COMMANDS
@@ -73,7 +72,7 @@ set updatetime=25
 set encoding=UTF-8
 set termguicolors
 set noshowmode
-colorscheme dracula
+colorscheme solarized8_dark
 set bg=dark
 let g:indentLine_char = '|'
 
