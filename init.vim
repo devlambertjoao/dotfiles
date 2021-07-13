@@ -14,6 +14,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'flazz/vim-colorschemes'
 Plug 'yggdroot/indentline'
 Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 "" COMMANDS
@@ -30,6 +31,8 @@ call plug#end()
 " Space nw: New window bellow
 " Space =: Vertical Resize +
 " Space -: Vertical Resize -
+" / to search in file -> Enter -> n to next match -> N to previous match
+" q + letter or number to start a macro recording, and q to stop macro. Use @ + letter to run macro
 
 " In visual mode
 " gc for comment block
@@ -54,6 +57,10 @@ set autoindent
 set relativenumber
 set nu
 set nowrap
+set cursorline
+set pumheight=10
+set ruler
+
 "" Remove file backup and swapfile
 set nobackup
 set nowritebackup
@@ -72,10 +79,17 @@ set encoding=UTF-8
 set termguicolors
 set noshowmode
 colorscheme solarized8_dark
-set bg=dark
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set background=dark
 let g:indentLine_char = '|'
+"" Search ignore case sensitivity 
+set ignorecase
+"" Better handling comments (Not continue on new line)
+set formatoptions-=cro
+"" Copy and paste between everthing else
+set clipboard=unnamedplus
 
-"" Editor shortcuts
+" Editor shortcuts
 let mapleader = " " 
 nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
@@ -174,3 +188,9 @@ let g:closetag_regions = {
     \ }
 
 let g:closetag_shortcut = '>'
+
+" Vim fugitive
+nmap <leader>gd :G difftool<CR>
+nmap <leader>gm :G mergetool<CR>
+nmap <leader>gc :Gcommit<CR>
+nmap <leader>gs :G<CR>
