@@ -15,7 +15,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Alias
 alias nv="nvim ."
-alias devc="tmux split-window -c $PWD -l 5"
+alias devc="tmux split-window -c $PWD -l 15"
 alias tks="tmux kill-server"
 alias sds="sudo service docker start"
 alias py="python3"
