@@ -19,7 +19,6 @@ call plug#end()
 "" COMMANDS
 " CTRL + WW: change window
 " CTRL + b: open or close nerd tree
-" CTRL + n: open terminal inside vim
 " CTRL + H or L: navigate between windows inside vim 
 " CTRL + p: open fzf and find files
 " CTRL + f: open fzf and find inside files
@@ -103,17 +102,6 @@ let g:NERDTreeIgnore = []
 let g:NERDTreeStatusline = ''
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 nnoremap <silent> <C-b> :NERDTreeToggle<CR>
-
-" Configure terminal inside vim
-set splitright
-set splitbelow
-tnoremap <Esc> <C-\><C-n>
-au BufEnter * if &buftype == 'terminal' | :startinsert | endif
-function! OpenTerminal()
-  split term://bash
-  resize 10
-endfunction
-nnoremap <c-n> :call OpenTerminal()<CR>
 
 " FZF For find files configuration
 nnoremap <C-p> :Files<CR>
