@@ -144,6 +144,11 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 $ANDROID_HOME/tools/bin/sdkmanager --licenses 
 source ~/.zshrc
 
+# Device for React Native Development (need to create manually on Android Studio with API 28 and name of RN-Device)
+echo "~/Programs/Android/Sdk/emulator/emulator -avd RN-Device" > rndevice
+sudo chmod +x rndevice
+sudo mv rndevice /usr/bin/rndevice
+
 # VS Code
 cd ~/Downloads
 git clone https://aur.archlinux.org/visual-studio-code-bin.git
