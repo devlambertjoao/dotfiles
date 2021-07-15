@@ -92,25 +92,14 @@ wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/.config/nv
 wget https://projectlombok.org/downloads/lombok.jar
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-# Para finalizar configuracao do neovim
-nvim
-:PlugInstall
-# Abrir algum arquivo js e permitir o eslint e prettier
-:CocCommand eslint.showOutputChannel
-
-# Neovide
-sudo pacman -S rust llvm-libs
-cd ~/Downloads
-git clone https://aur.archlinux.org/neovide-git.git
-cd neovide-git
-makepkg --syncdeps
-sudo pacman -U neovide-git-*-x86_64.pkg.tar.zst
+# Para finalizar configuracao do neovim :PlugInstall dentro do neovim
 
 # STS
 mkdir ~/Programs
 cd ~/Programs
 wget https://download.springsource.com/release/STS4/4.11.0.RELEASE/dist/e4.20/spring-tool-suite-4-4.11.0.RELEASE-e4.20.0-linux.gtk.x86_64.tar.gz
 tar -zxvf spring-tool-suite-4-*.x86_64.tar.gz
+sudo rm spring-tool-suite-4-*.x86_64.tar.gz
 cd sts-*.RELEASE
 wget https://projectlombok.org/downloads/lombok.jar
 sudo echo "~/Programs/sts-4.11.0.RELEASE/SpringToolSuite4" > sts
@@ -121,11 +110,12 @@ sudo mv sts /usr/bin/sts
 cd ~/Programs
 wget https://eclipse.c3sl.ufpr.br/technology/epp/downloads/release/2021-06/R/eclipse-jee-2021-06-R-linux-gtk-x86_64.tar.gz
 tar -zxvf eclipse-jee-*-x86_64.tar.gz
+sudo rm eclipse-jee-*-x86_64.tar.gz
 cd eclipse
 wget https://projectlombok.org/downloads/lombok.jar
-sudo echo "~/Programs/eclipse/eclipse" > eclipse
-sudo chmod +x eclipse
-sudo mv eclipse /usr/bin/eclipse
+sudo echo "~/Programs/eclipse/eclipse" > eclipse-starter
+sudo chmod +x eclipse-starter
+sudo mv eclipse-starter /usr/bin/eclipse
 
 # Android Studio
 cd ~/Downloads
