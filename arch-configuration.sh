@@ -26,7 +26,7 @@ sudo mv .zshrc.1 .zshrc
 sudo pacman -S alacritty
 mkdir -p ~/.config/alacritty
 cd ~/.config/alacritty
-wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/alacritty.yml
+wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/.config/alacritty/alacritty.yml
 cd
 
 # Tmux
@@ -87,21 +87,14 @@ sudo pacman -S dotnet-sdk aspnet-runtime
 sudo pacman -S neovim the_silver_searcher ctags
 mkdir -p ~/.config/nvim
 cd ~/.config/nvim
-wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/init.vim
+wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/.config/nvim/init.vim
+wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/.config/nvim/coc-settings.json
 wget https://projectlombok.org/downloads/lombok.jar
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 # Para finalizar configuracao do neovim
 nvim
 :PlugInstall
-:CocConfig
-# Colar esse json e salvar.
-{
-	"java.home": "/usr/lib/jvm/jdk-11.0.11",
-	"java.jdt.ls.vmargs": "-javaagent:/home/lambert/.config/nvim/lombok.jar -Xbootclasspath/a:/home/lambert/.config/nvim/lombok.jar",
-	"eslint.autoFixOnSave": true,
-	"eslint.format.enable": true
-}
 # Abrir algum arquivo js e permitir o eslint e prettier
 :CocCommand eslint.showOutputChannel
 
