@@ -79,6 +79,9 @@ asdf global ruby 3.0.0
 # Python
 sudo pacman -S python python-pip
 
+# .NET 
+sudo pacman -S dotnet-sdk aspnet-runtime
+
 # Neovim
 # sudo apt install neovim silversearcher-ag ctags
 sudo pacman -S neovim the_silver_searcher ctags
