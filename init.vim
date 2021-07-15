@@ -15,6 +15,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'yggdroot/indentline'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-fugitive'
+Plug 'OmniSharp/omnisharp-vim'
 call plug#end()
 
 "" COMMANDS
@@ -134,6 +135,9 @@ let g:coc_global_extensions = [
 	\'coc-styled-components',
 	\'coc-tslint-plugin',
 	\'coc-java',
+	\'coc-omnisharp',
+	\'coc-sh',
+	\'coc-solargraph',
 	\]
 
 nmap <silent> gd <Plug>(coc-definition)
