@@ -13,6 +13,9 @@ plugins=(git rails ruby dotnet history compleat zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
+# Editor
+export EDITOR="nvim"
+
 # Alias
 # Nvim
 alias nv="nvim ."
@@ -32,6 +35,7 @@ alias ard="$HOME/Programs/Android/Sdk/emulator/emulator -avd RN-Device"
 alias acd="adb reverse tcp:9090 tcp:9090"
 # Git
 alias ga="git add"
+alias gaa="git add ."
 alias gs="git status"
 alias gc="git commit"
 alias gp="git push"
