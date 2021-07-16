@@ -14,16 +14,30 @@ plugins=(git rails ruby dotnet history compleat zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
 # Alias
+# Nvim
 alias nv="nvim ."
+alias nvcn="nvim ~/.config/nvim/init.vim"
+alias nvcz="nvim ~/.zshrc"
+alias nvci3="nvim ~/.config/i3/config"
+alias nvci3s="nvim ~/.config/i3status/config"
+# For Tmux
 alias devc="tmux split-window -c $PWD -l 10"
 alias tks="tmux kill-server"
+# Python
 alias py="python3"
+# React native
 alias rnl="yarn run react-native log-android"
-alias rnd="$HOME/Programs/Android/Sdk/emulator/emulator -avd RN-Device"
-alias ga="git add ."
+# Device Emulator
+alias ard="$HOME/Programs/Android/Sdk/emulator/emulator -avd RN-Device"
+alias acd="adb reverse tcp:9090 tcp:9090"
+# Git
+alias ga="git add"
 alias gs="git status"
 alias gc="git commit"
+alias gp="git push"
+# Spring boot
 alias rsb="mvn spring-boot:run"
+alias mvnc="mvn clean install -U -DskipTests=true"
 
 # Java Home
 export JAVA_HOME=/usr/lib/jvm/jdk-11.0.11
