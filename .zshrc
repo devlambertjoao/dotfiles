@@ -15,10 +15,15 @@ source $ZSH/oh-my-zsh.sh
 
 # Alias
 alias nv="nvim ."
-alias devc="tmux split-window -c $PWD -l 15"
+alias devc="tmux split-window -c $PWD -l 10"
 alias tks="tmux kill-server"
-alias sds="sudo service docker start"
 alias py="python3"
+alias rnl="yarn run react-native log-android"
+alias rnd="$HOME/Programs/Android/Sdk/emulator/emulator -avd RN-Device"
+alias ga="git add ."
+alias gs="git status"
+alias gc="git commit"
+alias rsb="mvn spring-boot:run"
 
 # Java Home
 export JAVA_HOME=/usr/lib/jvm/jdk-11.0.11
