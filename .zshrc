@@ -3,7 +3,8 @@ export ZSH="/home/lambert/.oh-my-zsh"
 
 # Themes
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="jaischeema"
+# better themes i've found: jaischeema bira duellj gnzh xiong-chiamiov-plus fino fino-time
+ZSH_THEME="jonathan"
 
 # Settings
 ENABLE_CORRECTION="true"
@@ -18,7 +19,7 @@ export EDITOR="nvim"
 
 # Alias
 # Nvim
-alias nv="nvim ."
+alias nv="nvim"
 alias nvcn="nvim ~/.config/nvim/init.vim"
 alias nvcz="nvim ~/.zshrc"
 alias nvci3="nvim ~/.config/i3/config"
@@ -39,9 +40,23 @@ alias gaa="git add ."
 alias gs="git status"
 alias gc="git commit"
 alias gp="git push"
+alias gf="git fetch"
+alias gb="git branch"
+alias gl="git log --oneline --decorate --graph"
 # Spring boot
 alias rsb="mvn spring-boot:run"
 alias mvnc="mvn clean install -U -DskipTests=true"
+# Rails and Rake
+alias rc="rails console"
+alias rdc="rake db:create"
+alias rdd="rake db:drop"
+alias rdm="rake db:migrate"
+alias rds="rake db:seed"
+alias rgen="rails generate"
+alias rgm="rails generate migration"
+alias rr="rake routes"
+alias rrg="rake routes | grep"
+alias rs="rails server"
 
 # Java Home
 export JAVA_HOME=/usr/lib/jvm/jdk-11.0.11
@@ -58,5 +73,4 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 
-# GUI Apps on WSL
-# export DISPLAY="`sed -n 's/nameserver //p' /etc/resolv.conf`:0"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
