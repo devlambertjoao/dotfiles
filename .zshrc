@@ -9,7 +9,7 @@ ZSH_THEME="jaischeema"
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(git rails ruby dotnet history compleat zsh-autosuggestions)
+plugins=(git rails ruby dotnet history compleat zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
