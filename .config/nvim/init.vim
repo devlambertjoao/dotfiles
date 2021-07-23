@@ -16,6 +16,11 @@ Plug 'yggdroot/indentline'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-fugitive'
 Plug 'OmniSharp/omnisharp-vim'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tpope/vim-rails'
+Plug 'vim-ruby/vim-ruby'
+Plug 'ngmy/vim-rubocop'
+Plug 'janko-m/vim-test'
 call plug#end()
 
 "" COMMANDS
@@ -33,6 +38,7 @@ call plug#end()
 " Space =: Vertical Resize +
 " Space -: Vertical Resize -
 " / to search in file -> Enter -> n to next match -> N to previous match
+" Space enter to clean highlight of search
 " q + letter or number to start a macro recording, and q to stop macro. Use @ + letter to run macro
 
 " In visual mode
@@ -49,6 +55,20 @@ call plug#end()
 " tp: Previous tab
 " tc: Close tab ff for format file using prettier
 " gcc for comment this line
+
+" Git commands
+" Space gd: diff file 
+" Space gc: git commit
+" Space gs: git status
+" Space gl: git log
+" Space gaa: git add .
+
+" Rails
+" Space rwu: :RuboCop -a
+" Space tn: Run test nearest of cursor
+" Space tf: Run test on file
+" Space ta: Test all project
+" Space tl: Run last test
 
 " Editor configs
 "" Indent and line configs
@@ -89,8 +109,10 @@ set ignorecase
 set formatoptions-=cro
 "" Copy and paste between everthing else
 set clipboard=unnamedplus
+""
+set colorcolumn=100
 
-" Editor shortcuts
+"Editor shortcuts
 let mapleader = " " 
 nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
@@ -109,6 +131,9 @@ tnoremap <C-h> <C-\><C-n><C-w>h
 tnoremap <C-l> <C-\><C-n><C-w>l
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+
+" Clean search highlight
+nmap <Leader><CR> :nohlsearch<CR>
 
 " Configure NerdTree
 let g:NERDTreeShowHidden = 1
@@ -194,7 +219,15 @@ let g:closetag_regions = {
 let g:closetag_shortcut = '>'
 
 " Vim fugitive
-nmap <leader>gd :G difftool<CR>
-nmap <leader>gm :G mergetool<CR>
+nmap <leader>gd :Gdiffsplit<CR>
 nmap <leader>gc :Gcommit<CR>
-nmap <leader>gs :G<CR>
+nmap <leader>gs :Git<CR>
+nmap <leader>gl :Glog<CR>
+nmap <leader>gaa :!git add .<CR>i
+
+" Rails 
+nmap <leader>rwu :RuboCop -a<CR>
+map <Leader>tn :TestNearest<CR>
+map <Leader>tf :TestFile<CR>
+map <Leader>ta :TestSuite<CR>
+map <Leader>tl :TestLast<CR>
