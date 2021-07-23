@@ -86,6 +86,7 @@ sudo pacman -S dotnet-sdk aspnet-runtime
 # Neovim
 # sudo apt install neovim silversearcher-ag ctags
 sudo pacman -S neovim the_silver_searcher ctags
+pip install neovim
 mkdir -p ~/.config/nvim
 cd ~/.config/nvim
 wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/.config/nvim/init.vim
