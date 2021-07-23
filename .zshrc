@@ -18,6 +18,9 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR="nvim"
 
 # Alias
+# Utils
+alias fa="cat ~/.zshrc | grep alias | less"
+alias fag="cat ~/.zshrc | grep"
 # Nvim
 alias nv="nvim"
 alias nvcn="nvim ~/.config/nvim/init.vim"
@@ -32,7 +35,7 @@ alias py="python3"
 # React native
 alias rnl="yarn run react-native log-android"
 # Device Emulator
-alias ard="$HOME/Programs/Android/Sdk/emulator/emulator -avd RN-Device"
+alias asd="$HOME/Programs/Android/Sdk/emulator/emulator -avd RN-Device"
 alias acd="adb reverse tcp:9090 tcp:9090"
 # Git
 alias ga="git add"
@@ -40,6 +43,8 @@ alias gaa="git add ."
 alias gs="git status"
 alias gc="git commit"
 alias gp="git push"
+alias gpsum="git push --set-upstream main"
+alias gpl="git pull"
 alias gf="git fetch"
 alias gb="git branch"
 alias gl="git log --oneline --decorate --graph"
@@ -53,7 +58,10 @@ alias rdd="rake db:drop"
 alias rdm="rake db:migrate"
 alias rds="rake db:seed"
 alias rgen="rails generate"
-alias rgm="rails generate migration"
+alias rgmig="rails generate migration"
+alias rgs="rails generate scaffold"
+alias rgc="rails generate controller"
+alias rgmod="rails generate model"
 alias rr="rake routes"
 alias rrg="rake routes | grep"
 alias rs="rails server"
