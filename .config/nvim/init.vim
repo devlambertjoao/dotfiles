@@ -21,6 +21,8 @@ Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
 Plug 'ngmy/vim-rubocop'
 Plug 'janko-m/vim-test'
+Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
 call plug#end()
 
 "" COMMANDS
@@ -231,3 +233,11 @@ map <Leader>tn :TestNearest<CR>
 map <Leader>tf :TestFile<CR>
 map <Leader>ta :TestSuite<CR>
 map <Leader>tl :TestLast<CR>
+
+" Snippets
+let g:UltiSnipsSnippetDirectories=["UltiSnips", '~/.config/nvim']
+let g:UltiSnipsExpandTrigger="<c-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsEditSplit="vertical"
+nnoremap <silent> <C-s> :Snippets<CR>
