@@ -50,6 +50,7 @@ alias gb="git branch"
 alias gl="git log --oneline --decorate --graph"
 # Spring boot
 alias rsb="mvn spring-boot:run"
+alias rst="mvn test"
 alias mvnc="mvn clean install -U -DskipTests=true"
 # Rails and Rake
 alias rc="rails console"
