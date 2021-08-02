@@ -61,6 +61,7 @@ call plug#end()
 " Git commands
 " Space gd: diff file 
 " Space gc: git commit
+" Space gc: git push
 " Space gs: git status
 " Space gl: git log
 " Space gaa: git add .
@@ -222,7 +223,8 @@ let g:closetag_shortcut = '>'
 
 " Vim fugitive
 nmap <leader>gd :Gdiffsplit<CR>
-nmap <leader>gc :Gcommit<CR>
+nmap <leader>gc :Git commit<CR>
+nmap <leader>gc :Git push<CR>
 nmap <leader>gs :Git<CR>
 nmap <leader>gl :Glog<CR>
 nmap <leader>gaa :!git add .<CR>i
