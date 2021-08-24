@@ -77,7 +77,7 @@ alias dnnr="dotnet nuget restore"
 alias dnc="dotnet clean"
 
 # Java Home
-export JAVA_HOME=/usr/lib/jvm/jdk-11.0.11
+export JAVA_HOME=/usr/lib/jvm/jdk-11.0.12
 export PATH=$PATH:$JAVA_HOME
 
 # Android development
