@@ -11,7 +11,6 @@ Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
-Plug 'flazz/vim-colorschemes'
 Plug 'yggdroot/indentline'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-fugitive'
@@ -23,6 +22,7 @@ Plug 'ngmy/vim-rubocop'
 Plug 'janko-m/vim-test'
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
+Plug 'kyoz/purify', { 'rtp': 'vim' }
 call plug#end()
 
 "" COMMANDS
@@ -102,7 +102,7 @@ set updatetime=25
 set encoding=UTF-8
 set termguicolors
 set noshowmode
-colorscheme solarized8_dark
+colorscheme purify
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set background=dark
 let g:indentLine_char = '|'
