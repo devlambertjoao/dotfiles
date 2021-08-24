@@ -4,7 +4,7 @@ export ZSH="/home/lambert/.oh-my-zsh"
 # Themes
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # better themes i've found: jaischeema bira duellj gnzh xiong-chiamiov-plus fino fino-time
-ZSH_THEME="jonathan"
+ZSH_THEME="fino"
 
 # Settings
 ENABLE_CORRECTION="true"
