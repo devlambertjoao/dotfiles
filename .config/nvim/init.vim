@@ -168,6 +168,8 @@ let g:coc_global_extensions = [
 	\'coc-solargraph',
 	\]
 
+nmap <silent> <F2> :OmniSharpFixUsings<CR>
+nmap <silent> <F3> :OmniSharpGetCodeActions<CR>
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
