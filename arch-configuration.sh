@@ -153,6 +153,9 @@ sudo usermod -aG docker lambert
 # Run SQL on docker for local development:
 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=password@1" -p 1433:1433 --name sql1 -h sql1 -d mcr.microsoft.com/mssql/server:2019-latest
 
+# For osx
+docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=password@1' --name sql -p 1433:1433 --restart always -d mcr.microsoft.com/azure-sql-edge:latest
+
 # Dbeaver
 sudo pacman -S dbeaver
 
