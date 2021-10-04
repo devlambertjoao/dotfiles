@@ -74,6 +74,7 @@ asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git
 echo rails > .default-gems
 echo solargraph >> .default-gems
 echo bundler >> .default-gems
+echo rsense >> .default-gems
 asdf install ruby 3.0.0
 asdf global ruby 3.0.0
 
