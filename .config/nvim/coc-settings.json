@@ -2,5 +2,26 @@
 	"java.home": "/usr/lib/jvm/jdk-11.0.12",
 	"java.jdt.ls.vmargs": "-javaagent:/$HOME/.config/nvim/lombok.jar -Xbootclasspath/a:/$HOME/.config/nvim/lombok.jar",
 	"eslint.autoFixOnSave": true,
-	"eslint.format.enable": true
+	"eslint.format.enable": true,
+	  "coc.preferences.formatOnSaveFiletypes": [
+    		"markdown",
+    		"javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "graphql",
+    "elixir",
+    "eelixir"
+  ],
+  "languageserver": {
+    "csharp-ls": {
+      "command": "csharp-ls",
+      "filetypes": ["cs"],
+      "rootPatterns": ["*.csproj", ".vim/", ".git/", ".hg/"]
+    }
+  },
+  "omnisharp.version": "v.1.37.3",
+  	"omnisharp.trace.server": "information",
+  	"omnisharp.debug.server": true
 }
