@@ -1,10 +1,10 @@
 # Path to your oh-my-zsh installation.
-export ZSH="/home/lambert/.oh-my-zsh"
+export ZSH="/Users/lambert/.oh-my-zsh"
 
 # Themes
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # better themes i've found: jaischeema bira duellj gnzh xiong-chiamiov-plus fino fino-time
-ZSH_THEME="fino"
+ZSH_THEME="gozilla"
 
 # Settings
 ENABLE_CORRECTION="true"
@@ -32,6 +32,8 @@ alias devc="tmux split-window -c $PWD -l 10"
 alias tks="tmux kill-server"
 # Python
 alias py="python3"
+alias python="python3"
+alias pip="python3 -m pip"
 # React native
 alias rnl="yarn run react-native log-android"
 # Device Emulator
@@ -43,11 +45,12 @@ alias gaa="git add ."
 alias gs="git status"
 alias gc="git commit"
 alias gp="git push"
-alias gpsum="git push --set-upstream main"
+alias gpsum="git push --set-upstream origin main"
 alias gpl="git pull"
 alias gf="git fetch"
 alias gb="git branch"
 alias gl="git log --oneline --decorate --graph"
+alias grc="git rebase --continue"
 # Spring boot
 alias rsb="mvn spring-boot:run"
 alias rst="mvn test"
@@ -82,8 +85,13 @@ alias dnnr="dotnet nuget restore"
 alias dnc="dotnet clean"
 
 # Java Home
-export JAVA_HOME=/usr/lib/jvm/jdk-11.0.12
+export JAVA_HOME=/Users/lambert/Programs/jdk-11.0.11.jdk/Contents/Home/
 export PATH=$PATH:$JAVA_HOME
+
+# Maven
+export M2_HOME=/Users/lambert/Programs/apache-maven-3.8.2
+export M2=$M2_HOME/bin
+export PATH=$M2:$PATH
 
 # Android development
 export ANDROID_HOME=$HOME/Programs/Android/Sdk
@@ -92,8 +100,20 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
+# Flutter
+export FLUTTER_PATH_HOME=/Users/lambert/Programs/flutter
+export PATH=$PATH:$FLUTTER_PATH_HOME/bin
+
+# Yarn
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
 # Asdf
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# C#
+export PATH="$PATH:/Users/lambert/.dotnet/tools"
