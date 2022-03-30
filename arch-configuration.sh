@@ -83,6 +83,7 @@ sudo pacman -S python python-pip
 
 # .NET 
 sudo pacman -S dotnet-sdk aspnet-runtime
+dotnet tool install --global csharp-ls --version 0.4.2
 
 # Neovim
 # sudo apt install neovim silversearcher-ag ctags
