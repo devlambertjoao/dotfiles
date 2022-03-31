@@ -83,6 +83,8 @@ alias dnr="dotnet run"
 alias dnb="dotnet build"
 alias dnnr="dotnet nuget restore"
 alias dnc="dotnet clean"
+# Google Chrome Disabling web security
+alias gcdwb="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome http://localhost:4200 --disable-web-security --user-data-dir=/tmp/google-chrome-temp"
 
 # Java Home
 export JAVA_HOME=/Users/lambert/Programs/jdk-11.0.11.jdk/Contents/Home/
