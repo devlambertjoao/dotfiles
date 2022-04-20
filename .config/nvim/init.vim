@@ -8,36 +8,49 @@ Plug 'tomtom/tcomment_vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
-Plug 'kien/rainbow_parentheses.vim'
-Plug 'chriskempson/base16-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ryanoasis/vim-devicons'
 Plug 'omnisharp/omnisharp-vim'
+Plug 'ghifarit53/tokyonight-vim'
+Plug 'yuttie/comfortable-motion.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'majutsushi/tagbar'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'alvan/vim-closetag'
 call plug#end()
 
 " Editor Shortcuts
+" New tab -> tt
+" Next tab -> tn
+" Close tab -> tc
+" New window on side -> nv
+" New window on bottom -> nw
+" Navigante in windows using Ctrl + HJKL 
+
 let mapleader = " "
 noremap tt :tabnew .<CR>
 nnoremap tn :tabnext<CR>
 nnoremap tp :tabprevious<CR>
 nnoremap tc :tabclose<CR>
-nnoremap <leader>nv :wincmd v<CR>
-nnoremap <leader>nw :wincmd S<CR>
-nnoremap <leader>= :vertical resize +10<CR>
-nnoremap <leader>- :vertical resize -10<CR>
+nnoremap nv :wincmd v<CR>
+nnoremap nw :wincmd S<CR>
 tnoremap <C-h> <C-\><C-n><C-w>h
 tnoremap <C-l> <C-\><C-n><C-w>l
+tnoremap <C-k> <C-\><C-n><C-w>k
+tnoremap <C-j> <C-\><C-n><C-w>j
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+nnoremap <C-k> <C-w>k
+nnoremap <C-j> <C-w>j
 
 " Editor Settings
-" colorscheme base16-default-dark
 set encoding=utf-8
+set fileencodings=utf-8
 set hidden
 set nobackup
 set nowritebackup
 set noswapfile
-set cmdheight=2
+set cmdheight=1
 set updatetime=25
 set shortmess+=c
 set tabstop=2
@@ -46,7 +59,7 @@ set autoindent
 set relativenumber
 set nu
 set nowrap
-set pumheight=10
+set pumheight=15
 set ruler
 filetype plugin on
 syntax enable
@@ -58,14 +71,20 @@ set colorcolumn=100
 set noshowmode
 set background=dark
 set cursorline
+set termguicolors
+set completeopt=menu,menuone,noselect
 
-" Color Pairs Settings
-let g:rbpt_max = 16
-let g:rbpt_loadcmd_toggle = 0
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+" Scroll
+let g:comfortable_motion_scroll_down_key = "j"
+let g:comfortable_motion_scroll_up_key = "k"
+let g:comfortable_motion_no_default_key_mappings = 1
+nnoremap <silent> <c-d> :call comfortable_motion#flick(150)<cr>
+nnoremap <silent> <C-u> :call comfortable_motion#flick(-150)<CR>
+
+" Theme
+let g:tokyonight_style = 'storm' " available: night, storm
+let g:tokyonight_enable_italic = 1
+colorscheme tokyonight
 
 " Identline Settings
 let g:indentLine_char = ':'
@@ -73,16 +92,19 @@ autocmd FileType *.json let g:indentLine_setConceal = 0
 
 " Airline Settings
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='deus'
+let g:airline_theme='tokyonight'
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = ':'
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#default#layout = [[ 'a', 'b', 'c'], ['x', 'z' ]]
+
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
 
 " FZF Settings
 nnoremap <C-p> :Files<CR>
 nnoremap <C-f> :Ag<CR>
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-
 
 " Nerd Tree Settings
 let g:NERDTreeShowHidden = 1
@@ -117,7 +139,7 @@ let g:coc_global_extensions = [
 	\]
 
 " Ctrl + space to auto completition
-inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <C-space> coc#refresh()
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -135,3 +157,11 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Status line
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" Auto close tags
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx'
+let g:closetag_filetypes = 'html,xhtml,phtml'
+let g:closetag_xhtml_filetypes = 'xhtml,jsx,tsx'
+let g:closetag_shortcut = '>'
+
