@@ -3,8 +3,15 @@ export ZSH="/Users/lambert/.oh-my-zsh"
 
 # Themes
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# better themes i've found: jaischeema bira duellj gnzh xiong-chiamiov-plus fino fino-time
-ZSH_THEME="gozilla"
+# Install guide for pure theme
+# mkdir -p "$HOME/.zsh"
+# git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
+
+fpath+=$HOME/.zsh/pure
+autoload -U promptinit; promptinit
+prompt pure
+
+ZSH_THEME=""
 
 # Settings
 ENABLE_CORRECTION="true"
@@ -25,8 +32,7 @@ alias fag="cat ~/.zshrc | grep"
 alias nv="nvim"
 alias nvcn="nvim ~/.config/nvim/init.vim"
 alias nvcz="nvim ~/.zshrc"
-alias nvci3="nvim ~/.config/i3/config"
-alias nvci3s="nvim ~/.config/i3status/config"
+alias nvct="nvim ~/.tmux.conf"
 # For Tmux
 alias devc="tmux split-window -c $PWD -l 10"
 alias tks="tmux kill-server"
@@ -87,7 +93,7 @@ alias dnc="dotnet clean"
 alias gcdwb="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome http://localhost:4200 --disable-web-security --user-data-dir=/tmp/google-chrome-temp"
 
 # Java Home
-export JAVA_HOME=/Users/lambert/Programs/jdk-11.0.11.jdk/Contents/Home/
+export JAVA_HOME=/Users/lambert/Programs/jdk-17.jdk/Contents/Home/
 export PATH=$PATH:$JAVA_HOME
 
 # Maven
@@ -119,3 +125,5 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # C#
 export PATH="$PATH:/Users/lambert/.dotnet/tools"
+
+ 
