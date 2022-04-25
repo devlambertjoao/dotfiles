@@ -115,6 +115,11 @@ export PATH=$PATH:$FLUTTER_PATH_HOME/bin
 # Yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+# Npm
+# mkdir ~/.npm-global
+# npm config set prefix '~/.npm-global'
+export PATH=~/.npm-global/bin:$PATH
+
 # Asdf
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
