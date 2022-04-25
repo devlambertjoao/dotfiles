@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -15,7 +16,6 @@ Plug 'ghifarit53/tokyonight-vim'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'alvan/vim-closetag'
 call plug#end()
 
@@ -34,10 +34,10 @@ nnoremap tp :tabprevious<CR>
 nnoremap tc :tabclose<CR>
 nnoremap nv :wincmd v<CR>
 nnoremap nw :wincmd S<CR>
-tnoremap <C-h> <C-\><C-n><C-w>h
-tnoremap <C-l> <C-\><C-n><C-w>l
-tnoremap <C-k> <C-\><C-n><C-w>k
-tnoremap <C-j> <C-\><C-n><C-w>j
+" tnoremap <C-h> <C-\><C-n><C-w>h
+" tnoremap <C-l> <C-\><C-n><C-w>l
+" tnoremap <C-k> <C-\><C-n><C-w>k
+" tnoremap <C-j> <C-\><C-n><C-w>j
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 nnoremap <C-k> <C-w>k
@@ -116,7 +116,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 " CoC Settings
 if has("nvim-0.5.0") || has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
   set signcolumn=number
 else
   set signcolumn=yes
@@ -155,13 +154,20 @@ endif
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Status line
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
 " Auto close tags
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx'
 let g:closetag_filetypes = 'html,xhtml,phtml'
 let g:closetag_xhtml_filetypes = 'xhtml,jsx,tsx'
 let g:closetag_shortcut = '>'
+
+lua << EOF
+	require'nvim-treesitter.configs'.setup {
+	ensure_installed = { "bash", "c_sharp", "css", "dart", "dockerfile", "go", "html", "java", 
+		"javascript", "json", "lua", "python", "ruby", "rust", "scss", "typescript", "vim", "vue", "yaml" },
+	  highlight = {
+	    enable = true,
+	  },
+	}
+EOF
 
