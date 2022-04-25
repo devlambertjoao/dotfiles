@@ -1,18 +1,20 @@
 {
-	"java.home": "/usr/lib/jvm/jdk-11.0.12",
-	"java.jdt.ls.vmargs": "-javaagent:/$HOME/.config/nvim/lombok.jar -Xbootclasspath/a:/$HOME/.config/nvim/lombok.jar",
-	"eslint.autoFixOnSave": true,
-	"eslint.format.enable": true,
-	  "coc.preferences.formatOnSaveFiletypes": [
-    		"markdown",
-    		"javascript",
+  "java.home": "/Users/lambert/Programs/jdk-11.0.11.jdk/Contents/Home",
+  "java.jdt.ls.vmargs": "-javaagent:/Users/lambert/.config/nvim/lombok.jar -Xbootclasspath/a:/Users/lambert/.config/nvim/lombok.jar",
+  "eslint.autoFixOnSave": true,
+  "eslint.format.enable": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "markdown",
+    "javascript",
     "javascriptreact",
     "typescript",
     "typescriptreact",
     "json",
     "graphql",
     "elixir",
-    "eelixir"
+    "eelixir",
+    "sass",
+    "scss"
   ],
   "languageserver": {
     "csharp-ls": {
@@ -22,6 +24,6 @@
     }
   },
   "omnisharp.version": "v.1.37.3",
-  	"omnisharp.trace.server": "information",
-  	"omnisharp.debug.server": true
+  "omnisharp.trace.server": "information",
+  "omnisharp.debug.server": true
 }
