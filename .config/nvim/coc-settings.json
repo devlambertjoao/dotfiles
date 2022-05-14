@@ -14,13 +14,14 @@
     "elixir",
     "eelixir",
     "sass",
-    "scss"
+    "scss",
+    "java"
   ],
   "languageserver": {
     "csharp-ls": {
       "command": "csharp-ls",
       "filetypes": ["cs"],
-      "rootPatterns": ["*.csproj", ".vim/", ".git/", ".hg/"]
+      "rootPatterns": ["*.csproj"]
     }
   },
   "omnisharp.version": "v.1.37.3",
