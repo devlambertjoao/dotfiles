@@ -1,5 +1,8 @@
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neovim/nvim-lsp'
+" Plug 'neovim/nvim-lspconfig'
+" Plug 'williamboman/nvim-lsp-installer'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -34,10 +37,6 @@ nnoremap tp :tabprevious<CR>
 nnoremap tc :tabclose<CR>
 nnoremap nv :wincmd v<CR>
 nnoremap nw :wincmd S<CR>
-" tnoremap <C-h> <C-\><C-n><C-w>h
-" tnoremap <C-l> <C-\><C-n><C-w>l
-" tnoremap <C-k> <C-\><C-n><C-w>k
-" tnoremap <C-j> <C-\><C-n><C-w>j
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 nnoremap <C-k> <C-w>k
@@ -140,6 +139,9 @@ let g:coc_global_extensions = [
 " Ctrl + space to auto completition
 inoremap <silent><expr> <C-space> coc#refresh()
 
+" Ctrl + 1 to code actions
+nnoremap <silent> <C-b> :CocAction<CR>
+
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -162,12 +164,18 @@ let g:closetag_xhtml_filetypes = 'xhtml,jsx,tsx'
 let g:closetag_shortcut = '>'
 
 lua << EOF
-	require'nvim-treesitter.configs'.setup {
-	ensure_installed = { "bash", "c_sharp", "css", "dart", "dockerfile", "go", "html", "java", 
-		"javascript", "json", "lua", "python", "ruby", "rust", "scss", "typescript", "vim", "vue", "yaml" },
-	  highlight = {
-	    enable = true,
-	  },
-	}
+	-- require'nvim-treesitter.configs'.setup {
+	-- 	ensure_installed = { "bash", "c_sharp", "css", "dart", "dockerfile", "go", "html", "java", 
+	-- 		"javascript", "json", "lua", "python", "ruby", "rust", "scss", "typescript", "vim", "vue", "yaml" },
+	--   highlight = {
+	--     enable = true,
+	--   },
+	-- 	autopairs = {
+	-- 		enable = true,
+	-- 	},
+	-- 	indent = {
+	-- 		enable = true
+	-- 	}
+	-- }
 EOF
 
