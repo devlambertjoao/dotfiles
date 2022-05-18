@@ -93,8 +93,11 @@ alias dnc="dotnet clean"
 alias gcdws="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome http://localhost:4200 --disable-web-security --user-data-dir=/tmp/google-chrome-temp"
 
 # Java Home
-export JAVA_HOME=/Users/lambert/Programs/jdk-17.jdk/Contents/Home/
+export JAVA_HOME=/Users/lambert/Programs/jdk-11.0.11.jdk/Contents/Home/
 export PATH=$PATH:$JAVA_HOME
+
+# JDTLS
+export JDTLS_HOME=$HOME/Programs/jdtls/
 
 # Maven
 export M2_HOME=/Users/lambert/Programs/apache-maven-3.8.2
@@ -132,3 +135,7 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$PATH:/Users/lambert/.dotnet/tools"
 
  
+export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
+
+
+alias lvim=$HOME/.local/bin/lvim
