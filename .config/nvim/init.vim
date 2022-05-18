@@ -1,25 +1,42 @@
 call plug#begin('~/.vim/plugged')
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'neovim/nvim-lsp'
-" Plug 'neovim/nvim-lspconfig'
-" Plug 'williamboman/nvim-lsp-installer'
+
+" LSP
+Plug 'neovim/nvim-lsp'
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
 Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'scrooloose/nerdtree'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'tami5/lspsaga.nvim'
+
+" Git
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+
+" Auto pairs 
+Plug 'cohama/lexima.vim'
+
+" Theme
+Plug 'ghifarit53/tokyonight-vim'
+
+" FZF (Finder)
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'yggdroot/indentline'
+
+" Lualine
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+
+" Comments
 Plug 'tomtom/tcomment_vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'airblade/vim-gitgutter'
-Plug 'jiangmiao/auto-pairs'
-Plug 'ryanoasis/vim-devicons'
-Plug 'omnisharp/omnisharp-vim'
-Plug 'ghifarit53/tokyonight-vim'
-Plug 'yuttie/comfortable-motion.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'majutsushi/tagbar'
-Plug 'alvan/vim-closetag'
+
+" Nerdtree
+Plug 'scrooloose/nerdtree'
 call plug#end()
 
 " Editor Shortcuts
@@ -71,41 +88,19 @@ set noshowmode
 set background=dark
 set cursorline
 set termguicolors
-set completeopt=menu,menuone,noselect
-
-" Scroll
-let g:comfortable_motion_scroll_down_key = "j"
-let g:comfortable_motion_scroll_up_key = "k"
-let g:comfortable_motion_no_default_key_mappings = 1
-nnoremap <silent> <c-d> :call comfortable_motion#flick(150)<cr>
-nnoremap <silent> <C-u> :call comfortable_motion#flick(-150)<CR>
+set completeopt=menuone,noinsert,noselect
 
 " Theme
 let g:tokyonight_style = 'storm' " available: night, storm
 let g:tokyonight_enable_italic = 1
 colorscheme tokyonight
 
-" Identline Settings
-let g:indentLine_char = ':'
-autocmd FileType *.json let g:indentLine_setConceal = 0
-
-" Airline Settings
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='tokyonight'
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = ':'
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline#extensions#default#layout = [[ 'a', 'b', 'c'], ['x', 'z' ]]
-
-" Tagbar
-nmap <F8> :TagbarToggle<CR>
-
-" FZF Settings
+" FZF
 nnoremap <C-p> :Files<CR>
 nnoremap <C-f> :Ag<CR>
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
-" Nerd Tree Settings
+" Nerdtree
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeIgnore = []
@@ -113,69 +108,255 @@ let g:NERDTreeStatusline = ''
 nnoremap <silent> <C-b> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" CoC Settings
-if has("nvim-0.5.0") || has("patch-8.1.1564")
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
+" Lexima.vim
+let g:lexima_enable_basic_rules = 1
+let g:lexima_enable_newline_rules = 1
+let g:lexima_enable_endwise_rules = 1
 
-let g:coc_global_extensions = [
-	\'coc-emmet', 
-	\'coc-css', 
-	\'coc-html', 
-	\'coc-json', 
-	\'coc-prettier', 
-	\'coc-tsserver',
-	\'coc-eslint',
-	\'coc-styled-components',
-	\'coc-tslint-plugin',
-	\'coc-java',
-	\'coc-omnisharp',
-	\'coc-sh',
-	\'coc-solargraph',
-	\]
+" LSP Mapping
+nnoremap <silent> gd :lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gi :lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> gr :lua vim.lsp.buf.references()<CR>
+nnoremap <silent> ;f :lua vim.lsp.buf.formatting()<CR>
 
-" Ctrl + space to auto completition
-inoremap <silent><expr> <C-space> coc#refresh()
-
-" Ctrl + 1 to code actions
-nnoremap <silent> <C-b> :CocAction<CR>
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
-
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Auto close tags
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx'
-let g:closetag_filetypes = 'html,xhtml,phtml'
-let g:closetag_xhtml_filetypes = 'xhtml,jsx,tsx'
-let g:closetag_shortcut = '>'
+" Lspsaga Mapping
+nnoremap <silent> ;gd :Lspsaga preview_definition<CR>
+nnoremap <silent> ;gi :Lspsaga implementation<CR>
+nnoremap <silent> ;gr :Lspsaga lsp_finder<CR>
+nnoremap <silent> ;rn :Lspsaga rename<CR>
+nnoremap <silent> ;ca :Lspsaga code_action<CR>
+nnoremap <silent> K :Lspsaga hover_doc<CR>
+nnoremap <silent> <C-U> <Cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1, '<c-u>')<cr>
+nnoremap <silent> <C-D> <Cmd>lua require('lspsaga.action').smart_scroll_with_saga(1, '<c-d>')<cr>
+autocmd CursorHold * silent! Lspsaga show_line_diagnostics
+nnoremap <silent> ;dn :Lspsaga diagnostic_jump_next<CR>
 
 lua << EOF
-	-- require'nvim-treesitter.configs'.setup {
-	-- 	ensure_installed = { "bash", "c_sharp", "css", "dart", "dockerfile", "go", "html", "java", 
-	-- 		"javascript", "json", "lua", "python", "ruby", "rust", "scss", "typescript", "vim", "vue", "yaml" },
-	--   highlight = {
-	--     enable = true,
-	--   },
-	-- 	autopairs = {
-	-- 		enable = true,
-	-- 	},
-	-- 	indent = {
-	-- 		enable = true
-	-- 	}
-	-- }
+	-- Treesitter
+	require'nvim-treesitter.configs'.setup {
+		ensure_installed = { "bash", "c_sharp", "css", "dart", "dockerfile", "go", "html", "java", 
+			"javascript", "json", "lua", "python", "ruby", "rust", "scss", "typescript", "vim", "vue", 
+			"yaml" 
+		},
+	  highlight = {
+	    enable = true,
+	  },
+		indent = {
+			enable = true
+		}
+	}
+
+	-- Lsp
+	local nvim_lsp = require('lspconfig')
+	local protocol = require('vim.lsp.protocol')
+	local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+	local cmp = require'cmp'
+
+	local on_attach = function(client, bufnr)
+		local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+		local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+		buf_set_keymap(0, "n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1, '<c-u>')<cr>", {})
+		buf_set_keymap(0, "n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1, '<c-d>')<cr>", {})
+
+		if client.resolved_capabilities.document_formatting then
+			vim.api.nvim_command [[augroup Format]]
+			vim.api.nvim_command [[autocmd! * <buffer>]]
+			vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
+			vim.api.nvim_command [[augroup END]]
+		end
+
+	end
+	
+	cmp.setup({
+    snippet = {
+      expand = function(args)
+        vim.fn["vsnip#anonymous"](args.body)
+      end,
+    },
+    mapping = cmp.mapping.preset.insert({
+      ['<C-f>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-b>'] = cmp.mapping.scroll_docs(4),
+      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+   	  ["<C-n>"] = cmp.mapping(function(fallback)
+   	    if cmp.visible() then
+   	      cmp.select_next_item()
+   	    elseif vim.fn["vsnip#available"](1) == 1 then
+   	      feedkey("<Plug>(vsnip-expand-or-jump)", "")
+   	    elseif has_words_before() then
+   	      cmp.complete()
+   	    else
+   	      fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+   	    end
+   	  end, { "i", "s" }),
+   	  ["<C-p>"] = cmp.mapping(function()
+   	    if cmp.visible() then
+   	      cmp.select_prev_item()
+   	    elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+   	      feedkey("<Plug>(vsnip-jump-prev)", "")
+   	    end
+   	  end, { "i", "s" }),
+   	  }),
+   	  sources = cmp.config.sources({
+   	    { name = 'nvim_lsp' },
+   	    { name = 'vsnip' }, 
+   	  }, {
+   	    { name = 'buffer' },
+   	  })
+  })
+
+  cmp.setup.cmdline('/', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+      { name = 'buffer' }
+    }
+  })
+
+  cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+      { name = 'path' }
+    }, {
+      { name = 'cmdline' }
+    })
+  })
+
+  -- Check for install new servers: 
+	-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+
+	local nvim_lsp_handler = {
+     ["textDocument/publishDiagnostics"] = vim.lsp.with(
+       vim.lsp.diagnostic.on_publish_diagnostics, {
+        -- Disable virtual_text
+        virtual_text = false
+       }
+    ),
+	}
+
+	nvim_lsp.tsserver.setup {
+		on_attach = on_attach,
+		handlers = nvim_lsp_handler,
+		capabilities = capabilities,
+		filetypes = { "javascript", "typescript", "typescriptreact", "typescript.tsx" },
+		root_dir = function() return vim.loop.cwd() end
+	}
+
+	nvim_lsp.jdtls.setup {
+		handlers = nvim_lsp_handler,
+		capabilities = capabilities,
+	}
+
+	nvim_lsp.html.setup {
+		handlers = nvim_lsp_handler,
+		capabilities = capabilities,
+		cmd = { "html-languageserver", "--stdio" },
+		filetypes = { "html" },
+		init_options = {
+			configurationSection = { "html", "css", "javascript" },
+			embeddedLanguages = {
+				css = true,
+				javascript = true
+			}
+		},
+		settings = {}
+	}
+
+	nvim_lsp.omnisharp.setup {
+		handlers = nvim_lsp_handler,
+		capabilities = capabilities,
+		cmd = { '/Users/lambert/Programs/omnisharp/run', "--languageserver" , "--hostPID", tostring(vim.fn.getpid()) }
+	}
+
+	nvim_lsp.cssls.setup {
+		handlers = nvim_lsp_handler,
+	  capabilities = capabilities,
+	}
+
+	require('nvim-lsp-installer').setup {
+		automatic_installation = true
+	}
+
+	-- Lualine 
+	require('lualine').setup {
+  	options = {
+  	  icons_enabled = true,
+  	  theme = 'auto',
+  	  component_separators = { left = '', right = ''},
+  	  section_separators = { left = '', right = ''},
+  	  disabled_filetypes = {},
+  	  always_divide_middle = true,
+  	  globalstatus = false,
+  	},
+  	sections = {
+  	  lualine_a = {'mode'},
+  	  lualine_b = {'branch', 'diff', 'diagnostics'},
+  	  lualine_c = {'filename'},
+  	  lualine_x = {'encoding', 'fileformat', 'filetype'},
+  	  lualine_y = {'progress'},
+  	  lualine_z = {'location'}
+  	},
+  	inactive_sections = {
+  	  lualine_a = {},
+  	  lualine_b = {},
+  	  lualine_c = {'filename'},
+  	  lualine_x = {'location'},
+  	  lualine_y = {},
+  	  lualine_z = {}
+  	},
+  	tabline = {},
+  	extensions = {}
+	}
+
+	-- lspsaga
+	local saga = require'lspsaga'
+	saga.init_lsp_saga {
+		debug = false,
+  	use_saga_diagnostic_sign = true,
+  	-- diagnostic sign
+  	error_sign = "",
+  	warn_sign = "",
+  	hint_sign = "",
+  	infor_sign = "",
+  	diagnostic_header_icon = "   ",
+  	-- code action title icon
+  	code_action_icon = " ",
+  	code_action_prompt = {
+  	  enable = false,
+  	  sign = true,
+  	  sign_priority = 40,
+  	  virtual_text = false,
+  	},
+  	finder_definition_icon = "  ",
+  	finder_reference_icon = "  ",
+  	max_preview_lines = 10,
+  	finder_action_keys = {
+  	  open = "o",
+  	  vsplit = "s",
+  	  split = "i",
+  	  quit = "q",
+  	  scroll_down = "<C-F>",
+  	  scroll_up = "<C-B>",
+  	},
+  	code_action_keys = {
+  	  quit = "q",
+  	  exec = "<CR>",
+  	},
+  	rename_action_keys = {
+  	  quit = "<C-c>",
+  	  exec = "<CR>",
+  	},
+  	definition_preview_icon = "  ",
+  	border_style = "single",
+  	rename_prompt_prefix = "➤",
+  	rename_output_qflist = {
+  	  enable = false,
+  	  auto_open_qflist = false,
+  	},
+  	server_filetype_map = {},
+  	diagnostic_prefix_format = "%d. ",
+  	diagnostic_message_format = "%m %c",
+  	highlight_prefix = false,
+	}
+
 EOF
 
