@@ -46,21 +46,25 @@ asdf global java openjdk-15
 sudo pacman -S maven
 
 # JDK from oracle
-sudo mv ~/Downloads/jdk-11.0.12_linux-x64_bin.tar.gz /usr/lib/jvm/jdk-11.0.12_linux-x64_bin.tar.gz
-cd /usr/lib/jvm
-sudo tar -zxvf jdk-11.0.12_linux-x64_bin.tar.gz
-cd ~
+sudo mv ~/Downloads/jdk-11.0.15_linux-x64_bin.tar.gz ~/Programs/jdk-11.0.15_linux-x64_bin.tar.gz
+cd ~/Programs
+sudo tar -zxvf jdk-11.0.15_linux-x64_bin.tar.gz
+rm jdk-11.0.15_linux-x64_bin.tar.gz
+cd 
 
 # Nodejs
 asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
-asdf install nodejs 14.17.0
-asdf global nodejs 14.17.0
+asdf install nodejs 16.15.0
+asdf global nodejs 16.15.0
 
 # Yarn
 sudo pacman -S yarn 
 # or
 # npm install -g yarn
+
+# Npm
+mkdir ~/.npm-global
+npm config set prefix '~/.npm-global'
 
 # Ruby
 # If inside WSL: sudo pacman -S base-devel
@@ -69,15 +73,15 @@ echo rails > .default-gems
 echo solargraph >> .default-gems
 echo bundler >> .default-gems
 echo rsense >> .default-gems
-asdf install ruby 3.0.0
-asdf global ruby 3.0.0
+asdf install ruby 3.1.2
+asdf global ruby 3.1.2
 
 # Python
 sudo pacman -S python python-pip
 
 # .NET 
 sudo pacman -S dotnet-sdk aspnet-runtime
-dotnet tool install --global csharp-ls --version 0.4.2
+dotnet tool install --global csharp-ls
 
 # Neovim
 # sudo apt install neovim silversearcher-ag ctags
@@ -86,11 +90,36 @@ pip install neovim
 mkdir -p ~/.config/nvim
 cd ~/.config/nvim
 wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/.config/nvim/init.vim
-wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/.config/nvim/coc-settings.json
 wget https://projectlombok.org/downloads/lombok.jar
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-# Para finalizar configuracao do neovim :PlugInstall dentro do neovim
+## LSP Deps
+# Tsserver
+npm install -g typescript typescript-language-server
+# JDTLS (Java)
+cd ~/Downloads
+wget https://download.eclipse.org/jdtls/snapshots/jdt-language-server-1.12.0-202205122107.tar.gz
+mkdir -p ~/Programs/jdtls
+mv jdt-language-server-1.12.0-202205122107.tar.gz ~/Programs/jdtls
+cd ~/Programs/jdtls
+sudo tar -zxvf jdt-language-server-1.12.0-202205122107.tar.gz
+sudo rm jdt-language-server-1.12.0-202205122107.tar.gz
+cd
+# HTML e CSS (CSSLS)
+npm i -g vscode-langservers-extracted
+# Omnisharp (C#)
+cd ~/Downloads
+# For Mac
+# wget https://github.com/OmniSharp/omnisharp-roslyn/releases/download/v1.38.2/omnisharp-osx.tar.gz
+# For Archlinux
+wget https://github.com/OmniSharp/omnisharp-roslyn/releases/download/v1.38.2/omnisharp-linux-x64.tar.gz
+mkdir -p ~/Programs/omnisharp
+sudo mv omnisharp-linux-x64.tar.gz ~/Programs/omnisharp
+cd ~/Programs/omnisharp
+sudo tar -zxvf omnisharp-linux-x64.tar.gz
+sudo rm omnisharp-linux-x64.tar.gz
+cd
+# run :PlugInstall on neovim
 
 # STS
 mkdir ~/Programs
@@ -149,8 +178,8 @@ sudo usermod -aG docker lambert
 # Run SQL on docker for local development:
 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=password@1" -p 1433:1433 --name sql1 -h sql1 -d mcr.microsoft.com/mssql/server:2019-latest
 
-# For osx
-docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=password@1' --name sql -p 1433:1433 --restart always -d mcr.microsoft.com/azure-sql-edge:latest
+# For mac
+# docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=password@1' --name sql -p 1433:1433 --restart always -d mcr.microsoft.com/azure-sql-edge:latest
 
 # Dbeaver
 sudo pacman -S dbeaver
