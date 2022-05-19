@@ -157,9 +157,6 @@ lua << EOF
 		local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 		local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-		buf_set_keymap(0, "n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1, '<c-u>')<cr>", {})
-		buf_set_keymap(0, "n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1, '<c-d>')<cr>", {})
-
 		if client.resolved_capabilities.document_formatting then
 			vim.api.nvim_command [[augroup Format]]
 			vim.api.nvim_command [[autocmd! * <buffer>]]
