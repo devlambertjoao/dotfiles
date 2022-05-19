@@ -247,7 +247,7 @@ lua << EOF
 	nvim_lsp.html.setup {
 		handlers = nvim_lsp_handler,
 		capabilities = capabilities,
-		cmd = { "html-languageserver", "--stdio" },
+		cmd = { "vscode-html-language-server", "--stdio" },
 		filetypes = { "html" },
 		init_options = {
 			configurationSection = { "html", "css", "javascript" },
