@@ -3,10 +3,10 @@ export ZSH="/Users/lambert/.oh-my-zsh"
 
 # Themes
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+
 # Install guide for pure theme
 # mkdir -p "$HOME/.zsh"
 # git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
-
 fpath+=$HOME/.zsh/pure
 autoload -U promptinit; promptinit
 prompt pure
@@ -91,18 +91,27 @@ alias dnnr="dotnet nuget restore"
 alias dnc="dotnet clean"
 # Google Chrome Disabling web security
 alias gcdws="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome http://localhost:4200 --disable-web-security --user-data-dir=/tmp/google-chrome-temp"
+# LunarVim
+alias lvim=$HOME/.local/bin/lvim
 
 # Java Home
-export JAVA_HOME=/Users/lambert/Programs/jdk-11.0.11.jdk/Contents/Home/
+# For MAC
+#export JAVA_HOME=$HOME/Programs/jdk-11.0.15.jdk/Contents/Home/
+# For Archlinux
+export JAVA_HOME=$HOME/Programs/jdk-11.0.15/bin
+
 export PATH=$PATH:$JAVA_HOME
 
 # JDTLS
 export JDTLS_HOME=$HOME/Programs/jdtls/
 
 # Maven
-export M2_HOME=/Users/lambert/Programs/apache-maven-3.8.2
+export M2_HOME=$HOME/Programs/apache-maven-3.8.2
 export M2=$M2_HOME/bin
 export PATH=$M2:$PATH
+
+# C#
+export PATH="$PATH:$HOME/.dotnet/tools"
 
 # Android development
 export ANDROID_HOME=$HOME/Programs/Android/Sdk
@@ -112,7 +121,7 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # Flutter
-export FLUTTER_PATH_HOME=/Users/lambert/Programs/flutter
+export FLUTTER_PATH_HOME=$HOME/Programs/flutter
 export PATH=$PATH:$FLUTTER_PATH_HOME/bin
 
 # Yarn
@@ -130,12 +139,5 @@ export PATH=~/.npm-global/bin:$PATH
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-# C#
-export PATH="$PATH:/Users/lambert/.dotnet/tools"
-
  
 export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
-
-
-alias lvim=$HOME/.local/bin/lvim
