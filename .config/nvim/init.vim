@@ -37,6 +37,7 @@ Plug 'tomtom/tcomment_vim'
 
 " Nerdtree
 Plug 'scrooloose/nerdtree'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " Editor Shortcuts
