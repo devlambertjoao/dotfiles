@@ -20,15 +20,9 @@ sudo pacman -S zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
 wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/.zshrc
 sudo mv .zshrc.1 .zshrc
-
-# Alacritty
-sudo pacman -S alacritty
-mkdir -p ~/.config/alacritty
-cd ~/.config/alacritty
-wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/.config/alacritty/alacritty.yml
-cd
 
 # Tmux
 sudo pacman -S tmux
