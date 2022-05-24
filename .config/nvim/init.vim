@@ -23,6 +23,7 @@ Plug 'cohama/lexima.vim'
 
 " Theme
 Plug 'ghifarit53/tokyonight-vim'
+Plug 'morhetz/gruvbox'
 
 " FZF (Finder)
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -94,7 +95,8 @@ set completeopt=menuone,noinsert,noselect
 " Theme
 let g:tokyonight_style = 'storm' " available: night, storm
 let g:tokyonight_enable_italic = 1
-colorscheme tokyonight
+" colorscheme tokyonight
+colorscheme gruvbox
 
 " FZF
 nnoremap <C-p> :Files<CR>
