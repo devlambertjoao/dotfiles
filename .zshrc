@@ -4,14 +4,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # Themes
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
-# Install guide for pure theme
-# mkdir -p "$HOME/.zsh"
-# git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
-fpath+=$HOME/.zsh/pure
-autoload -U promptinit; promptinit
-prompt pure
-
-ZSH_THEME=""
+# Gruvbox: curl -L https://raw.githubusercontent.com/sbugzu/gruvbox-zsh/master/gruvbox.zsh-theme > ~/.oh-my-zsh/custom/themes/gruvbox.zsh-theme
+ZSH_THEME="gruvbox"
+SOLARIZED_THEME="dark"
 
 # Settings
 ENABLE_CORRECTION="true"
