@@ -102,8 +102,8 @@ wget https://download.eclipse.org/jdtls/snapshots/jdt-language-server-1.12.0-202
 mkdir -p ~/Programs/jdtls
 mv jdt-language-server-1.12.0-202205122107.tar.gz ~/Programs/jdtls
 cd ~/Programs/jdtls
-sudo tar -zxvf jdt-language-server-1.12.0-202205122107.tar.gz
-sudo rm jdt-language-server-1.12.0-202205122107.tar.gz
+tar -zxvf jdt-language-server-1.12.0-202205122107.tar.gz
+rm jdt-language-server-1.12.0-202205122107.tar.gz
 cd
 # HTML e CSS (CSSLS)
 npm i -g vscode-langservers-extracted
@@ -116,8 +116,8 @@ wget https://github.com/OmniSharp/omnisharp-roslyn/releases/download/v1.38.2/omn
 mkdir -p ~/Programs/omnisharp
 sudo mv omnisharp-linux-x64.tar.gz ~/Programs/omnisharp
 cd ~/Programs/omnisharp
-sudo tar -zxvf omnisharp-linux-x64.tar.gz
-sudo rm omnisharp-linux-x64.tar.gz
+tar -zxvf omnisharp-linux-x64.tar.gz
+rm omnisharp-linux-x64.tar.gz
 cd
 # run :PlugInstall on neovim
 
