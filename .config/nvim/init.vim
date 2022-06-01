@@ -93,10 +93,10 @@ set termguicolors
 set completeopt=menuone,noinsert,noselect
 
 " Theme
-let g:tokyonight_style = 'storm' " available: night, storm
+let g:tokyonight_style = 'night' " available: night, storm
 let g:tokyonight_enable_italic = 1
-" colorscheme tokyonight
-colorscheme gruvbox
+colorscheme tokyonight
+" colorscheme gruvbox
 
 " FZF
 nnoremap <C-p> :Files<CR>
@@ -290,7 +290,7 @@ lua << EOF
   	sections = {
   	  lualine_a = {'mode'},
   	  lualine_b = {'branch', 'diff', 'diagnostics'},
-  	  lualine_c = {'filename'},
+  	  lualine_c = {{ 'filename', file_status = false, path = 1 }},
   	  lualine_x = {'encoding', 'fileformat', 'filetype'},
   	  lualine_y = {'progress'},
   	  lualine_z = {'location'}
