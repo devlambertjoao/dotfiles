@@ -271,6 +271,11 @@ lua << EOF
 		handlers = nvim_lsp_handler,
 	  capabilities = capabilities,
 	}
+	
+	nvim_lsp.pyright.setup {
+	  handlers = nvim_lsp_handler,
+	  capabilities = capabilities,
+	}
 
 	require('nvim-lsp-installer').setup {
 		automatic_installation = true
