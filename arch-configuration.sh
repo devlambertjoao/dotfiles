@@ -14,6 +14,9 @@ sudo pacman -Syyu
 # Essentials
 sudo pacman -S git wget openssh
 
+# Generate ssh
+ssh-keygen -o -t rsa -C “a@example.com”
+
 # Base Devel
 sudo pacman -S base-devel
 
