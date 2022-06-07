@@ -11,6 +11,9 @@
 # Att packages
 sudo pacman -Syyu
 
+# Essentials
+sudo pacman -S git wget openssh
+
 # Base Devel
 sudo pacman -S base-devel
 
