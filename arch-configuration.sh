@@ -125,6 +125,8 @@ cd ~/Programs/omnisharp
 tar -zxvf omnisharp-linux-x64.tar.gz
 rm omnisharp-linux-x64.tar.gz
 cd
+# Pyright
+npm install -g pyright
 # run :PlugInstall on neovim
 
 # STS
