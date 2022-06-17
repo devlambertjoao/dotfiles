@@ -22,8 +22,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'cohama/lexima.vim'
 
 " Theme
-Plug 'ghifarit53/tokyonight-vim'
-Plug 'morhetz/gruvbox'
+Plug 'kyoz/purify', { 'rtp': 'vim' }
 
 " FZF (Finder)
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -93,10 +92,7 @@ set termguicolors
 set completeopt=menuone,noinsert,noselect
 
 " Theme
-let g:tokyonight_style = 'night' " available: night, storm
-let g:tokyonight_enable_italic = 1
-colorscheme tokyonight
-" colorscheme gruvbox
+" colorscheme purify
 
 " FZF
 nnoremap <C-p> :Files<CR>
