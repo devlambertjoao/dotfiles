@@ -4,9 +4,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # Themes
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
-# Gruvbox: curl -L https://raw.githubusercontent.com/sbugzu/gruvbox-zsh/master/gruvbox.zsh-theme > ~/.oh-my-zsh/custom/themes/gruvbox.zsh-theme
-ZSH_THEME="gruvbox"
-SOLARIZED_THEME="dark"
+# Purify Theme: wget https://raw.githubusercontent.com/kyoz/purify/master/zsh/purify.zsh-theme -O ~/.oh-my-zsh/themes/purify.zsh-theme
+ZSH_THEME="purify"
 
 # Settings
 ENABLE_CORRECTION="true"
