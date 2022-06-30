@@ -22,7 +22,8 @@ Plug 'tpope/vim-rhubarb'
 Plug 'cohama/lexima.vim'
 
 " Theme
-Plug 'kyoz/purify', { 'rtp': 'vim' }
+Plug 'ghifarit53/tokyonight-vim'
+Plug 'morhetz/gruvbox'
 
 " FZF (Finder)
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -92,7 +93,10 @@ set termguicolors
 set completeopt=menuone,noinsert,noselect
 
 " Theme
-" colorscheme purify
+let g:tokyonight_style = 'night' " available: night, storm
+let g:tokyonight_enable_italic = 1
+colorscheme tokyonight
+" colorscheme gruvbox
 
 " FZF
 nnoremap <C-p> :Files<CR>
@@ -131,6 +135,17 @@ autocmd CursorHold * silent! Lspsaga show_line_diagnostics
 nnoremap <silent> ;dn :Lspsaga diagnostic_jump_next<CR>
 
 lua << EOF
+	-- LspInstaller 
+	require("nvim-lsp-installer").setup({
+    automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
+    ui = {
+        icons = {
+            server_installed = "✓",
+            server_pending = "➜",
+            server_uninstalled = "✗"
+        }
+    }
+	})
 	-- Treesitter
 	require'nvim-treesitter.configs'.setup {
 		ensure_installed = { "bash", "c_sharp", "css", "dart", "dockerfile", "go", "html", "java", 
@@ -155,12 +170,12 @@ lua << EOF
 		local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 		local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-		if client.resolved_capabilities.document_formatting then
-			vim.api.nvim_command [[augroup Format]]
-			vim.api.nvim_command [[autocmd! * <buffer>]]
-			vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
-			vim.api.nvim_command [[augroup END]]
-		end
+		-- if client.resolved_capabilities.document_formatting then
+		--	vim.api.nvim_command [[augroup Format]]
+		--	vim.api.nvim_command [[autocmd! * <buffer>]]
+		--	vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
+		--	vim.api.nvim_command [[augroup END]]
+		-- end
 
 	end
 	
@@ -240,24 +255,6 @@ lua << EOF
 	nvim_lsp.jdtls.setup {
 		handlers = nvim_lsp_handler,
 		capabilities = capabilities,
-				-- cmd = {
-		-- 	'java',
-  	-- 	'-Declipse.application=org.eclipse.jdt.ls.core.id1',
-  	-- 	'-Dosgi.bundles.defaultStartLevel=4',
-  	-- 	'-Declipse.product=org.eclipse.jdt.ls.core.product',
-  	-- 	'-Dlog.protocol=true',
-  	-- 	'-Dlog.level=ALL',
-  	-- 	'-Xms1g',
-  	-- 	'-Xmx2G',
-  	-- 	'-javaagent:$HOME/.config/nvim/lombok.jar',
-  	-- 	'-Xbootclasspath/a:$HOME/.config/nvim/lombok.jar',
-		-- 	'--add-modules=ALL-SYSTEM',
-		-- 	'--add-opens', 'java.base/java.util=ALL-UNNAMED',
-		-- 	'--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-  	-- 	'-jar', '$HOME/Programs/jdtls/plugins/org.eclipse.equinox.launcher_*.jar',
-  	-- 	'-configuration', '$HOME/Programs/jdtls/config_mac',
-  	-- 	'-data', '/Users/lambert/workspace/spring-boot-security',
-		-- }
 	}
 
 	nvim_lsp.html.setup {
@@ -275,24 +272,20 @@ lua << EOF
 		settings = {}
 	}
 
+	nvim_lsp.angularls.setup{
+		capabilities = capabilities,
+		handlers = nvim_lsp_handler,
+	}
+
 	nvim_lsp.omnisharp.setup {
 		handlers = nvim_lsp_handler,
 		capabilities = capabilities,
-		cmd = { '/Users/lambert/Programs/omnisharp/run', "--languageserver" , "--hostPID", tostring(vim.fn.getpid()) }
+		-- cmd = { '/home/lambert/Programs/omnisharp/run', "--languageserver" , "--hostPID", tostring(vim.fn.getpid()) }
 	}
 
 	nvim_lsp.cssls.setup {
 		handlers = nvim_lsp_handler,
 	  capabilities = capabilities,
-	}
-	
-	nvim_lsp.pyright.setup {
-	  handlers = nvim_lsp_handler,
-	  capabilities = capabilities,
-	}
-
-	require('nvim-lsp-installer').setup {
-		automatic_installation = true
 	}
 
 	-- Lualine 
@@ -309,8 +302,8 @@ lua << EOF
   	sections = {
   	  lualine_a = {'mode'},
   	  lualine_b = {'branch', 'diff', 'diagnostics'},
-  	  lualine_c = {{ 'filename', file_status = false, path = 1 }},
-  	  lualine_x = {'encoding', 'fileformat', 'filetype'},
+			lualine_c = {{ 'filename', file_status = false, path = 1 }},
+  	  lualine_x = {'filetype'},
   	  lualine_y = {'progress'},
   	  lualine_z = {'location'}
   	},
@@ -378,4 +371,3 @@ lua << EOF
 	}
 
 EOF
-
