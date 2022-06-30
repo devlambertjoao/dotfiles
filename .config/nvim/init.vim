@@ -22,8 +22,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'cohama/lexima.vim'
 
 " Theme
-Plug 'ghifarit53/tokyonight-vim'
-Plug 'morhetz/gruvbox'
+Plug 'kyoz/purify', { 'rtp': 'vim' }
 
 " FZF (Finder)
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -93,10 +92,7 @@ set termguicolors
 set completeopt=menuone,noinsert,noselect
 
 " Theme
-let g:tokyonight_style = 'night' " available: night, storm
-let g:tokyonight_enable_italic = 1
-colorscheme tokyonight
-" colorscheme gruvbox
+colorscheme purify
 
 " FZF
 nnoremap <C-p> :Files<CR>
@@ -134,18 +130,22 @@ nnoremap <silent> <C-D> <Cmd>lua require('lspsaga.action').smart_scroll_with_sag
 autocmd CursorHold * silent! Lspsaga show_line_diagnostics
 nnoremap <silent> ;dn :Lspsaga diagnostic_jump_next<CR>
 
+" LSP Eslint
+autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll
+
 lua << EOF
-	-- LspInstaller 
+	-- LspInstaller
 	require("nvim-lsp-installer").setup({
-    automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
-    ui = {
-        icons = {
-            server_installed = "✓",
-            server_pending = "➜",
-            server_uninstalled = "✗"
-        }
-    }
+    		automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
+    		ui = {
+        		icons = {
+            			server_installed = "✓",
+            			server_pending = "➜",
+            			server_uninstalled = "✗"
+        		}
+    		}
 	})
+	
 	-- Treesitter
 	require'nvim-treesitter.configs'.setup {
 		ensure_installed = { "bash", "c_sharp", "css", "dart", "dockerfile", "go", "html", "java", 
@@ -170,12 +170,12 @@ lua << EOF
 		local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 		local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-		-- if client.resolved_capabilities.document_formatting then
-		--	vim.api.nvim_command [[augroup Format]]
-		--	vim.api.nvim_command [[autocmd! * <buffer>]]
-		--	vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
-		--	vim.api.nvim_command [[augroup END]]
-		-- end
+		if client.resolved_capabilities.document_formatting then
+			-- vim.api.nvim_command [[augroup Format]]
+			-- vim.api.nvim_command [[autocmd! * <buffer>]]
+			-- vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
+			-- vim.api.nvim_command [[augroup END]]
+		end
 
 	end
 	
@@ -252,6 +252,16 @@ lua << EOF
 		root_dir = function() return vim.loop.cwd() end
 	}
 
+	nvim_lsp.eslint.setup {
+		handlers = nvim_lsp_handler,
+		capabilities = capabilities,
+	}
+
+	nvim_lsp.angularls.setup {
+		handlers = nvim_lsp_handler,
+	 	capabilities = capabilities,
+	}
+
 	nvim_lsp.jdtls.setup {
 		handlers = nvim_lsp_handler,
 		capabilities = capabilities,
@@ -260,6 +270,7 @@ lua << EOF
 	nvim_lsp.html.setup {
 		handlers = nvim_lsp_handler,
 		capabilities = capabilities,
+		-- cmd = { "html-languageserver", "--stdio" },
 		cmd = { "vscode-html-language-server", "--stdio" },
 		filetypes = { "html" },
 		init_options = {
@@ -272,15 +283,9 @@ lua << EOF
 		settings = {}
 	}
 
-	nvim_lsp.angularls.setup{
-		capabilities = capabilities,
-		handlers = nvim_lsp_handler,
-	}
-
 	nvim_lsp.omnisharp.setup {
 		handlers = nvim_lsp_handler,
 		capabilities = capabilities,
-		-- cmd = { '/home/lambert/Programs/omnisharp/run', "--languageserver" , "--hostPID", tostring(vim.fn.getpid()) }
 	}
 
 	nvim_lsp.cssls.setup {
@@ -303,7 +308,7 @@ lua << EOF
   	  lualine_a = {'mode'},
   	  lualine_b = {'branch', 'diff', 'diagnostics'},
 			lualine_c = {{ 'filename', file_status = false, path = 1 }},
-  	  lualine_x = {'filetype'},
+  	  lualine_x = {'encoding', 'fileformat', 'filetype'},
   	  lualine_y = {'progress'},
   	  lualine_z = {'location'}
   	},
