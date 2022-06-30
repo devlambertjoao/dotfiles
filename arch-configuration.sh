@@ -118,7 +118,7 @@ cd ~/Downloads
 # For Mac
 # wget https://github.com/OmniSharp/omnisharp-roslyn/releases/download/v1.39.0/omnisharp-osx.tar.gz
 # For Archlinux
-sudo pacman -S mono
+sudo pacman -S mono mono-msbuild
 wget https://github.com/OmniSharp/omnisharp-roslyn/releases/download/v1.39.0/omnisharp-linux-x64.tar.gz
 mkdir -p ~/Programs/omnisharp
 mv omnisharp-linux-x64.tar.gz ~/Programs/omnisharp
