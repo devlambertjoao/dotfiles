@@ -116,12 +116,12 @@ npm i -g vscode-langservers-extracted
 # Omnisharp (C#)
 cd ~/Downloads
 # For Mac
-# wget https://github.com/OmniSharp/omnisharp-roslyn/releases/download/v1.38.2/omnisharp-osx.tar.gz
+# wget https://github.com/OmniSharp/omnisharp-roslyn/releases/download/v1.39.0/omnisharp-osx.tar.gz
 # For Archlinux
 sudo pacman -S mono
-wget https://github.com/OmniSharp/omnisharp-roslyn/releases/download/v1.38.2/omnisharp-linux-x64.tar.gz
+wget https://github.com/OmniSharp/omnisharp-roslyn/releases/download/v1.39.0/omnisharp-linux-x64.tar.gz
 mkdir -p ~/Programs/omnisharp
-sudo mv omnisharp-linux-x64.tar.gz ~/Programs/omnisharp
+mv omnisharp-linux-x64.tar.gz ~/Programs/omnisharp
 cd ~/Programs/omnisharp
 tar -zxvf omnisharp-linux-x64.tar.gz
 rm omnisharp-linux-x64.tar.gz
