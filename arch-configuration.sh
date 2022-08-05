@@ -47,10 +47,6 @@ asdf plugin-add java https://github.com/halcyon/asdf-java.git
 asdf install java openjdk-15
 asdf global java openjdk-15
 
-# Maven
-# sudo apt install maven
-sudo pacman -S maven
-
 # JDK from oracle
 cd Downloads
 wget https://download.oracle.com/java/17/archive/jdk-17.0.4_linux-x64_bin.tar.gz
@@ -59,6 +55,10 @@ cd ~/Programs
 tar -zxvf jdk-17.0.4_linux-x64_bin.tar.gz
 rm jdk-17.0.4_linux-x64_bin.tar.gz
 cd 
+
+# Maven
+# sudo apt install maven
+sudo pacman -S maven
 
 # Nodejs
 asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
@@ -113,8 +113,8 @@ cd ~/Programs/jdtls
 tar -zxvf jdt-language-server-1.12.0-202205122107.tar.gz
 rm jdt-language-server-1.12.0-202205122107.tar.gz
 cd
-# HTML e CSS (CSSLS)
-npm i -g vscode-langservers-extracted
+# HTML and CSS (CSSLS)
+npm i -g vscode-langservers-extracted eslint eslint_d
 # Omnisharp (C#)
 cd ~/Downloads
 # For Mac
