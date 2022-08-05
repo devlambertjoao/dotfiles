@@ -1,11 +1,12 @@
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="/Users/lambert/.oh-my-zsh"
 
 # Themes
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
-# Purify Theme: wget https://raw.githubusercontent.com/kyoz/purify/master/zsh/purify.zsh-theme -O ~/.oh-my-zsh/themes/purify.zsh-theme
+# Gruvbox: curl -L https://raw.githubusercontent.com/sbugzu/gruvbox-zsh/master/gruvbox.zsh-theme > ~/.oh-my-zsh/custom/themes/gruvbox.zsh-theme
 ZSH_THEME="purify"
+# SOLARIZED_THEME="dark"
 
 # Settings
 ENABLE_CORRECTION="true"
@@ -85,27 +86,19 @@ alias dnnr="dotnet nuget restore"
 alias dnc="dotnet clean"
 # Google Chrome Disabling web security
 alias gcdws="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome http://localhost:4200 --disable-web-security --user-data-dir=/tmp/google-chrome-temp"
-# LunarVim
-alias lvim=$HOME/.local/bin/lvim
 
 # Java Home
-# For MAC
-#export JAVA_HOME=$HOME/Programs/jdk-11.0.15.jdk/Contents/Home/
-# For Archlinux
-export JAVA_HOME=$HOME/Programs/jdk-11.0.15/bin
-
+export JAVA_HOME=/Users/lambert/Programs/jdk-17.jdk/Contents/Home/
 export PATH=$PATH:$JAVA_HOME
 
 # JDTLS
 export JDTLS_HOME=$HOME/Programs/jdtls/
+export JDTLS_JVM_ARGS="-javaagent:$HOME/.config/nvim/lombok.jar -Xbootclasspath/a:$HOME/.config/nvim/lombok.jar"
 
 # Maven
-export M2_HOME=$HOME/Programs/apache-maven-3.8.2
+export M2_HOME=/Users/lambert/Programs/apache-maven-3.8.2
 export M2=$M2_HOME/bin
 export PATH=$M2:$PATH
-
-# C#
-export PATH="$PATH:$HOME/.dotnet/tools"
 
 # Android development
 export ANDROID_HOME=$HOME/Programs/Android/Sdk
@@ -115,7 +108,7 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # Flutter
-export FLUTTER_PATH_HOME=$HOME/Programs/flutter
+export FLUTTER_PATH_HOME=/Users/lambert/Programs/flutter
 export PATH=$PATH:$FLUTTER_PATH_HOME/bin
 
 # Yarn
@@ -133,5 +126,14 @@ export PATH=~/.npm-global/bin:$PATH
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
- 
+
+# C#
+export PATH="$PATH:/Users/lambert/.dotnet/tools"
+
+
 export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
+
+alias lvim=$HOME/.local/bin/lvim
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
