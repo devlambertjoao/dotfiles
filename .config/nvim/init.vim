@@ -13,13 +13,14 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'tami5/lspsaga.nvim'
+Plug 'mfussenegger/nvim-jdtls'
 
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
-" Auto pairs 
-Plug 'cohama/lexima.vim'
+" Auto pairs
+Plug 'windwp/nvim-autopairs'
 
 " Theme
 Plug 'kyoz/purify', { 'rtp': 'vim' }
@@ -46,7 +47,7 @@ call plug#end()
 " Close tab -> tc
 " New window on side -> nv
 " New window on bottom -> nw
-" Navigante in windows using Ctrl + HJKL 
+" Navigante in windows using Ctrl + HJKL
 
 let mapleader = " "
 noremap tt :tabnew .<CR>
@@ -90,6 +91,7 @@ set background=dark
 set cursorline
 set termguicolors
 set completeopt=menuone,noinsert,noselect
+set signcolumn=yes:1
 
 " Theme
 colorscheme purify
@@ -130,50 +132,47 @@ nnoremap <silent> <C-D> <Cmd>lua require('lspsaga.action').smart_scroll_with_sag
 autocmd CursorHold * silent! Lspsaga show_line_diagnostics
 nnoremap <silent> ;dn :Lspsaga diagnostic_jump_next<CR>
 
-" LSP Eslint
-autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll
-
 lua << EOF
-	-- LspInstaller
+        -- LspInstaller
 
-	require('nvim-lsp-installer').setup {
-		automatic_installation = true
-	}
+        require('nvim-lsp-installer').setup {
+                automatic_installation = true
+        }
 
-	-- Treesitter
-	require'nvim-treesitter.configs'.setup {
-		ensure_installed = { "bash", "c_sharp", "css", "dart", "dockerfile", "go", "html", "java", 
-			"javascript", "json", "lua", "python", "ruby", "rust", "scss", "typescript", "vim", "vue", 
-			"yaml" 
-		},
-	  highlight = {
-	    enable = true,
-	  },
-		indent = {
-			enable = true
-		}
-	}
+        -- Treesitter
+        require'nvim-treesitter.configs'.setup {
+                ensure_installed = { "bash", "c_sharp", "css", "dart", "dockerfile", "go", "html", "java",
+                        "javascript", "json", "lua", "python", "ruby", "rust", "scss", "typescript", "vim", "vue",
+                        "yaml"
+                },
+          highlight = {
+            enable = true,
+          },
+                indent = {
+                        enable = true
+                }
+        }
 
-	-- Lsp
-	local nvim_lsp = require('lspconfig')
-	local protocol = require('vim.lsp.protocol')
-	local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-	local cmp = require'cmp'
+        -- Lsp
+        local nvim_lsp = require('lspconfig')
+        local protocol = require('vim.lsp.protocol')
+        local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+        local cmp = require'cmp'
 
-	local on_attach = function(client, bufnr)
-		local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-		local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+        local on_attach = function(client, bufnr)
+                local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+                local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-		if client.resolved_capabilities.document_formatting then
-			-- vim.api.nvim_command [[augroup Format]]
-			-- vim.api.nvim_command [[autocmd! * <buffer>]]
-			-- vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
-			-- vim.api.nvim_command [[augroup END]]
-		end
+                if client.resolved_capabilities.document_formatting then
+                        vim.api.nvim_command [[augroup Format]]
+                        vim.api.nvim_command [[autocmd! * <buffer>]]
+                        vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
+                        vim.api.nvim_command [[augroup END]]
+                end
 
-	end
-	
-	cmp.setup({
+        end
+
+        cmp.setup({
     snippet = {
       expand = function(args)
         vim.fn["vsnip#anonymous"](args.body)
@@ -183,31 +182,31 @@ lua << EOF
       ['<C-f>'] = cmp.mapping.scroll_docs(-4),
       ['<C-b>'] = cmp.mapping.scroll_docs(4),
       ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-   	  ["<C-n>"] = cmp.mapping(function(fallback)
-   	    if cmp.visible() then
-   	      cmp.select_next_item()
-   	    elseif vim.fn["vsnip#available"](1) == 1 then
-   	      feedkey("<Plug>(vsnip-expand-or-jump)", "")
-   	    elseif has_words_before() then
-   	      cmp.complete()
-   	    else
-   	      fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
-   	    end
-   	  end, { "i", "s" }),
-   	  ["<C-p>"] = cmp.mapping(function()
-   	    if cmp.visible() then
-   	      cmp.select_prev_item()
-   	    elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-   	      feedkey("<Plug>(vsnip-jump-prev)", "")
-   	    end
-   	  end, { "i", "s" }),
-   	  }),
-   	  sources = cmp.config.sources({
-   	    { name = 'nvim_lsp' },
-   	    { name = 'vsnip' }, 
-   	  }, {
-   	    { name = 'buffer' },
-   	  })
+          ["<C-n>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_next_item()
+            elseif vim.fn["vsnip#available"](1) == 1 then
+              feedkey("<Plug>(vsnip-expand-or-jump)", "")
+            elseif has_words_before() then
+              cmp.complete()
+            else
+              fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+            end
+          end, { "i", "s" }),
+          ["<C-p>"] = cmp.mapping(function()
+            if cmp.visible() then
+              cmp.select_prev_item()
+            elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+              feedkey("<Plug>(vsnip-jump-prev)", "")
+            end
+          end, { "i", "s" }),
+          }),
+          sources = cmp.config.sources({
+            { name = 'nvim_lsp' },
+            { name = 'vsnip' },
+          }, {
+            { name = 'buffer' },
+          })
   })
 
   cmp.setup.cmdline('/', {
@@ -226,170 +225,163 @@ lua << EOF
     })
   })
 
-  -- Check for install new servers: 
-	-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+  -- Check for install new servers:
+        -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 
-	local nvim_lsp_handler = {
+        local nvim_lsp_handler = {
      ["textDocument/publishDiagnostics"] = vim.lsp.with(
        vim.lsp.diagnostic.on_publish_diagnostics, {
-        -- Disable virtual_text
         virtual_text = false
        }
     ),
-	}
+        }
 
-	nvim_lsp.tsserver.setup {
-		on_attach = on_attach,
-		handlers = nvim_lsp_handler,
-		capabilities = capabilities,
-		filetypes = { "javascript", "typescript", "typescriptreact", "typescript.tsx" },
-		root_dir = function() return vim.loop.cwd() end
-	}
+        nvim_lsp.tsserver.setup {
+                on_attach = on_attach,
+                capabilities = capabilities,
+                filetypes = { "javascript", "typescript", "typescriptreact", "typescript.tsx" },
+                root_dir = function() return vim.loop.cwd() end
+        }
 
-	nvim_lsp.eslint.setup {
-		handlers = nvim_lsp_handler,
-		capabilities = capabilities,
-	}
+        nvim_lsp.eslint.setup {
+                capabilities = capabilities,
+        }
 
-	nvim_lsp.jsonls.setup {
-		handlers = nvim_lsp_handler,
-		capabilities = capabilities,
-	}
+        nvim_lsp.jsonls.setup {
+                capabilities = capabilities,
+        }
 
-	nvim_lsp.angularls.setup {
-		--handlers = nvim_lsp_handler,
-		capabilities = capabilities,
-	}
+        nvim_lsp.angularls.setup {
+                capabilities = capabilities,
+        }
 
-	nvim_lsp.jdtls.setup {
-		handlers = nvim_lsp_handler,
-		capabilities = capabilities,
-		-- cmd = {
-		-- 	'java',
-  	-- 	'-Declipse.application=org.eclipse.jdt.ls.core.id1',
-  	-- 	'-Dosgi.bundles.defaultStartLevel=4',
-  	-- 	'-Declipse.product=org.eclipse.jdt.ls.core.product',
-  	-- 	'-Dlog.protocol=true',
-  	-- 	'-Dlog.level=ALL',
-  	-- 	'-Xms1g',
-  	-- 	'-Xmx2G',
-  	-- 	'-javaagent:$HOME/.config/nvim/lombok.jar',
-  	-- 	'-Xbootclasspath/a:$HOME/.config/nvim/lombok.jar',
-		-- 	'--add-modules=ALL-SYSTEM',
-		-- 	'--add-opens', 'java.base/java.util=ALL-UNNAMED',
-		-- 	'--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-  	-- 	'-jar', '$HOME/Programs/jdtls/plugins/org.eclipse.equinox.launcher_*.jar',
-  	-- 	'-configuration', '$HOME/Programs/jdtls/config_mac',
-  	-- 	'-data', '/Users/lambert/workspace/spring-boot-security',
-		-- }
-	}
+        nvim_lsp.jdtls.setup {
+                capabilities = capabilities,
+                cmd = {
+                        'java',
+                '-Declipse.application=org.eclipse.jdt.ls.core.id1',
+                '-Dosgi.bundles.defaultStartLevel=4',
+                '-Declipse.product=org.eclipse.jdt.ls.core.product',
+                '-Dlog.protocol=true',
+                '-Dlog.level=ALL',
+                '-Xms1g',
+                '-Xmx2G',
+                '-javaagent:$HOME/.config/nvim/lombok.jar',
+                '-Xbootclasspath/a:$HOME/.config/nvim/lombok.jar',
+                        '--add-modules=ALL-SYSTEM',
+                        '--add-opens', 'java.base/java.util=ALL-UNNAMED',
+                        '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
+                '-jar', '$HOME/Programs/jdtls/plugins/org.eclipse.equinox.launcher_*.jar',
+                '-configuration', '$HOME/Programs/jdtls/config_linux',
+                -- '-configuration', '$HOME/Programs/jdtls/config_mac',
+                '-data', '/home/lambert/Development/temp/mvp-builders/customers',
+                }
+        }
 
-	nvim_lsp.html.setup {
-		handlers = nvim_lsp_handler,
-		capabilities = capabilities,
-		-- cmd = { "html-languageserver", "--stdio" },
-		cmd = { "vscode-html-language-server", "--stdio" },
-		filetypes = { "html" },
-		init_options = {
-			configurationSection = { "html", "css", "javascript" },
-			embeddedLanguages = {
-				css = true,
-				javascript = true
-			}
-		},
-		settings = {}
-	}
+        nvim_lsp.html.setup {
+                capabilities = capabilities,
+                cmd = { "vscode-html-language-server", "--stdio" },
+                filetypes = { "html" },
+                init_options = {
+                        configurationSection = { "html", "css", "javascript" },
+                        embeddedLanguages = {
+                                css = true,
+                                javascript = true
+                        }
+                },
+                settings = {}
+        }
 
-	nvim_lsp.omnisharp.setup {
-		handlers = nvim_lsp_handler,
-		capabilities = capabilities,
-	}
+        -- nvim_lsp.omnisharp.setup {
+        --      capabilities = capabilities,
+        -- }
 
-	nvim_lsp.cssls.setup {
-		handlers = nvim_lsp_handler,
-	  capabilities = capabilities,
-	}
-	
-	-- Lualine 
-	require('lualine').setup {
-  	options = {
-  	  icons_enabled = true,
-  	  theme = 'auto',
-  	  component_separators = { left = '', right = ''},
-  	  section_separators = { left = '', right = ''},
-  	  disabled_filetypes = {},
-  	  always_divide_middle = true,
-  	  globalstatus = false,
-  	},
-  	sections = {
-  	  lualine_a = {'mode'},
-  	  lualine_b = {'branch', 'diff', 'diagnostics'},
-			lualine_c = {{ 'filename', file_status = false, path = 1 }},
-  	  lualine_x = {'filetype'},
-  	  lualine_y = {'progress'},
-  	  lualine_z = {'location'}
-  	},
-  	inactive_sections = {
-  	  lualine_a = {},
-  	  lualine_b = {},
-  	  lualine_c = {'filename'},
-  	  lualine_x = {'location'},
-  	  lualine_y = {},
-  	  lualine_z = {}
-  	},
-  	tabline = {},
-  	extensions = {}
-	}
+        nvim_lsp.cssls.setup {
+          capabilities = capabilities,
+        }
 
-	-- lspsaga
-	local saga = require'lspsaga'
-	saga.init_lsp_saga {
-		debug = false,
-  	use_saga_diagnostic_sign = true,
-  	-- diagnostic sign
-  	error_sign = "",
-  	warn_sign = "",
-  	hint_sign = "",
-  	infor_sign = "",
-  	diagnostic_header_icon = "   ",
-  	-- code action title icon
-  	code_action_icon = " ",
-  	code_action_prompt = {
-  	  enable = false,
-  	  sign = true,
-  	  sign_priority = 40,
-  	  virtual_text = false,
-  	},
-  	finder_definition_icon = "  ",
-  	finder_reference_icon = "  ",
-  	max_preview_lines = 10,
-  	finder_action_keys = {
-  	  open = "o",
-  	  vsplit = "s",
-  	  split = "i",
-  	  quit = "q",
-  	  scroll_down = "<C-F>",
-  	  scroll_up = "<C-B>",
-  	},
-  	code_action_keys = {
-  	  quit = "q",
-  	  exec = "<CR>",
-  	},
-  	rename_action_keys = {
-  	  quit = "<C-c>",
-  	  exec = "<CR>",
-  	},
-  	definition_preview_icon = "  ",
-  	border_style = "single",
-  	rename_prompt_prefix = "➤",
-  	rename_output_qflist = {
-  	  enable = false,
-  	  auto_open_qflist = false,
-  	},
-  	server_filetype_map = {},
-  	diagnostic_prefix_format = "%d. ",
-  	diagnostic_message_format = "%m %c",
-  	highlight_prefix = false,
-	}
+        -- Lualine
+        require('lualine').setup {
+        options = {
+          icons_enabled = true,
+          theme = 'auto',
+          component_separators = { left = '', right = ''},
+          section_separators = { left = '', right = ''},
+          disabled_filetypes = {},
+          always_divide_middle = true,
+          globalstatus = false,
+        },
+        sections = {
+          lualine_a = {'mode'},
+          lualine_b = {'branch', 'diff', 'diagnostics'},
+                        lualine_c = {{ 'filename', file_status = false, path = 1 }},
+          lualine_x = {'filetype'},
+          lualine_y = {'progress'},
+          lualine_z = {'location'}
+        },
+        inactive_sections = {
+          lualine_a = {},
+          lualine_b = {},
+          lualine_c = {'filename'},
+          lualine_x = {'location'},
+          lualine_y = {},
+          lualine_z = {}
+        },
+        tabline = {},
+        extensions = {}
+        }
+
+        -- lspsaga
+        local saga = require'lspsaga'
+        saga.init_lsp_saga {
+                debug = false,
+        use_saga_diagnostic_sign = true,
+        -- diagnostic sign
+        error_sign = "",
+        warn_sign = "",
+        hint_sign = "",
+        infor_sign = "",
+        diagnostic_header_icon = "   ",
+        -- code action title icon
+        code_action_icon = " ",
+        code_action_prompt = {
+          enable = false,
+          sign = true,
+          sign_priority = 40,
+          virtual_text = false,
+        },
+        finder_definition_icon = "  ",
+        finder_reference_icon = "  ",
+        max_preview_lines = 10,
+        finder_action_keys = {
+          open = "o",
+          vsplit = "s",
+          split = "i",
+          quit = "q",
+          scroll_down = "<C-F>",
+          scroll_up = "<C-B>",
+        },
+        code_action_keys = {
+          quit = "q",
+          exec = "<CR>",
+        },
+        rename_action_keys = {
+          quit = "<C-c>",
+          exec = "<CR>",
+        },
+        definition_preview_icon = "  ",
+        border_style = "single",
+        rename_prompt_prefix = "➤",
+        rename_output_qflist = {
+          enable = false,
+          auto_open_qflist = false,
+        },
+        server_filetype_map = {},
+        diagnostic_prefix_format = "%d. ",
+        diagnostic_message_format = "%m %c",
+        highlight_prefix = false,
+        }
+
+        require("nvim-autopairs").setup {}
 
 EOF
