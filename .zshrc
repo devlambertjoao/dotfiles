@@ -86,7 +86,7 @@ alias dnc="dotnet clean"
 alias gcdws="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome http://localhost:4200 --disable-web-security --user-data-dir=/tmp/google-chrome-temp"
 
 # Java Home
-export JAVA_HOME=$HOME/Programs/jdk-17.jdk/Contents/Home/
+export JAVA_HOME=$HOME/Programs/jdk-17.jdk/Contents/Home
 # Linux
 # export JAVA_HOME=$HOME/Programs/jdk-17.0.4
 export PATH=$PATH:$JAVA_HOME
