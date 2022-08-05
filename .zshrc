@@ -4,9 +4,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Themes
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
-# Gruvbox: curl -L https://raw.githubusercontent.com/sbugzu/gruvbox-zsh/master/gruvbox.zsh-theme > ~/.oh-my-zsh/custom/themes/gruvbox.zsh-theme
 ZSH_THEME="purify"
-# SOLARIZED_THEME="dark"
 
 # Settings
 ENABLE_CORRECTION="true"
@@ -110,7 +108,7 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # Flutter
-export FLUTTER_PATH_HOME=/Users/lambert/Programs/flutter
+export FLUTTER_PATH_HOME=$HOME/Programs/flutter
 export PATH=$PATH:$FLUTTER_PATH_HOME/bin
 
 # Yarn
@@ -130,8 +128,7 @@ export PATH=~/.npm-global/bin:$PATH
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # C#
-export PATH="$PATH:/Users/lambert/.dotnet/tools"
-
+export PATH="$PATH:$HOME/.dotnet/tools"
 
 export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
 
