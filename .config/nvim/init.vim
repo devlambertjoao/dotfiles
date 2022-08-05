@@ -135,17 +135,11 @@ autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll
 
 lua << EOF
 	-- LspInstaller
-	require("nvim-lsp-installer").setup({
-    		automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
-    		ui = {
-        		icons = {
-            			server_installed = "✓",
-            			server_pending = "➜",
-            			server_uninstalled = "✗"
-        		}
-    		}
-	})
-	
+
+	require('nvim-lsp-installer').setup {
+		automatic_installation = true
+	}
+
 	-- Treesitter
 	require'nvim-treesitter.configs'.setup {
 		ensure_installed = { "bash", "c_sharp", "css", "dart", "dockerfile", "go", "html", "java", 
@@ -257,14 +251,37 @@ lua << EOF
 		capabilities = capabilities,
 	}
 
-	nvim_lsp.angularls.setup {
+	nvim_lsp.jsonls.setup {
 		handlers = nvim_lsp_handler,
-	 	capabilities = capabilities,
+		capabilities = capabilities,
+	}
+
+	nvim_lsp.angularls.setup {
+		--handlers = nvim_lsp_handler,
+		capabilities = capabilities,
 	}
 
 	nvim_lsp.jdtls.setup {
 		handlers = nvim_lsp_handler,
 		capabilities = capabilities,
+		-- cmd = {
+		-- 	'java',
+  	-- 	'-Declipse.application=org.eclipse.jdt.ls.core.id1',
+  	-- 	'-Dosgi.bundles.defaultStartLevel=4',
+  	-- 	'-Declipse.product=org.eclipse.jdt.ls.core.product',
+  	-- 	'-Dlog.protocol=true',
+  	-- 	'-Dlog.level=ALL',
+  	-- 	'-Xms1g',
+  	-- 	'-Xmx2G',
+  	-- 	'-javaagent:$HOME/.config/nvim/lombok.jar',
+  	-- 	'-Xbootclasspath/a:$HOME/.config/nvim/lombok.jar',
+		-- 	'--add-modules=ALL-SYSTEM',
+		-- 	'--add-opens', 'java.base/java.util=ALL-UNNAMED',
+		-- 	'--add-opens', 'java.base/java.lang=ALL-UNNAMED',
+  	-- 	'-jar', '$HOME/Programs/jdtls/plugins/org.eclipse.equinox.launcher_*.jar',
+  	-- 	'-configuration', '$HOME/Programs/jdtls/config_mac',
+  	-- 	'-data', '/Users/lambert/workspace/spring-boot-security',
+		-- }
 	}
 
 	nvim_lsp.html.setup {
@@ -292,7 +309,7 @@ lua << EOF
 		handlers = nvim_lsp_handler,
 	  capabilities = capabilities,
 	}
-
+	
 	-- Lualine 
 	require('lualine').setup {
   	options = {
@@ -308,7 +325,7 @@ lua << EOF
   	  lualine_a = {'mode'},
   	  lualine_b = {'branch', 'diff', 'diagnostics'},
 			lualine_c = {{ 'filename', file_status = false, path = 1 }},
-  	  lualine_x = {'encoding', 'fileformat', 'filetype'},
+  	  lualine_x = {'filetype'},
   	  lualine_y = {'progress'},
   	  lualine_z = {'location'}
   	},
