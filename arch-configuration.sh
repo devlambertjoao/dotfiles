@@ -52,10 +52,12 @@ asdf global java openjdk-15
 sudo pacman -S maven
 
 # JDK from oracle
-mv ~/Downloads/jdk-11.0.15_linux-x64_bin.tar.gz ~/Programs/jdk-11.0.15_linux-x64_bin.tar.gz
+cd Downloads
+wget https://download.oracle.com/java/17/archive/jdk-17.0.4_linux-x64_bin.tar.gz
+mv ~/Downloads/jdk-17.0.4_linux-x64_bin.tar.gz ~/Programs/jdk-17.0.4_linux-x64_bin.tar.gz
 cd ~/Programs
-tar -zxvf jdk-11.0.15_linux-x64_bin.tar.gz
-rm jdk-11.0.15_linux-x64_bin.tar.gz
+tar -zxvf jdk-17.0.4_linux-x64_bin.tar.gz
+rm jdk-17.0.4_linux-x64_bin.tar.gz
 cd 
 
 # Nodejs
