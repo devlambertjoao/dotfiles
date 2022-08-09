@@ -47,6 +47,11 @@ asdf plugin-add java https://github.com/halcyon/asdf-java.git
 asdf install java openjdk-15
 asdf global java openjdk-15
 
+# Rust
+asdf plugin-add rust https://github.com/code-lever/asdf-rust.git
+asdf install rust stable
+asdf global rust stable
+
 # JDK from oracle
 cd Downloads
 wget https://download.oracle.com/java/17/archive/jdk-17.0.4_linux-x64_bin.tar.gz
