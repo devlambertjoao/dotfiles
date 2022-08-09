@@ -23,7 +23,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'windwp/nvim-autopairs'
 
 " Theme
-Plug 'kyoz/purify', { 'rtp': 'vim' }
+Plug 'drewtempelmeyer/palenight.vim'
 
 " FZF (Finder)
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -94,7 +94,8 @@ set completeopt=menuone,noinsert,noselect
 set signcolumn=yes:1
 
 " Theme
-colorscheme purify
+set background=dark
+colorscheme palenight
 
 " FZF
 nnoremap <C-p> :Files<CR>
@@ -136,7 +137,7 @@ lua << EOF
         -- LspInstaller
 
         require('nvim-lsp-installer').setup {
-                automatic_installation = true
+                automatic_installation = false
         }
 
         -- Treesitter
@@ -228,54 +229,11 @@ lua << EOF
   -- Check for install new servers:
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 
-        local nvim_lsp_handler = {
-     ["textDocument/publishDiagnostics"] = vim.lsp.with(
-       vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = false
-       }
-    ),
-        }
-
         nvim_lsp.tsserver.setup {
                 on_attach = on_attach,
                 capabilities = capabilities,
                 filetypes = { "javascript", "typescript", "typescriptreact", "typescript.tsx" },
                 root_dir = function() return vim.loop.cwd() end
-        }
-
-        nvim_lsp.eslint.setup {
-                capabilities = capabilities,
-        }
-
-        nvim_lsp.jsonls.setup {
-                capabilities = capabilities,
-        }
-
-        nvim_lsp.angularls.setup {
-                capabilities = capabilities,
-        }
-
-        nvim_lsp.jdtls.setup {
-                capabilities = capabilities,
-                cmd = {
-                        'java',
-                '-Declipse.application=org.eclipse.jdt.ls.core.id1',
-                '-Dosgi.bundles.defaultStartLevel=4',
-                '-Declipse.product=org.eclipse.jdt.ls.core.product',
-                '-Dlog.protocol=true',
-                '-Dlog.level=ALL',
-                '-Xms1g',
-                '-Xmx2G',
-                '-javaagent:$HOME/.config/nvim/lombok.jar',
-                '-Xbootclasspath/a:$HOME/.config/nvim/lombok.jar',
-                        '--add-modules=ALL-SYSTEM',
-                        '--add-opens', 'java.base/java.util=ALL-UNNAMED',
-                        '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-                '-jar', '$HOME/Programs/jdtls/plugins/org.eclipse.equinox.launcher_*.jar',
-                '-configuration', '$HOME/Programs/jdtls/config_linux',
-                -- '-configuration', '$HOME/Programs/jdtls/config_mac',
-                '-data', '/home/lambert/Development/temp/mvp-builders/customers',
-                }
         }
 
         nvim_lsp.html.setup {
@@ -292,9 +250,61 @@ lua << EOF
                 settings = {}
         }
 
-        -- nvim_lsp.omnisharp.setup {
-        --      capabilities = capabilities,
-        -- }
+        nvim_lsp.eslint.setup {
+                capabilities = capabilities,
+        }
+
+        nvim_lsp.angularls.setup {
+                capabilities = capabilities,
+        }
+
+        nvim_lsp.jsonls.setup {
+                capabilities = capabilities,
+        }
+
+
+        local user_home = '/home/lambert/'
+        local jdtls_version = '1.6.400.v20210924-0641'
+        local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+        local workspace_dir = user_home .. 'Development/jdtls-workspace/' .. project_name
+
+        nvim_lsp.jdtls.setup {
+                capabilities = capabilities,
+                cmd = {
+                        'java',
+                '-Declipse.application=org.eclipse.jdt.ls.core.id1',
+                '-Dosgi.bundles.defaultStartLevel=4',
+                '-Declipse.product=org.eclipse.jdt.ls.core.product',
+                '-Dlog.protocol=true',
+                '-Dlog.level=ALL',
+                '-Xms1g',
+                '-Xmx2G',
+                '-javaagent:' .. user_home .. '.config/nvim/lombok.jar',
+                '-Xbootclasspath/a:' .. user_home .. '.config/nvim/lombok.jar',
+                        '--add-modules=ALL-SYSTEM',
+                        '--add-opens', 'java.base/java.util=ALL-UNNAMED',
+                        '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
+                '-jar', user_home .. 'Programs/jdtls/plugins/org.eclipse.equinox.launcher_' .. jdtls_version .. '.jar',
+                '-configuration', user_home .. 'Programs/jdtls/config_linux',
+                '-data', workspace_dir,
+                },
+
+                settings = {
+                        java = {
+                                configuration = {
+                                        runtimes = {
+                                                name = 'JavaSE-17',
+                                                path = user_home .. 'Programs/jdk-17.0.4/'
+                                        }
+                                }
+                        }
+                }
+        }
+
+
+        nvim_lsp.omnisharp.setup {
+                capabilities = capabilities,
+        }
 
         nvim_lsp.cssls.setup {
           capabilities = capabilities,
