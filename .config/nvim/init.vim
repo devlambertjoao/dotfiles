@@ -163,7 +163,10 @@ lua << EOF
         local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
         local cmp = require'cmp'
         local root_pattern = nvim_lsp.util.root_pattern
-        local user_home = '/home/lambert/'
+        local user_home = '/home/lambert'
+        -- local user_home = '/Users/lambert/'
+        local java_home = 'Programs/jdk-17.0.4/'
+        -- local java_home = 'Programs/jdk-17.jdk/Contents/Home'
 
         local on_attach = function(client, bufnr)
                 local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -397,7 +400,7 @@ lua << EOF
                                         checkProjectSettingsExclusions = false,
                                         runtimes = {
                                                         name = 'JavaSE-17',
-                                                        path = user_home .. 'Programs/jdk-17.0.4/'
+                                                        path = user_home .. java_home
                                         }
                                 },
                                 format = {
