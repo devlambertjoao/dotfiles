@@ -29,7 +29,8 @@ sudo pacman -S zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-wget https://raw.githubusercontent.com/kyoz/purify/master/zsh/purify.zsh-theme -O ~/.oh-my-zsh/themes/purify.zsh-theme
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >> ~/.zshrc
 wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/.zshrc
 sudo mv .zshrc.1 .zshrc
 ###################################################### END ZSH ######################################################
@@ -112,14 +113,14 @@ dotnet tool install --global csharp-ls
 
 ###################################################### START Neovim ######################################################
 # sudo apt install neovim silversearcher-ag ctags
-sudo pacman -S neovim the_silver_searcher ctags
+sudo pacman -S neovim the_silver_searcher bat fd ripgrep
 pip install neovim
 mkdir -p ~/.config/nvim
 cd ~/.config/nvim
-wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/.config/nvim/init.vim
 wget https://projectlombok.org/downloads/lombok.jar
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/.config/nvim/init.vim
 
 ################## LSP Deps
 # JDTLS (Java)
