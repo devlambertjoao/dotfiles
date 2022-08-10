@@ -114,6 +114,9 @@ dotnet tool install --global csharp-ls
 ###################################################### START Neovim ######################################################
 # sudo apt install neovim silversearcher-ag ctags
 sudo pacman -S neovim the_silver_searcher bat fd ripgrep
+# For Mac
+sudo port install fd bat ripgrep
+
 pip install neovim
 mkdir -p ~/.config/nvim
 cd ~/.config/nvim
