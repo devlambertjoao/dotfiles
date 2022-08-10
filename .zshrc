@@ -1,10 +1,17 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 # Themes
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
-ZSH_THEME="purify"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Settings
 ENABLE_CORRECTION="true"
@@ -86,9 +93,9 @@ alias dnc="dotnet clean"
 alias gcdws="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome http://localhost:4200 --disable-web-security --user-data-dir=/tmp/google-chrome-temp"
 
 # Java Home
-export JAVA_HOME=$HOME/Programs/jdk-17.jdk/Contents/Home
+# export JAVA_HOME=$HOME/Programs/jdk-17.jdk/Contents/Home
 # Linux
-# export JAVA_HOME=$HOME/Programs/jdk-17.0.4
+export JAVA_HOME=$HOME/Programs/jdk-17.0.4
 export PATH=$PATH:$JAVA_HOME
 
 # JDTLS
@@ -125,8 +132,6 @@ export PATH=~/.npm-global/bin:$PATH
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
 # C#
 export PATH="$PATH:$HOME/.dotnet/tools"
 
@@ -136,3 +141,6 @@ alias lvim=$HOME/.local/bin/lvim
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
