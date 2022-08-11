@@ -165,8 +165,8 @@ lua << EOF
         local root_pattern = nvim_lsp.util.root_pattern
         local user_home = '/home/lambert'
         -- local user_home = '/Users/lambert/'
-        local java_home = 'Programs/jdk-17.0.4/'
-        -- local java_home = 'Programs/jdk-17.jdk/Contents/Home'
+        local java_home = user_home .. 'Programs/jdk-17.0.4/'
+        -- local java_home = user_home .. 'Programs/jdk-17.jdk/Contents/Home'
 
         local on_attach = function(client, bufnr)
                 local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -181,15 +181,15 @@ lua << EOF
                 -- Code Navigation
                 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, buf_opts)
                 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, buf_opts)
-        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, buf_opts)
-        vim.keymap.set('n', 'gr', vim.lsp.buf.references, buf_opts)
-        vim.keymap.set('n', 'rn', vim.lsp.buf.rename, buf_opts)
-        vim.keymap.set('n', 'C', vim.lsp.buf.code_action, buf_opts)
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover, buf_opts)
+                vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, buf_opts)
+                vim.keymap.set('n', 'gr', vim.lsp.buf.references, buf_opts)
+                vim.keymap.set('n', 'rn', vim.lsp.buf.rename, buf_opts)
+                vim.keymap.set('n', 'C', vim.lsp.buf.code_action, buf_opts)
+                vim.keymap.set('n', 'K', vim.lsp.buf.hover, buf_opts)
                 vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, buf_opts)
 
                 -- Code Formating
-        vim.keymap.set('n', 'gf', vim.lsp.buf.formatting, buf_opts)
+                vim.keymap.set('n', 'gf', vim.lsp.buf.formatting, buf_opts)
 
                 -- Diagnostics
                 vim.keymap.set('n', 'dp', vim.diagnostic.goto_prev, diag_opts)
@@ -199,17 +199,15 @@ lua << EOF
 
         -- Diagnostic Setup
         vim.diagnostic.config({
-        -- virtual_text = {
-        --   prefix = '●',
-        -- },
-                virtual_text = false,
+        virtual_text = {
+          prefix = '●',
+        },
+        -- virtual_text = false,
         severity_sort = true,
         float = {
           source = "always",
         },
         })
-
-        vim.cmd [[ autocmd! CursorHold * lua vim.diagnostic.open_float() ]]
 
         local signs = { Error = "", Warn = "", Hint = "", Info = "" }
         for type, icon in pairs(signs) do
@@ -291,7 +289,7 @@ lua << EOF
 
 
         -- Servers for LSP
-  -- Check for install new servers:
+        -- Check for install new servers:
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 
         nvim_lsp.eslint.setup {
@@ -400,7 +398,7 @@ lua << EOF
                                         checkProjectSettingsExclusions = false,
                                         runtimes = {
                                                         name = 'JavaSE-17',
-                                                        path = user_home .. java_home
+                                                        path = java_home
                                         }
                                 },
                                 format = {
