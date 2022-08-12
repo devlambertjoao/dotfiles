@@ -194,6 +194,7 @@ lua << EOF
                 -- Diagnostics
                 vim.keymap.set('n', 'dp', vim.diagnostic.goto_prev, diag_opts)
                 vim.keymap.set('n', 'dn', vim.diagnostic.goto_next, diag_opts)
+                vim.keymap.set('n', '<leader>do', vim.diagnostic.goto_next, diag_opts)
                 vim.keymap.set('n', '<leader>dd', '<cmd>Telescope diagnostics<CR>', diag_opts)
         end
 
