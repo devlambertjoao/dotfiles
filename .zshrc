@@ -25,6 +25,8 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR="nvim"
 
 # Alias
+# My Dotfiles
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.devlambertjoao/ --work-tree=$HOME'
 # Utils
 alias fa="cat ~/.zshrc | grep alias | less"
 alias fag="cat ~/.zshrc | grep"
