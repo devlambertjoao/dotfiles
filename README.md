@@ -1,5 +1,6 @@
-Clone your github repository
-git clone --bare https://github.com/devlambertjoao/dotfiles.git $HOME/.devlambertjoao\
+# Clone your github repository
+
+> git clone --bare https://github.com/devlambertjoao/dotfiles.git $HOME/.devlambertjoao\
 
 # Manage dotfiles
 dotfiles status
