@@ -7,10 +7,7 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 local cmp = require'cmp'
 local root_pattern = nvim_lsp.util.root_pattern
 
-local user_home = '/home/lambert'
--- local user_home = '/Users/lambert/'
-local java_home = user_home .. 'Programs/jdk-17.0.4/'
--- local java_home = user_home .. 'Programs/jdk-17.jdk/Contents/Home'
+local user_home = os.getenv("HOME")
 
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -143,14 +140,22 @@ nvim_lsp.jsonls.setup {
 }
 
 -- Java
+local java_home = os.getenv("JAVA_HOME")
+
+local os_name = os.getenv("OS_NAME")
+local jdtls_config_path = '/config_linux'
+if (os_name == "MacOS") then 
+  jdtls_config_path = user_home .. '/config_osx' 
+end
+
 local jdtls_version = '1.6.400.v20210924-0641'
-local jdtls_jar = user_home .. 'Programs/jdtls/plugins/org.eclipse.equinox.launcher_' .. jdtls_version .. '.jar';
-local jdtls_configuration = user_home .. 'Programs/jdtls/config_osx' -- config_linux 
+local jdtls_jar = user_home .. '/Programs/jdtls/plugins/org.eclipse.equinox.launcher_' .. jdtls_version .. '.jar';
+local jdtls_configuration = user_home .. '/Programs/jdtls' .. jdtls_config_path 
 
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
-local workspace_dir = user_home .. 'Programs/workspace/' .. project_name
+local workspace_dir = user_home .. '/Programs/workspace/' .. project_name
 
-local lombok = user_home .. 'Programs/lombok.jar'
+local lombok = user_home .. '/Programs/lombok.jar'
 
 nvim_lsp.jdtls.setup {
   capabilities = capabilities,
@@ -209,7 +214,7 @@ nvim_lsp.jdtls.setup {
 }
 
 -- .NET, C#
-local omnisharp_dll = user_home .. 'Programs/omnisharp-net6.0/OmniSharp.dll' 
+local omnisharp_dll = user_home .. '/Programs/omnisharp-net6.0/OmniSharp.dll' 
 
 nvim_lsp.omnisharp.setup {
   capabilities = capabilities,
