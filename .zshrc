@@ -8,13 +8,11 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Themes
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-
+# Theme
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Settings
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 COMPLETION_WAITING_DOTS="true"
 
 plugins=(git rails ruby dotnet history compleat zsh-autosuggestions zsh-syntax-highlighting)
@@ -92,17 +90,26 @@ alias dnb="dotnet build"
 alias dnnr="dotnet nuget restore"
 alias dnc="dotnet clean"
 # Google Chrome Disabling web security
-alias gcdws="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome http://localhost:4200 --disable-web-security --user-data-dir=/tmp/google-chrome-temp"
+case `uname` in 
+  Darwin)
+    alias gcdws="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome http://localhost:4200 --disable-web-security --user-data-dir=/tmp/google-chrome-temp"
+  ;;
+esac
 
 # Java Home
-export JAVA_HOME=$HOME/Programs/jdk-17.jdk/Contents/Home
-# Linux
-# export JAVA_HOME=$HOME/Programs/jdk-17.0.4
+case `uname` in 
+  Darwin)
+    export JAVA_HOME=$HOME/Programs/jdk-17.jdk/Contents/Home
+  ;;
+  Linux)
+    export JAVA_HOME=$HOME/Programs/jdk-17.0.4
+  ;;
+esac
 export PATH=$PATH:$JAVA_HOME
 
 # JDTLS
 export JDTLS_HOME=$HOME/Programs/jdtls/
-export JDTLS_JVM_ARGS="-javaagent:$HOME/.config/nvim/lombok.jar -Xbootclasspath/a:$HOME/.config/nvim/lombok.jar"
+export JDTLS_JVM_ARGS="-javaagent:$HOME/Programs/lombok.jar -Xbootclasspath/a:$HOME/Programs/lombok.jar"
 
 # Maven
 export M2_HOME=$HOME/Programs/apache-maven-3.8.2
