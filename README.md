@@ -1,6 +1,9 @@
 # Clone your github repository
 
-> git clone --bare https://github.com/devlambertjoao/dotfiles.git $HOME/.devlambertjoao
+> git clone --bare  $HOME/.devlambertjoao
+> source .zshrc
+> dotfiles checkout
+> dotfiles config --local status.showUntrackedFiles no
 
 # Manage dotfiles
 dotfiles status
