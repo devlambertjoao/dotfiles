@@ -119,21 +119,22 @@ sudo port install fd bat ripgrep
 pip install neovim
 mkdir -p ~/.config/nvim
 cd ~/.config/nvim
-wget https://projectlombok.org/downloads/lombok.jar
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/.config/nvim/init.vim
 
 ################## LSP Deps
 # JDTLS (Java)
 cd ~/Downloads
 wget https://download.eclipse.org/jdtls/snapshots/jdt-language-server-1.12.0-202205122107.tar.gz
-mkdir -p ~/Programs/jdtls
+mkdir -p c/jdtls
 mv jdt-language-server-1.12.0-202205122107.tar.gz ~/Programs/jdtls
 cd ~/Programs/jdtls
 tar -zxvf jdt-language-server-1.12.0-202205122107.tar.gz
 rm jdt-language-server-1.12.0-202205122107.tar.gz
-cd
+cd ~/Programs
+wget https://projectlombok.org/downloads/lombok.jar
 
 # HTML, CSS (CSSLS), Typescript
 npm i -g typescript typescript-language-server vscode-langservers-extracted eslint eslint_d
