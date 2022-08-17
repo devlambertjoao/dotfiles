@@ -1,5 +1,7 @@
 local keymap = vim.keymap
 
+vim.g.mapleader = " "
+
 keymap.set('n', 'x', '"_x')
 
 -- Increment/decrement
@@ -28,3 +30,6 @@ keymap.set('n', '<C-w><right>', '<C-w>>')
 keymap.set('n', '<C-w><up>', '<C-w>+')
 keymap.set('n', '<C-w><down>', '<C-w>-')
 
+-- Save and Close
+keymap.set('n', '<leader>w', ':w<CR>')
+keymap.set('n', '<leader>q', ':q<CR>')

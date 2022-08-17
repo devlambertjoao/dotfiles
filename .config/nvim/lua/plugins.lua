@@ -28,6 +28,7 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-vsnip' -- Snipets
   use 'hrsh7th/vim-vsnip' -- Snipets
   use 'nvim-lua/plenary.nvim' -- Utils
+  use 'MunifTanjim/prettier.nvim'
 
   -- LSP UI
   use 'onsails/lspkind.nvim' -- Better view on pum completion like vs-code
@@ -58,11 +59,8 @@ return require('packer').startup(function(use)
   use 'nvim-lualine/lualine.nvim' -- Lua Line
   use 'SmiteshP/nvim-gps' -- Lua Line Breadcrumbs
   use 'akinsho/bufferline.nvim' -- Buffer Line
-  use 'lukas-reineke/indent-blankline.nvim' -- Identline
   use 'petertriho/nvim-scrollbar' -- Scrollbar
   use 'kevinhwang91/nvim-hlslens' -- Better Search engine
-  use 'folke/zen-mode.nvim'
-
   use 'tomtom/tcomment_vim' -- Comment lines and code blocks
 
 

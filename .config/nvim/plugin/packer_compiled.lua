@@ -114,11 +114,6 @@ _G.packer_plugins = {
     path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
-  ["indent-blankline.nvim"] = {
-    loaded = true,
-    path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
-    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
-  },
   ["lspkind.nvim"] = {
     loaded = true,
     path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
@@ -209,6 +204,11 @@ _G.packer_plugins = {
     path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["prettier.nvim"] = {
+    loaded = true,
+    path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/prettier.nvim",
+    url = "https://github.com/MunifTanjim/prettier.nvim"
+  },
   tcomment_vim = {
     loaded = true,
     path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/tcomment_vim",
@@ -228,11 +228,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/vim-vsnip",
     url = "https://github.com/hrsh7th/vim-vsnip"
-  },
-  ["zen-mode.nvim"] = {
-    loaded = true,
-    path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/zen-mode.nvim",
-    url = "https://github.com/folke/zen-mode.nvim"
   }
 }
 
