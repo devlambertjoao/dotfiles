@@ -122,6 +122,7 @@ cd ~/.config/nvim
 
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
 wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/.config/nvim/init.vim
 
 ################## LSP Deps
