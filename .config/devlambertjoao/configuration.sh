@@ -34,6 +34,12 @@ wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/.zshrc
 sudo mv .zshrc.1 .zshrc
 ###################################################### END ZSH ######################################################
 
+###################################################### START Homebrew ######################################################
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $HOME/.zprofile
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+###################################################### END Homebrew ######################################################
+
 ###################################################### START Tmux ######################################################
 sudo pacman -S tmux
 wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/.tmux.conf
