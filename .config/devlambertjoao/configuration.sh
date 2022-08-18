@@ -146,11 +146,7 @@ wget https://projectlombok.org/downloads/lombok.jar
 # HTML, CSS (CSSLS), Typescript
 npm i -g typescript typescript-language-server vscode-langservers-extracted eslint eslint_d @fsouza/prettierd
 
-# Lua
-## For Mac
-sudo port install lua-language-server
-
-## For Linux
+# Lua Language Server
 brew install lua-language-server
 
 # Omnisharp (C#)
@@ -171,7 +167,7 @@ cd
 # Pyright
 npm install -g pyright
 
-### Remember to run :PlugInstall on neovim
+### Remember to run :PackerSync on neovim
 ###################################################### END Neovim ######################################################
 
 ###################################################### START STS ######################################################
