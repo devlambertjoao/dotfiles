@@ -104,10 +104,10 @@ nvim_lsp.eslint.setup {
 }
 
 -- Fix All Eslint
--- vim.api.nvim_create_autocmd("BufWritePre", {
--- 	pattern = '*.tsx, *.ts, *.jsx, *.js',
--- 	command = "EslintFixAll"
--- })
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = '*.tsx, *.ts, *.jsx, *.js',
+	command = "EslintFixAll"
+})
 
 -- Typescript
 nvim_lsp.tsserver.setup {
