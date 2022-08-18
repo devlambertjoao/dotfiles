@@ -138,7 +138,14 @@ cd ~/Programs
 wget https://projectlombok.org/downloads/lombok.jar
 
 # HTML, CSS (CSSLS), Typescript
-npm i -g typescript typescript-language-server vscode-langservers-extracted eslint eslint_d
+npm i -g typescript typescript-language-server vscode-langservers-extracted eslint eslint_d @fsouza/prettierd
+
+# Lua
+## For Mac
+sudo port install lua-language-server
+
+## For Linux
+brew install lua-language-server
 
 # Omnisharp (C#)
 cd ~/Downloads
