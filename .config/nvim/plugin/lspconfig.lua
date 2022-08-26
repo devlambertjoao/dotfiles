@@ -8,28 +8,42 @@ local root_pattern = nvim_lsp.util.root_pattern
 local user_home = os.getenv("HOME")
 
 local on_attach = function(client, bufnr)
+	local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
-	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+	local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
+	buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+	local diag_opts = { noremap = true, silent = true }
 	local buf_opts = { noremap = true, silent = true, buffer = bufnr }
 
 	-- Code Navigation
-	-- vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, buf_opts)
-	vim.keymap.set('n', 'gD', vim.lsp.buf.definition, buf_opts)
+	vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, buf_opts)
+	vim.keymap.set('n', 'gd', vim.lsp.buf.definition, buf_opts)
 	vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, buf_opts)
-	-- vim.keymap.set('n', 'gr', vim.lsp.buf.references, buf_opts)
-	-- vim.keymap.set('n', 'rn', vim.lsp.buf.rename, buf_opts)
-	-- vim.keymap.set('n', '<C-c>', vim.lsp.buf.code_action, buf_opts)
-	-- vim.keymap.set('n', 'K', vim.lsp.buf.hover, buf_opts)
-	-- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, buf_opts)
-
-	-- Code Formating
-	-- vim.keymap.set('n', 'gf', vim.lsp.buf.formatting, buf_opts)
+	vim.keymap.set('n', 'gr', vim.lsp.buf.references, buf_opts)
+	vim.keymap.set('n', 'grn', vim.lsp.buf.rename, buf_opts)
+	vim.keymap.set('n', '<C-c>', vim.lsp.buf.code_action, buf_opts)
+	vim.keymap.set('n', 'K', vim.lsp.buf.hover, buf_opts)
+	vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, buf_opts)
 
 	-- Diagnostics
-	-- vim.keymap.set('n', 'dp', vim.diagnostic.goto_prev, diag_opts)
-	-- vim.keymap.set('n', 'dn', vim.diagnostic.goto_next, diag_opts)
-	-- vim.keymap.set('n', '<leader>do', vim.diagnostic.goto_next, diag_opts)
+	vim.keymap.set('n', 'dn', vim.diagnostic.goto_next, diag_opts)
+	vim.keymap.set('n', 'dl', vim.lsp.diagnostic.show_line_diagnostics, diag_opts)
+
+	-- Formating
+	if client.resolved_capabilities.document_formatting then
+		buf_set_keymap("n", "gf", "<cmd>lua vim.lsp.buf.formatting()<CR>", diag_opts)
+	elseif client.resolved_capabilities.document_range_formatting then
+		buf_set_keymap("n", "gf", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", diag_opts)
+	end
+
+	-- Set autocommands conditional on server_capabilities
+	if client.resolved_capabilities.document_highlight then
+		vim.api.nvim_exec([[
+        autocmd CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})
+        ]], false)
+	end
 
 	if client.server_capabilities.documentFormattingProvider then
 		vim.api.nvim_create_autocmd("BufWritePre", {
@@ -42,23 +56,25 @@ end
 
 -- Diagnostic Setup
 vim.diagnostic.config({
-	virtual_text = {
-		prefix = '●',
-	},
+	-- virtual_text = {
+	-- 	prefix = '●',
+	-- },
+	virtual_text = false,
 	severity_sort = true,
 	update_in_insert = true,
 	float = {
 		source = "always",
 	},
 })
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-	vim.lsp.diagnostic.on_publish_diagnostics, {
-	underline = true,
-	update_in_insert = false,
-	virtual_text = { spacing = 4, prefix = "●" },
-	severity_sort = true,
-}
-)
+
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+-- 	vim.lsp.diagnostic.on_publish_diagnostics, {
+-- 	underline = true,
+-- 	update_in_insert = false,
+-- 	virtual_text = { spacing = 4, prefix = "●" },
+-- 	severity_sort = true,
+-- }
+-- )
 
 local signs = { Error = "", Warn = "", Hint = "", Info = "" }
 for type, icon in pairs(signs) do
@@ -142,12 +158,20 @@ nvim_lsp.cssls.setup {
 	on_attach = on_attach,
 }
 
--- Angular
-nvim_lsp.angularls.setup {
-	capabilities = capabilities,
-	on_attach = on_attach,
-	root_dir = root_pattern("angular.json"),
-}
+---- Angular
+-- local languageServerPath = vim.fn.stdpath("config") .. "/lua/languageserver"
+-- local cmd = { "ngserver", "--stdio", "--tsProbeLocations", languageServerPath, "--ngProbeLocations", languageServerPath }
+--
+-- nvim_lsp.angularls.setup {
+-- 	capabilities = capabilities,
+-- 	on_attach = on_attach,
+-- 	filetypes = { "typescript", "html" },
+-- 	root_dir = root_pattern("angular.json"),
+-- 	cmd = cmd,
+-- 	on_new_config = function(new_config, new_root_dir)
+-- 		new_config.cmd = cmd
+-- 	end,
+-- }
 
 -- JSON
 nvim_lsp.jsonls.setup {
@@ -280,6 +304,12 @@ nvim_lsp.sumneko_lua.setup {
 
 -- Flow
 nvim_lsp.flow.setup {
+	on_attach = on_attach,
+	capabilities = capabilities
+}
+
+-- Pyright
+nvim_lsp.pyright.setup {
 	on_attach = on_attach,
 	capabilities = capabilities
 }
