@@ -146,6 +146,13 @@ wget https://projectlombok.org/downloads/lombok.jar
 # HTML, CSS (CSSLS), Typescript
 npm i -g typescript typescript-language-server vscode-langservers-extracted eslint eslint_d @fsouza/prettierd
 
+# Angular
+cd ~/Programs
+mkdir angularls
+cd angularls
+npm install @angular/language-server @angular/language-service typescript
+cd
+
 # Lua Language Server
 brew install lua-language-server
 

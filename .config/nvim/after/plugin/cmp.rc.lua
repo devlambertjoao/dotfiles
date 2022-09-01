@@ -14,44 +14,10 @@ cmp.setup({
     ['<C-u>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.close(),
-    ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-    -- ["<C-n>"] = cmp.mapping(function(fallback)
-    --   if cmp.visible() then
-    --     cmp.select_next_item()
-    --   elseif vim.fn["vsnip#available"](1) == 1 then
-    --     feedkey("<Plug>(vsnip-expand-or-jump)", "")
-    --   elseif has_words_before() then
-    --     cmp.complete()
-    --   else
-    --     fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
-    --   end
-    -- end, { "i", "s" }),
-    -- ["<C-p>"] = cmp.mapping(function()
-    --   if cmp.visible() then
-    --     cmp.select_prev_item()
-    --   elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-    --     feedkey("<Plug>(vsnip-jump-prev)", "")
-    --   end
-    -- end, { "i", "s" }),
+    ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
   }),
-  -- window = {
-  --   completion = {
-  --     winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
-  --     col_offset = -3,
-  --     side_padding = 0,
-  --   },
-  -- },
   formatting = {
     format = lspkind.cmp_format({ with_text = false, maxwidth = 50 })
-    -- fields = { "kind", "abbr", "menu" },
-    -- format = function(entry, vim_item)
-    --   local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
-    --   local strings = vim.split(kind.kind, "%s", { trimempty = true })
-    --   kind.kind = " " .. strings[1] .. " "
-    --   kind.menu = "    (" .. strings[2] .. ")"
-
-    --   return kind
-    -- end,
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
@@ -81,4 +47,3 @@ vim.cmd [[
   set completeopt=menuone,noinsert,noselect
   highlight! default link CmpItemKind CmpItemMenuDefault
 ]]
-
