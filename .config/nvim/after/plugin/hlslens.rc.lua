@@ -22,22 +22,19 @@ hlslens.setup({
       else
         text = ('[%d/%d]'):format(idx, cnt)
       end
-      chunks = {{' ', 'Ignore'}, {text, 'HlSearchLensNear'}}
+      chunks = { { ' ', 'Ignore' }, { text, 'HlSearchLensNear' } }
     else
       text = ('[%s %d]'):format(indicator, idx)
-      chunks = {{' ', 'Ignore'}, {text, 'HlSearchLens'}}
+      chunks = { { ' ', 'Ignore' }, { text, 'HlSearchLens' } }
     end
     render.setVirt(0, lnum - 1, col - 1, chunks, nearest)
   end
 })
 
-
 local hlslens_opts = { noremap = true, silent = true }
 
-vim.keymap.set('n', '<Esc>', ':noh<CR>')
-
-vim.api.nvim_set_keymap('n', 'n', 
-  [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]], 
+vim.api.nvim_set_keymap('n', 'n',
+  [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
   hlslens_opts)
 
 vim.api.nvim_set_keymap('n', 'N',
@@ -48,4 +45,4 @@ vim.api.nvim_set_keymap('n', 'N',
 local scrollbar_status, scrollbar_handlers_search = pcall(require, "scrollbar.handlers.search")
 if (not scrollbar_status) then return end
 
-require("scrollbar.handlers.search").setup {}  
+require("scrollbar.handlers.search").setup {}

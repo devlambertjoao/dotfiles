@@ -6,18 +6,17 @@
 # shell:
 #  program: "C://Arch//Arch.exe"
 
-
 font:
   normal:
-    family: "Hack Nerd Font Mono"
-    style: Regular
+    family: "OverpassMono Nerd Font"
+    style: Light
   bold:
-    family: "Fira Code"
+    family: "OverpassMono Nerd Font"
     style: Bold 
   italic:
-    family: "Hack Nerd Font Mono"
-    style: "Italic"
-  size: 18.0
+    family: "OverpassMono Nerd Font"
+    style: Italic
+  size: 16.0
 
 window:
   title: Terminal
@@ -30,67 +29,33 @@ opacity: 0.8
 cursor:
   blinking: On
 
-# colors:
-#   primary:
-#     background: '#002b36' # base03
-#     foreground: '#839496' # base0
-#   cursor:
-#     text:   '#002b36' # base03
-#     cursor: '#839496' # base0
-#   normal:
-#     black:   '#073642' # base02
-#     red:     '#dc322f' # red
-#     green:   '#859900' # green
-#     yellow:  '#b58900' # yellow
-#     blue:    '#268bd2' # blue
-#     magenta: '#d33682' # magenta
-#     cyan:    '#2aa198' # cyan
-#     white:   '#eee8d5' # base2
-#   bright:
-#     black:   '#002b36' # base03
-#     red:     '#cb4b16' # orange
-#     green:   '#586e75' # base01
-#     yellow:  '#657b83' # base00
-#     blue:    '#839496' # base0
-#     magenta: '#6c71c4' # violet
-#     cyan:    '#93a1a1' # base1
-#     white:   '#fdf6e3' # base3
+colors:
+  primary:
+    background: '0x1e1c31'
+    foreground: '0xcbe3e7'
+  cursor:
+    text: '0x1e1c31'
+    cursor: '0xa1efd3'
+  normal:
+    black: '0x1e1c31'
+    red: '0xf48fb1'
+    green: '0xa1efd3'
+    yellow: '0xffe6b3'
+    blue: '0x91ddff'
+    magenta: '0xd4bfff'
+    cyan: '0x87dfeb'
+    white: '0xcbe3e7'
+  bright:
+    black: '0x585273'
+    red: '0xf02e6e'
+    green: '0x62d196'
+    yellow: '0xf2b482'
+    blue: '0x65b2ff'
+    magenta: '0xa37acc'
+    cyan: '0x63f2f1'
+    white: '0x8a889d'
 
-
-# colors:
-#   # Default colors
-#   primary:
-#     background: '0x1d2021'
-#     foreground: '0xd5c4a1'
-# 
-#   # Colors the cursor will use if `custom_cursor_colors` is true
-#   cursor:
-#     text: '0x1d2021'
-#     cursor: '0xd5c4a1'
-# 
-#   # Normal colors
-#   normal:
-#     black:   '0x1d2021'
-#     red:     '0xfb4934'
-#     green:   '0xb8bb26'
-#     yellow:  '0xfabd2f'
-#     blue:    '0x83a598'
-#     magenta: '0xd3869b'
-#     cyan:    '0x8ec07c'
-#     white:   '0xd5c4a1'
-# 
-#   # Bright colors
-#   bright:
-#     black:   '0x665c54'
-#     red:     '0xfe8019'
-#     green:   '0x3c3836'
-#     yellow:  '0x504945'
-#     blue:    '0xbdae93'
-#     magenta: '0xebdbb2'
-#     cyan:    '0xd65d0e'
-#     white:   '0xfbf1c7'
-
-draw_bold_text_with_bright_colors: false
+draw_bold_text_with_bright_colors: true
 
 live_config_reload: true
 

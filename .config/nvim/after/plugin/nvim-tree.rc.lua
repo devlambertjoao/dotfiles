@@ -15,6 +15,9 @@ nvim_tree.setup({
   },
   renderer = {
     group_empty = true,
+    icons = {
+      git_placement = "after",
+    },
   },
   filters = {
     dotfiles = true,

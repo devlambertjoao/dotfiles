@@ -22,20 +22,19 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, buf_opts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, buf_opts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, buf_opts)
-  vim.keymap.set('n', ';r', vim.lsp.buf.rename, buf_opts)
+  vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, buf_opts)
   vim.keymap.set('n', '<C-c>', vim.lsp.buf.code_action, buf_opts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, buf_opts)
-  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, buf_opts)
+  vim.keymap.set('n', '<leader>k', vim.lsp.buf.signature_help, buf_opts)
 
   -- Diagnostics
-  vim.keymap.set('n', ';dd', vim.diagnostic.goto_next, diag_opts)
-  -- vim.keymap.set('n', ';dl', vim.lsp.diagnostic.show_line_diagnostics, diag_opts)
+  vim.keymap.set('n', '<leader>dd', vim.diagnostic.goto_next, diag_opts)
 
   -- Formating
   if client.resolved_capabilities.document_formatting then
-    buf_set_keymap("n", ";f", "<cmd>lua vim.lsp.buf.formatting()<CR>", diag_opts)
+    buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", diag_opts)
   elseif client.resolved_capabilities.document_range_formatting then
-    buf_set_keymap("n", ";f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", diag_opts)
+    buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", diag_opts)
   end
 
   -- Set autocommands conditional on server_capabilities
@@ -44,15 +43,6 @@ local on_attach = function(client, bufnr)
 	      autocmd CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})
 	      ]], false)
   end
-
-  -- For format on save
-  -- if client.server_capabilities.documentFormattingProvider then
-  --   vim.api.nvim_create_autocmd("BufWritePre", {
-  --     group = vim.api.nvim_create_augroup("Format", { clear = true }),
-  --     buffer = bufnr,
-  --     callback = function() vim.lsp.buf.formatting_seq_sync() end
-  --   })
-  -- end
 end
 
 -- Diagnostic Setup
@@ -131,6 +121,7 @@ nvim_lsp.tsserver.setup {
 }
 
 -- HTML
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 nvim_lsp.html.setup {
   capabilities = capabilities,
   on_attach = on_attach,
@@ -152,10 +143,10 @@ nvim_lsp.cssls.setup {
   on_attach = on_attach,
 }
 
----- Angular
+-- Angular
 local languageServerPath = user_home .. "/Programs/angularls"
--- local cmd = { "ngserver", "--stdio", "--tsProbeLocations", languageServerPath, "--ngProbeLocations", languageServerPath }
-local cmd = { "node", languageServerPath .. "/node_modules/@angular/language-server/index.js", "--stdio", "--tsProbeLocations",
+local cmd = { "node", languageServerPath .. "/node_modules/@angular/language-server/index.js", "--stdio",
+  "--tsProbeLocations",
   languageServerPath, "--ngProbeLocations", languageServerPath }
 
 nvim_lsp.angularls.setup {
@@ -264,14 +255,15 @@ nvim_lsp.omnisharp.setup {
   },
 }
 
--- Ruby, Ruby on Rails
-nvim_lsp.solargraph.setup {
+-- C, C++
+nvim_lsp.clangd.setup {
   capabilities = capabilities,
   on_attach = on_attach,
 }
 
--- Sourcekit
-nvim_lsp.sourcekit.setup {
+-- Ruby, Ruby on Rails
+nvim_lsp.solargraph.setup {
+  capabilities = capabilities,
   on_attach = on_attach,
 }
 
@@ -289,12 +281,6 @@ nvim_lsp.sumneko_lua.setup {
       },
     },
   },
-}
-
--- Flow
-nvim_lsp.flow.setup {
-  on_attach = on_attach,
-  capabilities = capabilities
 }
 
 -- Pyright

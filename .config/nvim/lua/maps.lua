@@ -1,6 +1,6 @@
 local keymap = vim.keymap
 
-vim.g.mapleader = " "
+vim.g.mapleader = ";"
 
 keymap.set('n', 'x', '"_x')
 
@@ -32,4 +32,4 @@ keymap.set('n', '<C-w><down>', '<C-w>-')
 
 -- Save and Close
 keymap.set('n', '<leader>w', ':w<CR>')
-keymap.set('n', '<leader>q', ':q<CR>')
+keymap.set('n', '<leader>q', ':bd<CR>')

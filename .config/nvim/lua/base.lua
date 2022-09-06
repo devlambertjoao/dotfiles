@@ -1,9 +1,5 @@
 vim.cmd("autocmd!")
 
-vim.scriptencoding = 'utf-8'
-vim.opt.encoding = 'utf-8'
-vim.opt.fileencoding = 'utf-8'
-
 vim.opt.title = true
 vim.opt.hlsearch = true
 vim.opt.backup = false
@@ -14,15 +10,18 @@ vim.opt.scrolloff = 10
 vim.opt.shell = 'zsh'
 vim.opt.backupskip = { '/tmp/*', '/private/tmp/*' }
 vim.opt.inccommand = 'split'
-vim.opt.ignorecase = true -- Case insensitive searching UNLESS /C or capital in search
-vim.opt.wrap = false -- No Wrap lines
+vim.opt.ignorecase = true
+vim.opt.wrap = false
 vim.opt.backspace = { 'start', 'eol', 'indent' }
-vim.opt.path:append { '**' } -- Finding files - Search down into subfolders
+vim.opt.path:append { '**' }
 vim.opt.wildignore:append { '*/node_modules/*' }
 vim.opt.termguicolors = true
 vim.opt.background = 'dark'
 
--- Bottom Bar 
+-- Enable mouse suport
+vim.cmd [[set mouse=a]]
+
+---- Bottom Bar 
 -- No Show Mode Below Lualine
 vim.opt.showmode = false
 
@@ -42,6 +41,11 @@ vim.opt.smarttab = true
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
+
+---- File ecoding
+vim.scriptencoding = 'utf-8'
+vim.opt.encoding = 'utf-8'
+vim.opt.fileencoding = 'utf-8'
 
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
