@@ -1,7 +1,6 @@
-local lualine_status, lualine = pcall(require, "lualine")
-local nvimgps_status, nvimgps = pcall(require, "nvim-gps")
+local status, lualine = pcall(require, "lualine")
 
-if (not lualine_status or not nvimgps_status) then return end
+if (not status) then return end
 
 lualine.setup({
   options = {
@@ -14,9 +13,9 @@ lualine.setup({
     globalstatus = false,
   },
   sections = {
-    lualine_a = {'mode'},
+    lualine_a = { 'mode' },
     lualine_b = { 'branch', 'diff', 'diagnostics' },
-    lualine_c = { { 'filename', file_status = false, path = 0 }, { nvimgps.get_location, cond = nvimgps.is_available } },
+    lualine_c = { { 'filename', file_status = false, path = 0 } },
     lualine_x = { 'filetype' },
     lualine_y = { 'progress' },
     lualine_z = { 'location' }

@@ -20,6 +20,8 @@ return require('packer').startup(function(use)
 
   -- LSP
   use 'neovim/nvim-lsp' -- Lsp
+  use 'williamboman/mason.nvim' -- LSP Installer
+  use 'williamboman/mason-lspconfig.nvim' -- LSP Installer Config
   use 'neovim/nvim-lspconfig' -- Lsp Config  
   use 'hrsh7th/nvim-cmp' -- Completition
   use 'hrsh7th/cmp-nvim-lsp' -- Source for native lsp completition

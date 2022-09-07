@@ -115,11 +115,12 @@ case `uname` in
     export JAVA_HOME=$HOME/Programs/jdk-17.0.4
   ;;
 esac
+
 export PATH=$PATH:$JAVA_HOME
 
 # JDTLS
-export JDTLS_HOME=$HOME/Programs/jdtls/
-export JDTLS_JVM_ARGS="-javaagent:$HOME/Programs/lombok.jar -Xbootclasspath/a:$HOME/Programs/lombok.jar"
+# export JDTLS_HOME=$HOME/Programs/jdtls/
+# export JDTLS_JVM_ARGS="-javaagent:$HOME/Programs/lombok.jar -Xbootclasspath/a:$HOME/Programs/lombok.jar"
 
 # Maven
 export M2_HOME=$HOME/Programs/apache-maven-3.8.2

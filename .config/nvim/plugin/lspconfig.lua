@@ -25,16 +25,15 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, buf_opts)
   vim.keymap.set('n', '<C-c>', vim.lsp.buf.code_action, buf_opts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, buf_opts)
-  vim.keymap.set('n', '<leader>k', vim.lsp.buf.signature_help, buf_opts)
 
   -- Diagnostics
   vim.keymap.set('n', '<leader>dd', vim.diagnostic.goto_next, diag_opts)
 
   -- Formating
   if client.resolved_capabilities.document_formatting then
-    buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", diag_opts)
+    buf_set_keymap("n", ";f", "<cmd>lua vim.lsp.buf.formatting()<CR>", diag_opts)
   elseif client.resolved_capabilities.document_range_formatting then
-    buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", diag_opts)
+    buf_set_keymap("n", ";f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", diag_opts)
   end
 
   -- Set autocommands conditional on server_capabilities
@@ -66,83 +65,10 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
----- Servers for LSP
--- Check for install new servers:
--- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 
--- Eslint
-nvim_lsp.eslint.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-  settings = {
-    codeAction = {
-      disableRuleComment = {
-        enable = true,
-        location = "separateLine"
-      },
-      showDocumentation = {
-        enable = true
-      }
-    },
-    codeActionOnSave = {
-      enable = true,
-      mode = "all"
-    },
-    format = true,
-    nodePath = "",
-    onIgnoredFiles = "off",
-    packageManager = "npm",
-    quiet = false,
-    rulesCustomizations = {},
-    run = "onSave",
-    useESLintClass = false,
-    validate = "on",
-    workingDirectory = {
-      mode = "location"
-    }
-  }
-}
 
--- Fix All Eslint
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = '*.tsx, *.ts, *.jsx, *.js',
-  command = "EslintFixAll"
-})
-
--- Typescript
-nvim_lsp.tsserver.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  init_options = {
-    usePlaceholders = true
-  },
-  filetypes = { "javascript", "typescript", "typescriptreact", "typescript.tsx" },
-  root_dir = function() return vim.loop.cwd() end
-}
-
--- HTML
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-nvim_lsp.html.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-  cmd = { "vscode-html-language-server", "--stdio" },
-  filetypes = { "html" },
-  init_options = {
-    configurationSection = { "html", "css", "javascript" },
-    embeddedLanguages = {
-      css = true,
-      javascript = true
-    }
-  },
-  settings = {},
-}
-
--- CSS, SCSS, LESS
-nvim_lsp.cssls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-
+------ LSP Servers 
+---- Custom Servers
 -- Angular
 local languageServerPath = user_home .. "/Programs/angularls"
 local cmd = { "node", languageServerPath .. "/node_modules/@angular/language-server/index.js", "--stdio",
@@ -160,131 +86,42 @@ nvim_lsp.angularls.setup {
   end,
 }
 
--- JSON
-nvim_lsp.jsonls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
+---- Automatic Servers Installations
+local mason_status, mason = pcall(require, "mason")
+if (not mason_status) then return end
+
+mason.setup({})
+
+local mason_lsp_config_status, mason_lsp_config = pcall(require, "mason-lspconfig")
+if (not mason_lsp_config_status) then return end
+
+local lsp_server_list = {
+  "clangd", -- C and C++
+  "omnisharp", -- C#
+  -- "omnisharp_mono", -- C#
+  "cssls", -- CSS, SCSS, LESS
+  "eslint",
+  "html",
+  "jsonls",
+  "jdtls",
+  "tsserver",
+  "sumneko_lua",
+  "pyright",
+  "solargraph",
+  "rust_analyzer",
+  "sqlls",
+  "vuels",
 }
 
--- Java
-local java_home = os.getenv("JAVA_HOME")
+mason_lsp_config.setup({
+  ensure_installed = lsp_server_list,
+  automatic_installation = true
+})
 
-local os_name = os.getenv("OS_NAME")
-local jdtls_config_path = '/config_linux'
-if (os_name == "MacOS") then
-  jdtls_config_path = user_home .. '/config_osx'
+for _, server in pairs(lsp_server_list) do
+  nvim_lsp[server].setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+  }
 end
 
-local jdtls_version = '1.6.400.v20210924-0641'
-local jdtls_jar = user_home .. '/Programs/jdtls/plugins/org.eclipse.equinox.launcher_' .. jdtls_version .. '.jar';
-local jdtls_configuration = user_home .. '/Programs/jdtls' .. jdtls_config_path
-
-local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
-local workspace_dir = user_home .. '/Programs/workspace/' .. project_name
-
-local lombok = user_home .. '/Programs/lombok.jar'
-
-nvim_lsp.jdtls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-  root_dir = root_pattern(".git", "pom.xml"),
-  cmd = {
-    'java',
-    '-Declipse.application=org.eclipse.jdt.ls.core.id1',
-    '-Dosgi.bundles.defaultStartLevel=4',
-    '-Declipse.product=org.eclipse.jdt.ls.core.product',
-    '-Dlog.protocol=true',
-    '-Dlog.level=ALL',
-    '-Xms1g',
-    '-Xmx2G',
-    '-javaagent:' .. lombok,
-    '--add-modules=ALL-SYSTEM',
-    '--add-opens', 'java.base/java.util=ALL-UNNAMED',
-    '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-    '-jar', jdtls_jar,
-    '-configuration', jdtls_configuration,
-    '-data', workspace_dir,
-  },
-  settings = {
-    java = {
-      completion = {},
-      configuration = {
-        checkProjectSettingsExclusions = false,
-        runtimes = {
-          name = 'JavaSE-17',
-          path = java_home
-        }
-      },
-      format = {
-        settings = {
-          profile = "GoogleStyle",
-          url = "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
-        },
-      },
-      implementationsCodeLens = {
-        enabled = false,
-      },
-      maven = {
-        downloadSources = true,
-      },
-      referencesCodeLens = {
-        enabled = true,
-      },
-      showBuildStatusOnStart = {
-        enabled = true,
-      },
-      signatureHelp = {
-        enabled = true,
-      },
-    }
-  }
-}
-
--- .NET, C#
-local omnisharp_dll = user_home .. '/Programs/omnisharp-net6.0/OmniSharp.dll'
-
-nvim_lsp.omnisharp.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-  cmd = {
-    'dotnet',
-    omnisharp_dll,
-    '--languageserver',
-    '--hostPID',
-    tostring(vim.fn.getpid())
-  },
-}
-
--- C, C++
-nvim_lsp.clangd.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-
--- Ruby, Ruby on Rails
-nvim_lsp.solargraph.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-
--- Lua
-nvim_lsp.sumneko_lua.setup {
-  on_attach = on_attach,
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { 'vim' },
-      },
-      workspace = {
-        library = vim.api.nvim_get_runtime_file("", true),
-        checkThirdParty = false
-      },
-    },
-  },
-}
-
--- Pyright
-nvim_lsp.pyright.setup {
-  on_attach = on_attach,
-  capabilities = capabilities
-}
