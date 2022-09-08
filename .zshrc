@@ -40,10 +40,11 @@ alias fa="cat ~/.zshrc | grep alias | less"
 alias fag="cat ~/.zshrc | grep"
 # Nvim
 alias nv="nvim"
-alias nvcn="nvim ~/.config/nvim/init.vim"
+alias nvcn="cd ~/.config/nvim && nvim"
 alias nvcz="nvim ~/.zshrc"
 alias nvct="nvim ~/.tmux.conf"
 # For Tmux
+alias tx="tmux"
 alias devc="tmux split-window -c $PWD -l 10"
 alias tks="tmux kill-server"
 # Python

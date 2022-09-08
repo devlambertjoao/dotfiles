@@ -65,9 +65,7 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
-
-
------- LSP Servers 
+------ LSP Servers
 ---- Custom Servers
 -- Angular
 local languageServerPath = user_home .. "/Programs/angularls"
@@ -98,10 +96,8 @@ if (not mason_lsp_config_status) then return end
 local lsp_server_list = {
   "clangd", -- C and C++
   "omnisharp", -- C#
-  -- "omnisharp_mono", -- C#
   "cssls", -- CSS, SCSS, LESS
   "eslint",
-  "html",
   "jsonls",
   "jdtls",
   "tsserver",
@@ -124,4 +120,3 @@ for _, server in pairs(lsp_server_list) do
     on_attach = on_attach,
   }
 end
-

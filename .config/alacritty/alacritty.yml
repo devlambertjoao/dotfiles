@@ -16,7 +16,7 @@ font:
   italic:
     family: "OverpassMono Nerd Font"
     style: Italic
-  size: 16.0
+  size: 20.0
 
 window:
   title: Terminal
