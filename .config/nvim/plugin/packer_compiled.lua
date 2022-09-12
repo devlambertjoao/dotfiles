@@ -109,11 +109,6 @@ _G.packer_plugins = {
     path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/diffview.nvim",
     url = "https://github.com/sindrets/diffview.nvim"
   },
-  embark = {
-    loaded = true,
-    path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/embark",
-    url = "https://github.com/embark-theme/vim"
-  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
@@ -149,6 +144,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
+  },
+  ["neoscroll.nvim"] = {
+    loaded = true,
+    path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/neoscroll.nvim",
+    url = "https://github.com/karb94/neoscroll.nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,
@@ -189,6 +189,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/nvim-scrollbar",
     url = "https://github.com/petertriho/nvim-scrollbar"
+  },
+  ["nvim-transparent"] = {
+    loaded = true,
+    path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/nvim-transparent",
+    url = "https://github.com/xiyaowong/nvim-transparent"
   },
   ["nvim-tree.lua"] = {
     loaded = true,

@@ -20,7 +20,7 @@ font:
 
 window:
   title: Terminal
-  opacity: 0.9
+  opacity: 0.95
   dimensions:
     columns: 120 
     lines: 40

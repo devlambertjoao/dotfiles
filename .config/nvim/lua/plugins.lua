@@ -3,7 +3,6 @@ if (not status) then
   print("Packer is not installed")
   return
 end
-
 local fn = vim.fn
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 
@@ -43,11 +42,6 @@ return require('packer').startup(function(use)
   use 'norcalli/nvim-colorizer.lua' -- Colorizers for hex, rgb...
 
   -- Theme
-  use { 'embark-theme/vim', as = 'embark',
-    -- config = function()
-    --   vim.cmd('colorscheme embark')
-    -- end
-  }
   use {
     'sainnhe/gruvbox-material',
     config = function()
@@ -73,7 +67,8 @@ return require('packer').startup(function(use)
   use 'akinsho/bufferline.nvim' -- Buffer Line
   use 'petertriho/nvim-scrollbar' -- Scrollbar
   use 'kevinhwang91/nvim-hlslens' -- Better Search engine
-
+  use 'xiyaowong/nvim-transparent' -- Let Neovim Transparent
+  use 'karb94/neoscroll.nvim' -- Smooth Scrolling
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
