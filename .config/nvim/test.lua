@@ -1,12 +1,75 @@
-servers = {
-  "asd",
-  "abc",
-}
-
-for _, server in pairs(servers) do
-  nvim_lsp.server.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
-end
-
+-- servers = {
+--   "asd",
+--   "abc",
+-- }
+-- 
+-- for _, server in pairs(servers) do
+--   nvim_lsp.server.setup {
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+--   }
+-- end
+-- 
+-- -- Java
+-- local java_home = os.getenv("JAVA_HOME")
+-- local os_name = os.getenv("OS_NAME")
+-- local jdtls_config_path = '/config_linux'
+-- if (os_name == "MacOS") then
+--   jdtls_config_path = user_home .. '/config_mac'
+-- end
+-- local jdtls_version = '1.6.400.v20210924-0641'
+-- local jdtls_jar = user_home .. '/Programs/jdtls/plugins/org.eclipse.equinox.launcher_' .. jdtls_version .. '.jar';
+-- local jdtls_configuration = user_home .. '/Programs/jdtls' .. jdtls_config_path
+-- local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+-- local workspace_dir = user_home .. '/Programs/workspace/' .. project_name
+-- local lombok = user_home .. '/Programs/lombok.jar'
+-- nvim_lsp.jdtls.setup {
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+--   root_dir = root_pattern(".git", "pom.xml"),
+--   cmd = {
+--     'java',
+--     '-Declipse.application=org.eclipse.jdt.ls.core.id1',
+--     '-Dosgi.bundles.defaultStartLevel=4',
+--     '-Declipse.product=org.eclipse.jdt.ls.core.product',
+--     '-Dlog.level=ALL',
+--     '-Xmx1G',
+--     -- '-javaagent:' .. lombok,
+--     '-jar', jdtls_jar,
+--     '-configuration', jdtls_configuration,
+--     '-data', vim.fn.expand('~/.cache/jdtls-workspace') .. vim.fn.fnamemodify(vim.fn.getcwd(), 'p:h:t'),
+--   },
+--   settings = {
+--     -- java = {
+--     --   completion = {},
+--     --   configuration = {
+--     --     checkProjectSettingsExclusions = false,
+--     --     runtimes = {
+--     --       name = 'JavaSE-17',
+--     --       path = java_home
+--     --     }
+--     --   },
+--     --   format = {
+--     --     settings = {
+--     --       profile = "GoogleStyle",
+--     --       url = "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+--     --     },
+--     --   },
+--     --   implementationsCodeLens = {
+--     --     enabled = false,
+--     --   },
+--     --   maven = {
+--     --     downloadSources = true,
+--     --   },
+--     --   referencesCodeLens = {
+--     --     enabled = true,
+--     --   },
+--     --   showBuildStatusOnStart = {
+--     --     enabled = true,
+--     --   },
+--     --   signatureHelp = {
+--     --     enabled = true,
+--     --   },
+--     -- }
+--   }
+-- }

@@ -73,7 +73,7 @@ local cmd = { "node", languageServerPath .. "/node_modules/@angular/language-ser
   "--tsProbeLocations",
   languageServerPath, "--ngProbeLocations", languageServerPath }
 
-nvim_lsp.angularls.setup {
+local angularls_options = {
   capabilities = capabilities,
   on_attach = on_attach,
   filetypes = { "typescript", "html" },
@@ -82,6 +82,22 @@ nvim_lsp.angularls.setup {
   on_new_config = function(new_config)
     new_config.cmd = cmd
   end,
+}
+
+local sumneko_lua_options = {
+  settings = {
+    Lua = {
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = { 'vim' },
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+        checkThirdParty = false
+      },
+    },
+  }
 }
 
 ---- Automatic Servers Installations
@@ -94,19 +110,20 @@ local mason_lsp_config_status, mason_lsp_config = pcall(require, "mason-lspconfi
 if (not mason_lsp_config_status) then return end
 
 local lsp_server_list = {
-  "clangd", -- C and C++
-  "omnisharp", -- C#
-  "cssls", -- CSS, SCSS, LESS
-  "eslint",
-  "jsonls",
-  "jdtls",
-  "tsserver",
-  "sumneko_lua",
-  "pyright",
-  "solargraph",
-  "rust_analyzer",
-  "sqlls",
-  "vuels",
+  angularls = angularls_options,
+  clangd = {}, -- C and C++
+  omnisharp = {}, -- C#
+  cssls = {}, -- CSS, SCSS, LESS
+  eslint = {}, -- Eslint
+  jsonls = {}, -- JSON
+  jdtls = {}, -- Java
+  tsserver = {}, -- Typescript
+  sumneko_lua = sumneko_lua_options, -- Lua
+  pyright = {}, -- Python
+  solargraph = {}, -- Ruby
+  rust_analyzer = {}, -- Rust
+  sqlls = {}, -- SQL
+  vuels = {}, -- VueJs
 }
 
 mason_lsp_config.setup({
@@ -114,9 +131,13 @@ mason_lsp_config.setup({
   automatic_installation = true
 })
 
-for _, server in pairs(lsp_server_list) do
-  nvim_lsp[server].setup {
+for server_name, server_options in pairs(lsp_server_list) do
+  local default_server_options = {
     capabilities = capabilities,
     on_attach = on_attach,
   }
+
+  default_server_options = vim.tbl_deep_extend("force", server_options, default_server_options)
+
+  nvim_lsp[server_name].setup(default_server_options)
 end
