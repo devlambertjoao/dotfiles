@@ -110,7 +110,6 @@ _G.packer_plugins = {
     url = "https://github.com/sindrets/diffview.nvim"
   },
   embark = {
-    config = { "\27LJ\2\n6\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\23colorscheme embark\bcmd\bvim\0" },
     loaded = true,
     path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/embark",
     url = "https://github.com/embark-theme/vim"
@@ -119,6 +118,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
+  ["gruvbox-material"] = {
+    config = { "\27LJ\2\n§\1\0\0\3\0\a\0\r6\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\0\0009\0\3\0'\1\5\0=\1\4\0006\0\0\0009\0\3\0)\1\1\0=\1\6\0K\0\1\0(gruvbox_material_better_performance\tsoft gruvbox_material_background\6g!colorscheme gruvbox-material\bcmd\bvim\0" },
+    loaded = true,
+    path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/gruvbox-material",
+    url = "https://github.com/sainnhe/gruvbox-material"
   },
   ["lsp_signature.nvim"] = {
     loaded = true,
@@ -228,10 +233,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: embark
-time([[Config for embark]], true)
-try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\23colorscheme embark\bcmd\bvim\0", "config", "embark")
-time([[Config for embark]], false)
+-- Config for: gruvbox-material
+time([[Config for gruvbox-material]], true)
+try_loadstring("\27LJ\2\n§\1\0\0\3\0\a\0\r6\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\0\0009\0\3\0'\1\5\0=\1\4\0006\0\0\0009\0\3\0)\1\1\0=\1\6\0K\0\1\0(gruvbox_material_better_performance\tsoft gruvbox_material_background\6g!colorscheme gruvbox-material\bcmd\bvim\0", "config", "gruvbox-material")
+time([[Config for gruvbox-material]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

@@ -44,8 +44,16 @@ return require('packer').startup(function(use)
 
   -- Theme
   use { 'embark-theme/vim', as = 'embark',
+    -- config = function()
+    --   vim.cmd('colorscheme embark')
+    -- end
+  }
+  use {
+    'sainnhe/gruvbox-material',
     config = function()
-      vim.cmd('colorscheme embark')
+      vim.cmd('colorscheme gruvbox-material')
+      vim.g.gruvbox_material_background = 'soft'
+      vim.g.gruvbox_material_better_performance = 1
     end
   }
 
