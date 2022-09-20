@@ -13,10 +13,10 @@ bufferline.setup({
       for e, n in pairs(diagnostics_dict) do
         -- local sym = e == "error" and " "
         --    or (e == "warning" and " " or "")
-        local sym = e == "error" and "e"
-            or (e == "warning" and "w")
-            or (e == "hint" and "h")
-            or (e == "info" and "i")
+        local sym = e == "error" and "E"
+            or (e == "warning" and "W")
+            or (e == "hint" and "H")
+            or (e == "info" and "I")
         s = s .. n .. sym
       end
 

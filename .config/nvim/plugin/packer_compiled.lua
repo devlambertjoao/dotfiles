@@ -104,11 +104,6 @@ _G.packer_plugins = {
     path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
-  ["diffview.nvim"] = {
-    loaded = true,
-    path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/diffview.nvim",
-    url = "https://github.com/sindrets/diffview.nvim"
-  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
@@ -119,6 +114,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/gruvbox-material",
     url = "https://github.com/sainnhe/gruvbox-material"
+  },
+  ["lazygit.nvim"] = {
+    loaded = true,
+    path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/lazygit.nvim",
+    url = "https://github.com/kdheepak/lazygit.nvim"
   },
   ["lsp_signature.nvim"] = {
     loaded = true,
@@ -164,11 +164,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
     url = "https://github.com/norcalli/nvim-colorizer.lua"
-  },
-  ["nvim-gps"] = {
-    loaded = true,
-    path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/nvim-gps",
-    url = "https://github.com/SmiteshP/nvim-gps"
   },
   ["nvim-hlslens"] = {
     loaded = true,

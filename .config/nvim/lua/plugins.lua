@@ -55,7 +55,7 @@ return require('packer').startup(function(use)
   use 'kyazdani42/nvim-tree.lua' -- Sidebar File Viewer
   use 'nvim-telescope/telescope.nvim' -- Find Files
   use 'lewis6991/gitsigns.nvim' -- Git Integration with signs
-  use 'sindrets/diffview.nvim' -- Git Diffview
+  use 'kdheepak/lazygit.nvim' -- Git UI
 
   -- Autopairs
   use 'windwp/nvim-autopairs' -- Autopairs
@@ -63,7 +63,6 @@ return require('packer').startup(function(use)
 
   -- Neovim UI
   use 'nvim-lualine/lualine.nvim' -- Lua Line
-  use 'SmiteshP/nvim-gps' -- Lua Line Breadcrumbs
   use 'akinsho/bufferline.nvim' -- Buffer Line
   use 'petertriho/nvim-scrollbar' -- Scrollbar
   use 'kevinhwang91/nvim-hlslens' -- Better Search engine
