@@ -30,11 +30,18 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>dd', vim.diagnostic.goto_next, diag_opts)
 
   -- Formating
-  if client.resolved_capabilities.document_formatting then
-    buf_set_keymap("n", ";f", "<cmd>lua vim.lsp.buf.formatting()<CR>", diag_opts)
-  elseif client.resolved_capabilities.document_range_formatting then
-    buf_set_keymap("n", ";f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", diag_opts)
-  end
+  -- local filetype = vim.bo.filetype;
+  -- if (filetype == 'typescript' or
+  --     filetype == 'typescriptreact' or
+  --     filetype == 'javascript' or
+  --     filetype == 'javascriptreact'
+  --     ) then
+  --   buf_set_keymap("n", ";f", "<cmd>EslintFixAll<CR>", diag_opts)
+  -- elseif client.resolved_capabilities.document_formatting then
+  --   buf_set_keymap("n", ";f", "<cmd>lua vim.lsp.buf.formatting()<CR>", diag_opts)
+  -- elseif client.resolved_capabilities.document_range_formatting then
+  --   buf_set_keymap("n", ";f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", diag_opts)
+  -- end
 
   -- Set autocommands conditional on server_capabilities
   if client.resolved_capabilities.document_highlight then
@@ -43,6 +50,9 @@ local on_attach = function(client, bufnr)
 	      ]], false)
   end
 end
+
+-- Eslint FixAll
+-- vim.api.nvim_exec([[ autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll ]], false)
 
 -- Diagnostic Setup
 vim.diagnostic.config({
@@ -114,10 +124,13 @@ local lsp_server_list = {
   clangd = {}, -- C and C++
   omnisharp = {}, -- C#
   cssls = {}, -- CSS, SCSS, LESS
+  dartls = {},
   eslint = {}, -- Eslint
+  html = {}, -- Html
   jsonls = {}, -- JSON
   jdtls = {}, -- Java
   tsserver = {}, -- Typescript
+  tailwindcss = {}, -- Tailwind
   sumneko_lua = sumneko_lua_options, -- Lua
   pyright = {}, -- Python
   solargraph = {}, -- Ruby

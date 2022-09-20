@@ -122,6 +122,7 @@ sudo pacman -S lazygit #LazyGit
 # For Mac
 sudo port install fd bat ripgrep
 sudo port install lazygit #LazyGit
+brew install clang-format
 
 pip install neovim
 mkdir -p ~/.config/nvim

@@ -30,6 +30,7 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-vsnip' -- Snipets
   use 'hrsh7th/vim-vsnip' -- Snipets
   use 'nvim-lua/plenary.nvim' -- Utils
+  use 'mhartington/formatter.nvim' -- Formatter
 
   -- LSP UI
   use 'onsails/lspkind.nvim' -- Better view on pum completion like vs-code

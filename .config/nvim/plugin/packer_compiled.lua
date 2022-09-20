@@ -104,6 +104,11 @@ _G.packer_plugins = {
     path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
+  ["formatter.nvim"] = {
+    loaded = true,
+    path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/formatter.nvim",
+    url = "https://github.com/mhartington/formatter.nvim"
+  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
