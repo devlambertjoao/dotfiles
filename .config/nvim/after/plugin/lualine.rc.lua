@@ -8,7 +8,7 @@ lualine.setup({
     theme = 'gruvbox-material',
     component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
-    disabled_filetypes = {},
+    disabled_filetypes = { 'packer', 'NvimTree' },
     always_divide_middle = true,
     globalstatus = false,
   },
@@ -18,8 +18,7 @@ lualine.setup({
     lualine_c = { { 'filename', file_status = false, path = 0 } },
     lualine_x = { 'filetype' },
     lualine_y = { 'progress' },
-    lualine_z = { 'location' }
-  },
+    lualine_z = { 'location' } },
   inactive_sections = {
     lualine_a = {},
     lualine_b = {},

@@ -11,9 +11,6 @@ keymap.set('n', '-', '<C-x>')
 -- Delete a word backwards
 keymap.set('n', 'dw', 'vb"_d')
 
--- Select all
-keymap.set('n', '<C-a>', 'gg<S-v>G')
-
 -- Split window
 keymap.set('n', 'ss', ':split<Return><C-w>w')
 keymap.set('n', 'sv', ':vsplit<Return><C-w>w')
@@ -25,11 +22,11 @@ keymap.set('', '<C-j>', '<C-w>j')
 keymap.set('', '<C-l>', '<C-w>l')
 
 -- Resize windows
-keymap.set('n', '<C-w><left>', '<C-w><')
-keymap.set('n', '<C-w><right>', '<C-w>>')
-keymap.set('n', '<C-w><up>', '<C-w>+')
-keymap.set('n', '<C-w><down>', '<C-w>-')
+keymap.set('n', '<C-w><h>', '<C-w><')
+keymap.set('n', '<C-w><l>', '<C-w>>')
+keymap.set('n', '<C-w><k>', '<C-w>+')
+keymap.set('n', '<C-w><j>', '<C-w>-')
 
 -- Save and Close
 keymap.set('n', '<leader>w', ':w<CR>')
-keymap.set('n', '<leader>q', ':q<CR>')
+keymap.set('n', '<leader>q', ':bd<CR>')
