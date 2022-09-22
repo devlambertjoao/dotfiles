@@ -116,6 +116,11 @@ sudo pacman -S dotnet-sdk aspnet-runtime
 dotnet tool install --global csharp-ls
 ###################################################### END .NET ######################################################
 
+###################################################### START RUST ######################################################
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+sudo port install rust-src
+###################################################### END RUST ######################################################
+
 ###################################################### START Neovim ######################################################
 sudo pacman -S neovim the_silver_searcher bat fd ripgrep
 sudo pacman -S lazygit #LazyGit
