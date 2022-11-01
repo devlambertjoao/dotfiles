@@ -44,13 +44,19 @@ return require('packer').startup(function(use)
 
   -- Theme
   use {
-    'sainnhe/gruvbox-material',
+    'bluz71/vim-nightfly-guicolors',
     config = function()
-      vim.cmd('colorscheme gruvbox-material')
-      vim.g.gruvbox_material_background = 'soft'
-      vim.g.gruvbox_material_better_performance = 1
+      vim.cmd('colorscheme nightfly')
     end
   }
+  -- use {
+  --   'sainnhe/gruvbox-material',
+  --   config = function()
+  --     vim.cmd('colorscheme gruvbox-material')
+  --     vim.g.gruvbox_material_background = 'soft'
+  --     vim.g.gruvbox_material_better_performance = 1
+  --   end
+  -- }
 
   -- File Navigation
   use 'kyazdani42/nvim-tree.lua' -- Sidebar File Viewer

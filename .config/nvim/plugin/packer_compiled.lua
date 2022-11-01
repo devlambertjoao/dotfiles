@@ -114,12 +114,6 @@ _G.packer_plugins = {
     path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
-  ["gruvbox-material"] = {
-    config = { "\27LJ\2\n§\1\0\0\3\0\a\0\r6\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\0\0009\0\3\0'\1\5\0=\1\4\0006\0\0\0009\0\3\0)\1\1\0=\1\6\0K\0\1\0(gruvbox_material_better_performance\tsoft gruvbox_material_background\6g!colorscheme gruvbox-material\bcmd\bvim\0" },
-    loaded = true,
-    path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/gruvbox-material",
-    url = "https://github.com/sainnhe/gruvbox-material"
-  },
   ["lazygit.nvim"] = {
     loaded = true,
     path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/lazygit.nvim",
@@ -230,6 +224,12 @@ _G.packer_plugins = {
     path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["vim-nightfly-guicolors"] = {
+    config = { "\27LJ\2\n8\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\25colorscheme nightfly\bcmd\bvim\0" },
+    loaded = true,
+    path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/vim-nightfly-guicolors",
+    url = "https://github.com/bluz71/vim-nightfly-guicolors"
+  },
   ["vim-vsnip"] = {
     loaded = true,
     path = "/Users/lambert/.local/share/nvim/site/pack/packer/start/vim-vsnip",
@@ -238,10 +238,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: gruvbox-material
-time([[Config for gruvbox-material]], true)
-try_loadstring("\27LJ\2\n§\1\0\0\3\0\a\0\r6\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\0\0009\0\3\0'\1\5\0=\1\4\0006\0\0\0009\0\3\0)\1\1\0=\1\6\0K\0\1\0(gruvbox_material_better_performance\tsoft gruvbox_material_background\6g!colorscheme gruvbox-material\bcmd\bvim\0", "config", "gruvbox-material")
-time([[Config for gruvbox-material]], false)
+-- Config for: vim-nightfly-guicolors
+time([[Config for vim-nightfly-guicolors]], true)
+try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\25colorscheme nightfly\bcmd\bvim\0", "config", "vim-nightfly-guicolors")
+time([[Config for vim-nightfly-guicolors]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
