@@ -36,10 +36,10 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<leader>dd", vim.diagnostic.goto_next, diag_opts)
 
 	-- Set autocommands conditional on server_capabilities
-	if client.resolved_capabilities.document_highlight then
+	if client.server_capabilities.document_highlight then
 		vim.api.nvim_exec(
 			[[
-	      autocmd CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})
+	      autocmd CursorHold,CursorHoldI * silent! lua vim.lsp.diagnostic.get_line_diagnostics()
 	      ]],
 			false
 		)
