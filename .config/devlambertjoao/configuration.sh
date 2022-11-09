@@ -22,6 +22,10 @@ ssh-keygen -o -t rsa -C “a@example.com”
 
 # Base Devel
 sudo pacman -S base-devel
+
+# Create basic folders
+mkdir ~/Programs
+mkdir ~/Downloads
 ###################################################### END BASIC SETUP ######################################################
 
 ###################################################### START ZSH ######################################################
@@ -30,8 +34,8 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/.zshrc
-sudo mv .zshrc.1 .zshrc
+wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/main/.zshrc
+mv .zshrc.1 .zshrc
 ###################################################### END ZSH ######################################################
 
 ###################################################### START Homebrew ######################################################
@@ -42,7 +46,7 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 ###################################################### START Tmux ######################################################
 sudo pacman -S tmux
-wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/.tmux.conf
+wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/main/.tmux.conf
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ###################################################### END Tmux ######################################################
 
@@ -58,6 +62,7 @@ source .zshrc
 asdf plugin-add rust https://github.com/code-lever/asdf-rust.git
 asdf install rust stable
 asdf global rust stable
+source "$HOME/.asdf/installs/rust/stable/env"
 ###################################################### END Rust ######################################################
 
 ###################################################### START Java, Maven ######################################################
@@ -83,15 +88,14 @@ sudo pacman -S maven
 ###################################################### START Node, Npm, Yarn ######################################################
 # Nodejs
 asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-asdf install nodejs 16.15.0
-asdf global nodejs 16.15.0
+asdf install nodejs 18.12.1
+asdf global nodejs 18.12.1
 
 # Yarn
 sudo pacman -S yarn 
-# or
-# npm install -g yarn
 
 # Npm
+sudo pacman -S npm
 mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
 ###################################################### END Node, Npm, Yarn ######################################################
@@ -116,11 +120,6 @@ sudo pacman -S dotnet-sdk aspnet-runtime
 dotnet tool install --global csharp-ls
 ###################################################### END .NET ######################################################
 
-###################################################### START RUST ######################################################
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-sudo port install rust-src
-###################################################### END RUST ######################################################
-
 ###################################################### START Neovim ######################################################
 sudo pacman -S neovim the_silver_searcher bat fd ripgrep
 sudo pacman -S lazygit #LazyGit
@@ -136,13 +135,11 @@ cd ~/.config/nvim
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
-wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/master/.config/nvim/init.vim
-
 ################## LSP Deps
 # JDTLS (Java)
 cd ~/Downloads
 wget https://download.eclipse.org/jdtls/snapshots/jdt-language-server-1.12.0-202205122107.tar.gz
-mkdir -p c/jdtls
+mkdir -p ~/Programs/jdtls
 mv jdt-language-server-1.12.0-202205122107.tar.gz ~/Programs/jdtls
 cd ~/Programs/jdtls
 tar -zxvf jdt-language-server-1.12.0-202205122107.tar.gz
@@ -261,24 +258,3 @@ cd mongodb-compass
 makepkg --syncdeps
 sudo pacman -U mongodb-compass-*-x86_64.pkg.tar.zst
 ###################################################### END MongoDB Compass ######################################################
-
-###################################################### START Spotify ######################################################
-cd ~/Downloads
-git clone https://aur.archlinux.org/spotify.git
-cd spotify
-curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | gpg --import -
-makepkg --syncdeps
-sudo pacman -U spotify-*-x86_64.pkg.tar.zst
-###################################################### END Spotify ######################################################
-
-
-###################################################### BACKUPS OF OLDER APPS ######################################################
-######### Backup older versions
-## wget https://github.com/OmniSharp/omnisharp-roslyn/releases/download/v1.39.0/omnisharp-linux-x64.tar.gz
-## mkdir -p ~/Programs/omnisharp
-## mv omnisharp-linux-x64.tar.gz ~/Programs/omnisharp
-## cd ~/Programs/omnisharp
-## tar -zxvf omnisharp-linux-x64.tar.gz
-## rm omnisharp-linux-x64.tar.gz
-## cd
-######### Backup older versions
