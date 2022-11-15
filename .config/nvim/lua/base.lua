@@ -4,7 +4,7 @@ vim.opt.title = true
 vim.opt.hlsearch = true
 vim.opt.backup = false
 vim.opt.showcmd = true
-vim.opt.cmdheight = 1
+vim.opt.cmdheight = 2
 vim.opt.laststatus = 2
 vim.opt.scrolloff = 10
 vim.opt.shell = 'zsh'
@@ -17,6 +17,7 @@ vim.opt.path:append { '**' }
 vim.opt.wildignore:append { '*/node_modules/*' }
 vim.opt.termguicolors = true
 vim.opt.background = 'dark'
+vim.opt.swapfile = false;
 
 -- Enable mouse suport
 vim.cmd [[set mouse=a]]

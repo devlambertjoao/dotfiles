@@ -33,7 +33,10 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, buf_opts)
 
 	-- Diagnostics
-	vim.keymap.set("n", "<leader>dd", vim.diagnostic.goto_next, diag_opts)
+	vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist, diag_opts)
+	vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev, diag_opts)
+	vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_next, diag_opts)
+	vim.keymap.set("n", "<leader>dd", vim.diagnostic.open_float, diag_opts)
 
 	-- Set autocommands conditional on server_capabilities
 	if client.server_capabilities.document_highlight then
@@ -48,9 +51,10 @@ end
 
 -- Diagnostic Setup
 vim.diagnostic.config({
-	virtual_text = {
-		prefix = "*",
-	},
+	-- virtual_text = {
+	-- 	prefix = "*",
+	-- },
+	virtual_text = false,
 	severity_sort = true,
 	update_in_insert = true,
 	float = {

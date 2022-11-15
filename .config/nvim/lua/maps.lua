@@ -29,4 +29,4 @@ keymap.set('n', '<C-w><j>', '<C-w>-')
 
 -- Save and Close
 keymap.set('n', '<leader>w', ':w<CR>')
-keymap.set('n', '<leader>q', ':bd<CR>')
+keymap.set('n', '<leader>q', ':q<CR>')
