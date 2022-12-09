@@ -144,6 +144,12 @@ _G.packer_plugins = {
     path = "/home/lambert/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["minimal.nvim"] = {
+    config = { "\27LJ\2\n7\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\24colorscheme minimal\bcmd\bvim\0" },
+    loaded = true,
+    path = "/home/lambert/.local/share/nvim/site/pack/packer/start/minimal.nvim",
+    url = "https://github.com/Yazeed1s/minimal.nvim"
+  },
   ["neoscroll.nvim"] = {
     loaded = true,
     path = "/home/lambert/.local/share/nvim/site/pack/packer/start/neoscroll.nvim",
@@ -224,12 +230,6 @@ _G.packer_plugins = {
     path = "/home/lambert/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
-  ["vim-nightfly-guicolors"] = {
-    config = { "\27LJ\2\n8\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\25colorscheme nightfly\bcmd\bvim\0" },
-    loaded = true,
-    path = "/home/lambert/.local/share/nvim/site/pack/packer/start/vim-nightfly-guicolors",
-    url = "https://github.com/bluz71/vim-nightfly-guicolors"
-  },
   ["vim-vsnip"] = {
     loaded = true,
     path = "/home/lambert/.local/share/nvim/site/pack/packer/start/vim-vsnip",
@@ -238,10 +238,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: vim-nightfly-guicolors
-time([[Config for vim-nightfly-guicolors]], true)
-try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\25colorscheme nightfly\bcmd\bvim\0", "config", "vim-nightfly-guicolors")
-time([[Config for vim-nightfly-guicolors]], false)
+-- Config for: minimal.nvim
+time([[Config for minimal.nvim]], true)
+try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\24colorscheme minimal\bcmd\bvim\0", "config", "minimal.nvim")
+time([[Config for minimal.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

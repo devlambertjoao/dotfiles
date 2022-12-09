@@ -44,9 +44,9 @@ return require('packer').startup(function(use)
 
   -- Theme
   use {
-    'bluz71/vim-nightfly-guicolors',
+    'Yazeed1s/minimal.nvim',
     config = function()
-      vim.cmd('colorscheme nightfly')
+      vim.cmd('colorscheme minimal')
     end
   }
 

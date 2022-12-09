@@ -25,7 +25,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 ENABLE_CORRECTION="false"
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(git rails ruby dotnet history compleat zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git rails ruby dotnet history compleat zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
