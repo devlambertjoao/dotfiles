@@ -23,7 +23,7 @@ font:
 
 window:
   title: Terminal
-  opacity: 0.5
+  opacity: 0.9
   blur_background: blur
   decorations: buttonless
   dimensions:
