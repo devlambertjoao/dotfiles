@@ -28,7 +28,7 @@ treesitter.setup {
     "yaml"
   },
   highlight = {
-    enable = true,
+    enable = false,
   },
   indent = {
     enable = true
