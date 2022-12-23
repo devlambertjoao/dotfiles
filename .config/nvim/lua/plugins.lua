@@ -44,9 +44,9 @@ return require('packer').startup(function(use)
 
   -- Theme
   use {
-    'Yazeed1s/minimal.nvim',
+    'shaunsingh/moonlight.nvim',
     config = function()
-      vim.cmd('colorscheme minimal')
+      vim.cmd('colorscheme moonlight')
     end
   }
 

@@ -38,6 +38,7 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.devlambertjoao/ --work-tree=$HOME'
 # Utils
 alias fa="cat ~/.zshrc | grep alias | less"
 alias fag="cat ~/.zshrc | grep"
+alias update-arch="sudo pacman-key --refresh-keys && sudo pacman -Syyu"
 # Nvim
 alias nv="nvim"
 alias nvcn="cd ~/.config/nvim && nvim"

@@ -5,7 +5,7 @@ if (not status) then return end
 lualine.setup({
   options = {
     icons_enabled = false,
-    -- theme = 'nightly',
+    theme = 'moonlight',
     component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
     disabled_filetypes = { 'packer', 'NvimTree' },
