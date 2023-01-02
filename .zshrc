@@ -15,6 +15,14 @@ case `uname` in
   ;;
 esac
 
+# WSL Setup
+case `uname` in 
+  Linux)
+    export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
+    export LIBGL_ALWAYS_INDIRECT=1
+  ;;
+esac
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -39,6 +47,21 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.devlambertjoao/ --work-tree=$HOME'
 alias fa="cat ~/.zshrc | grep alias | less"
 alias fag="cat ~/.zshrc | grep"
 alias update-arch="sudo pacman-key --refresh-keys && sudo pacman -Syyu"
+# Update Pacman
+case `uname` in 
+  Linux)
+    alias update-pacman="
+        sudo rm -R /etc/pacman.d/gnupg/ && \
+        sudo rm -R /root/.gnupg/ && \
+        sudo gpg --refresh-keys && \
+        sudo pacman-key --init && \
+        sudo pacman-key --populate archlinux && \
+        sudo pacman -S archlinux-keyring && \
+        sudo pacman -Syu
+      "
+  ;;
+esac
+
 # Nvim
 alias nv="nvim"
 alias nvcn="cd ~/.config/nvim && nvim"
@@ -119,6 +142,13 @@ case `uname` in
 esac
 
 export PATH=$PATH:$JAVA_HOME
+
+# VsCode
+case `uname` in 
+  Linux)
+    export DONT_PROMPT_WSL_INSTALL="No_Prompt_Please"
+  ;;
+esac
 
 # JDTLS
 # export JDTLS_HOME=$HOME/Programs/jdtls/
