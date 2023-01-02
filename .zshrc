@@ -67,6 +67,9 @@ alias nv="nvim"
 alias nvcn="cd ~/.config/nvim && nvim"
 alias nvcz="nvim ~/.zshrc"
 alias nvct="nvim ~/.tmux.conf"
+# Source
+alias soz="source ~/.zshrc"
+alias sot="source ~/.tmux.conf"
 # For Tmux
 alias tx="tmux"
 alias devc="tmux split-window -c $PWD -l 10"
@@ -124,12 +127,16 @@ alias dnr="dotnet run"
 alias dnb="dotnet build"
 alias dnnr="dotnet nuget restore"
 alias dnc="dotnet clean"
-# Google Chrome Disabling web security
+# WSL Programs
 case `uname` in 
-  Darwin)
-    alias gcdws="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome http://localhost:4200 --disable-web-security --user-data-dir=/tmp/google-chrome-temp"
+  Linux)
+    alias eclipse="~/Programs/eclipse/eclipse </dev/null &>/dev/null &"
+    alias vscode="code . </dev/null &>/dev/null &"
+    alias moz="firefox </dev/null &>/dev/null &"
   ;;
 esac
+
+
 
 # Java Home
 case `uname` in 
