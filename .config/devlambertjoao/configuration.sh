@@ -23,6 +23,12 @@ ssh-keygen -o -t rsa -C “a@example.com”
 # Base Devel
 sudo pacman -S base-devel
 
+# Setup WSL GUI
+pacman -S xorg xorg-server
+pacman -S xfce4
+# Need to download and configure VcxSrv on Windows:
+# https://sourceforge.net/projects/vcxsrv/
+
 # Create basic folders
 mkdir ~/Programs
 mkdir ~/Downloads

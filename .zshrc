@@ -15,6 +15,14 @@ case `uname` in
   ;;
 esac
 
+# WSL Setup
+case `uname` in 
+  Linux)
+    export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
+    export LIBGL_ALWAYS_INDIRECT=1
+  ;;
+esac
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -25,7 +33,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 ENABLE_CORRECTION="false"
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(git rails ruby dotnet history compleat zsh-syntax-highlighting)
+plugins=(git history compleat zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -38,11 +46,30 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.devlambertjoao/ --work-tree=$HOME'
 # Utils
 alias fa="cat ~/.zshrc | grep alias | less"
 alias fag="cat ~/.zshrc | grep"
+alias update-arch="sudo pacman-key --refresh-keys && sudo pacman -Syyu"
+# Update Pacman
+case `uname` in 
+  Linux)
+    alias update-pacman="
+        sudo rm -R /etc/pacman.d/gnupg/ && \
+        sudo rm -R /root/.gnupg/ && \
+        sudo gpg --refresh-keys && \
+        sudo pacman-key --init && \
+        sudo pacman-key --populate archlinux && \
+        sudo pacman -S archlinux-keyring && \
+        sudo pacman -Syu
+      "
+  ;;
+esac
+
 # Nvim
 alias nv="nvim"
 alias nvcn="cd ~/.config/nvim && nvim"
 alias nvcz="nvim ~/.zshrc"
 alias nvct="nvim ~/.tmux.conf"
+# Source
+alias soz="source ~/.zshrc"
+alias sot="source ~/.tmux.conf"
 # For Tmux
 alias tx="tmux"
 alias devc="tmux split-window -c $PWD -l 10"
@@ -100,12 +127,16 @@ alias dnr="dotnet run"
 alias dnb="dotnet build"
 alias dnnr="dotnet nuget restore"
 alias dnc="dotnet clean"
-# Google Chrome Disabling web security
+# WSL Programs
 case `uname` in 
-  Darwin)
-    alias gcdws="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome http://localhost:4200 --disable-web-security --user-data-dir=/tmp/google-chrome-temp"
+  Linux)
+    alias eclipse="~/Programs/eclipse/eclipse </dev/null &>/dev/null &"
+    alias vscode="code . </dev/null &>/dev/null &"
+    alias moz="firefox </dev/null &>/dev/null &"
   ;;
 esac
+
+
 
 # Java Home
 case `uname` in 
@@ -118,6 +149,13 @@ case `uname` in
 esac
 
 export PATH=$PATH:$JAVA_HOME
+
+# VsCode
+case `uname` in 
+  Linux)
+    export DONT_PROMPT_WSL_INSTALL="No_Prompt_Please"
+  ;;
+esac
 
 # JDTLS
 # export JDTLS_HOME=$HOME/Programs/jdtls/
