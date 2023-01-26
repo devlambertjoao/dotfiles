@@ -9,9 +9,13 @@ fi
 case `uname` in 
   Darwin)
     export OS_NAME="MacOS"
+    export NEOVIM_HOME="$HOME/.config/nvim"
+    export NEOVIM_OS_RUNNING="MACOS"
   ;;
   Linux)
     export OS_NAME="Linux"
+    export NEOVIM_HOME="$HOME/.config/nvim"
+    export NEOVIM_OS_RUNNING="LINUX"
   ;;
 esac
 
