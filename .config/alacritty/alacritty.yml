@@ -19,11 +19,14 @@ font:
   italic:
     family: "FantasqueSansMono Nerd Font"
     style: Italic
-  size: 14.0
+  size: 16.0
 
 window:
   title: Terminal
   opacity: 0.9
+  padding:
+    x: 12 
+    y: 12
   blur_background: blur
   decorations: buttonless
   dimensions:
