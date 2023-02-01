@@ -40,6 +40,13 @@ export EDITOR="nvim"
 # Alias
 # My Dotfiles
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.devlambertjoao/ --work-tree=$HOME'
+alias dotfiles-push="
+    dotfiles add ~/.zshrc && \
+    dotfiles add ~/.tmux.conf && \ 
+    dotfiles add ~/.config/configuration.sh && \
+    dotfiles commit -m "Updating" && \
+    dotfiles push \
+  "
 # Utils
 alias fa="cat ~/.zshrc | grep alias | less"
 alias fag="cat ~/.zshrc | grep"
