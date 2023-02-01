@@ -20,6 +20,9 @@ sudo pacman -S git wget openssh
 # Generate ssh
 ssh-keygen -o -t rsa -C "mail@example.com"
 
+# Git Global User Name
+git config --global user.name "Name"
+
 # Comment FakerRoot on IgnorePkg and update pacman
 sudo nano /etc/pacman.conf 
 sudo pacman -Syu
@@ -36,6 +39,8 @@ pacman -S xfce4
 # Create basic folders
 mkdir ~/Programs
 mkdir ~/Downloads
+mkdir ~/Development
+mkdir ~/.config
 ###################################################### END BASIC SETUP ######################################################
 
 ###################################################### START ZSH ######################################################
@@ -104,6 +109,7 @@ npm config set prefix '~/.npm-global'
 
 ###################################################### START Ruby ######################################################
 # If inside WSL: sudo pacman -S base-devel
+sudo pacman -S libyaml
 asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git
 echo rails > .default-gems
 echo solargraph >> .default-gems
@@ -123,64 +129,23 @@ dotnet tool install --global csharp-ls
 ###################################################### END .NET ######################################################
 
 ###################################################### START Neovim ######################################################
-sudo pacman -S neovim the_silver_searcher bat fd ripgrep
-sudo pacman -S lazygit #LazyGit
-# For Mac
-sudo port install fd bat ripgrep
-sudo port install lazygit #LazyGit
-brew install clang-format
+sudo pacman -S neovim
 
-pip install neovim
-mkdir -p ~/.config/nvim
-cd ~/.config/nvim
+brew install fd # Telescope
+brew install ripgrep # Telescope
+brew install lazygit # Lazygit
 
+#pip install neovim
+#mkdir -p ~/.config/nvim
+#cd ~/.config/nvim
+
+# Packer
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
-################## LSP Deps
-# JDTLS (Java)
-cd ~/Downloads
-wget https://download.eclipse.org/jdtls/snapshots/jdt-language-server-1.12.0-202205122107.tar.gz
-mkdir -p ~/Programs/jdtls
-mv jdt-language-server-1.12.0-202205122107.tar.gz ~/Programs/jdtls
-cd ~/Programs/jdtls
-tar -zxvf jdt-language-server-1.12.0-202205122107.tar.gz
-rm jdt-language-server-1.12.0-202205122107.tar.gz
-cd ~/Programs
-wget https://projectlombok.org/downloads/lombok.jar
-
-# HTML, CSS (CSSLS), Typescript
-npm i -g typescript typescript-language-server vscode-langservers-extracted eslint eslint_d @fsouza/prettierd
-
-# Angular
-cd ~/Programs
-mkdir angularls
-cd angularls
-npm install @angular/language-server @angular/language-service typescript
-cd
-
-# Lua Language Server
-brew install lua-language-server
-
-# Omnisharp (C#)
-cd ~/Downloads
-## For Mac
-wget https://github.com/OmniSharp/omnisharp-roslyn/releases/download/v1.39.0/omnisharp-osx.tar.gz
-
-## For Archlinux
-sudo pacman -S mono mono-msbuild
-wget https://github.com/OmniSharp/omnisharp-roslyn/releases/download/v1.39.0/omnisharp-linux-x64-net6.0.tar.gz
-mkdir -p ~/Programs/omnisharp-net6.0
-mv omnisharp-linux-x64-net6.0.tar.gz ~/Programs/omnisharp-net6.0
-cd ~/Programs/omnisharp-net6.0
-tar -zxvf omnisharp-linux-x64-net6.0.tar.gz
-rm omnisharp-linux-x64-net6.0.tar.gz
-cd
-
-# Pyright
-npm install -g pyright
-
-### Remember to run :PackerSync on neovim
+# Nvim Configuration
+cd ~/.config
+git clone git@github.com:devlambertjoao/nvim.git
 ###################################################### END Neovim ######################################################
 
 ###################################################### START STS ######################################################
