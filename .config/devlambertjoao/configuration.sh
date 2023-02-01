@@ -18,7 +18,7 @@ sudo pacman -Syyu
 sudo pacman -S git wget openssh
 
 # Generate ssh
-ssh-keygen -o -t rsa -C “a@example.com”
+ssh-keygen -o -t rsa -C "mail@example.com"
 
 # Comment FakerRoot on IgnorePkg and update pacman
 sudo nano /etc/pacman.conf 
