@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # Os Name
 case `uname` in 
   Darwin)
@@ -31,13 +24,13 @@ esac
 export ZSH="$HOME/.oh-my-zsh"
 
 # Theme
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="eastwood"
 
 # Settings
 ENABLE_CORRECTION="false"
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(git history compleat zsh-syntax-highlighting)
+plugins=(git history compleat)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -68,7 +61,7 @@ esac
 
 # Nvim
 alias nv="nvim"
-alias nvcn="cd ~/.config/nvim && nvim"
+alias nvcn="cd ~/.config/nvim && nvim && cd"
 alias nvcz="nvim ~/.zshrc"
 alias nvct="nvim ~/.tmux.conf"
 # Source
@@ -100,9 +93,9 @@ alias gb="git branch"
 alias gl="git log --oneline --decorate --graph"
 alias grc="git rebase --continue"
 # Spring boot
-alias rsb="mvn spring-boot:run"
-alias rst="mvn test"
-alias mvnc="mvn clean install -U -DskipTests=true"
+alias rsb="mvn spring-boot:run" #java maven
+alias rst="mvn test" #java maven
+alias mvnc="mvn clean install -U -DskipTests=true" #java maven
 # Rails and Rake
 alias rc="rails console"
 alias rcp="rubocop"
@@ -114,12 +107,12 @@ alias rgc="rails generate controller"
 alias rgmod="rails generate model"
 alias rs="rails server"
 alias rt="rails test"
-alias rr="rake routes"
-alias rdc="rake db:create"
-alias rdd="rake db:drop"
-alias rdm="rake db:migrate"
-alias rds="rake db:seed"
-alias rrg="rake routes | grep"
+alias rr="rake routes" #rails
+alias rdc="rake db:create" #rails
+alias rdd="rake db:drop" #rails
+alias rdm="rake db:migrate" #rails
+alias rds="rake db:seed" #rails
+alias rrg="rake routes | grep" #rails
 # Dotnet
 alias dnwa="dotnet new webapi"
 alias dncl="dotnet new classlibrary"
@@ -140,8 +133,6 @@ case `uname` in
   ;;
 esac
 
-
-
 # Java Home
 case `uname` in 
   Darwin)
@@ -160,10 +151,6 @@ case `uname` in
     export DONT_PROMPT_WSL_INSTALL="No_Prompt_Please"
   ;;
 esac
-
-# JDTLS
-# export JDTLS_HOME=$HOME/Programs/jdtls/
-# export JDTLS_JVM_ARGS="-javaagent:$HOME/Programs/lombok.jar -Xbootclasspath/a:$HOME/Programs/lombok.jar"
 
 # Maven
 export M2_HOME=$HOME/Programs/apache-maven-3.8.2
@@ -199,11 +186,3 @@ export PATH=~/.npm-global/bin:$PATH
 export PATH="$PATH:$HOME/.dotnet/tools"
 
 export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
-
-alias lvim=$HOME/.local/bin/lvim
-
-# Load Angular CLI autocompletion.
-source <(ng completion script)
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
