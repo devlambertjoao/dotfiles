@@ -41,9 +41,6 @@ mkdir ~/Downloads
 ###################################################### START ZSH ######################################################
 sudo pacman -S zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/main/.zshrc
 mv .zshrc.1 .zshrc
 ###################################################### END ZSH ######################################################
@@ -76,11 +73,6 @@ source "$HOME/.asdf/installs/rust/stable/env"
 ###################################################### END Rust ######################################################
 
 ###################################################### START Java, Maven ######################################################
-# Java
-asdf plugin-add java https://github.com/halcyon/asdf-java.git
-asdf install java openjdk-15
-asdf global java openjdk-15
-
 # JDK from oracle
 cd Downloads
 wget https://download.oracle.com/java/17/archive/jdk-17.0.4_linux-x64_bin.tar.gz
@@ -102,7 +94,7 @@ asdf install nodejs 18.12.1
 asdf global nodejs 18.12.1
 
 # Yarn
-sudo pacman -S yarn 
+sudo pacman -S yarn
 
 # Npm
 sudo pacman -S npm
@@ -117,8 +109,8 @@ echo rails > .default-gems
 echo solargraph >> .default-gems
 echo bundler >> .default-gems
 echo rsense >> .default-gems
-asdf install ruby 3.1.2
-asdf global ruby 3.1.2
+asdf install ruby 3.2.0
+asdf global ruby 3.2.0
 ###################################################### END RUBY ######################################################
 
 ###################################################### START Python ######################################################
