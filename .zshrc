@@ -43,6 +43,7 @@ alias dotfiles='git --git-dir=$HOME/.devlambertjoao/ --work-tree=$HOME'
 alias dotfiles-push='dotfiles add ~/.zshrc ~/.tmux.conf ~/.config/configuration.sh ~/.config/alacritty/ && \
     dotfiles commit -m Updating && dotfiles push
   '                       
+alias dotfiles-pull='dotfiles fetch origin && dotfiles reset --hard origin/main'
 # Utils                                      
 alias fa="cat ~/.zshrc | grep alias | less"
 alias fag="cat ~/.zshrc | grep"
