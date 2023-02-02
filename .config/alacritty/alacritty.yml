@@ -34,161 +34,36 @@ window:
     lines: 40
 
 cursor:
-  blinking: On
+  blinking: On 
 
 schemes:
-  gruvbox_material_soft_dark: &gruvbox_material_soft_dark
+  nightfox: &nightfox
     primary:
-      background: '0x32302f'
-      foreground: '0xd4be98'
+      background: '0x192330'
+      foreground: '0xcdcecf'
     normal:
-      black:   '0x45403d'
-      red:     '0xea6962'
-      green:   '0xa9b665'
-      yellow:  '0xd8a657'
-      blue:    '0x7daea3'
-      magenta: '0xd3869b'
-      cyan:    '0x89b482'
-      white:   '0xd4be98'
+      black:   '0x393b44'
+      red:     '0xc94f6d'
+      green:   '0x81b29a'
+      yellow:  '0xdbc074'
+      blue:    '0x719cd6'
+      magenta: '0x9d79d6'
+      cyan:    '0x63cdcf'
+      white:   '0xdfdfe0'
     bright:
-      black:   '0x45403d'
-      red:     '0xea6962'
-      green:   '0xa9b665'
-      yellow:  '0xd8a657'
-      blue:    '0x7daea3'
-      magenta: '0xd3869b'
-      cyan:    '0x89b482'
-      white:   '0xd4be98'
+      black:   '0x575860'
+      red:     '0xd16983'
+      green:   '0x8ebaa4'
+      yellow:  '0xe0c989'
+      blue:    '0x86abdc'
+      magenta: '0xbaa1e2'
+      cyan:    '0x7ad5d6'
+      white:   '0xe4e4e5'
+    indexed_colors:
+      - { index: 16, color: '0xf4a261' }
+      - { index: 17, color: '0xd67ad2' }
 
-  embark: &embark
-    primary:
-      background: '0x1e1c31'
-      foreground: '0xcbe3e7'
-    cursor:
-      text: '0x1e1c31'
-      cursor: '0xa1efd3'
-    normal:
-      black: '0x1e1c31'
-      red: '0xf48fb1'
-      green: '0xa1efd3'
-      yellow: '0xffe6b3'
-      blue: '0x91ddff'
-      magenta: '0xd4bfff'
-      cyan: '0x87dfeb'
-      white: '0xcbe3e7'
-    bright:
-      black: '0x585273'
-      red: '0xf02e6e'
-      green: '0x62d196'
-      yellow: '0xf2b482'
-      blue: '0x65b2ff'
-      magenta: '0xa37acc'
-      cyan: '0x63f2f1'
-      white: '0x8a889d'
-
-  nightly: &nightly
-    primary:
-      background:        '#011627'
-      foreground:        '#acb4c2'
-      bright_foreground: '#eeeeee'
-
-    # Cursor colors
-    cursor:
-      text:   '#080808'
-      cursor: '#9ca1aa'
-
-    # Selection colors
-    selection:
-      text:       '#080808'
-      background: '#b2ceee'
-
-    # Normal colors
-    normal:
-      black:   '#1d3b53'
-      red:     '#fc514e'
-      green:   '#a1cd5e'
-      yellow:  '#e3d18a'
-      blue:    '#82aaff'
-      magenta: '#c792ea'
-      cyan:    '#7fdbca'
-      white:   '#a1aab8'
-
-    # Bright colors
-    bright:
-      black:   '#7c8f8f'
-      red:     '#ff5874'
-      green:   '#21c7a8'
-      yellow:  '#ecc48d'
-      blue:    '#82aaff'
-      magenta: '#ae81ff'
-      cyan:    '#7fdbca'
-      white:   '#d6deeb'
-
-  panda: &panda
-    # Default colors
-    primary:
-      background: '0x292A2B'
-      foreground: '0xeaeaea'
-
-    # Colors the cursor will use if `custom_cursor_colors` is true
-    cursor:
-      text: '0x000000'
-      cursor: '0xffffff'
-
-    # Normal colors
-    normal:
-      black:   '0x3d3e40'
-      red:     '0xFF2C6D'
-      green:   '0x19f9d8'
-      yellow:  '0xFFB86C'
-      blue:    '0x45A9F9'
-      magenta: '0xFF75B5'
-      cyan:    '0x19f9d8'
-      white:   '0xf3f3f3'
-
-
-    # Bright colors
-    bright:
-      black:   '0x373b41'
-      red:     '0xff3334'
-      green:   '0x41fadf'
-      yellow:  '0xffcc95'
-      blue:    '0x6FC1FF'
-      magenta: '0xff9ecb'
-      cyan:    '0x41fadf'
-      white:   '0xf8f8f8'
-
-  moonlight: &moonlight
-    primary:
-      background: '0x1e2030'
-      foreground: '0x7f85a3'
-
-    cursor:
-      text:   '0x7f85a3'
-      cursor: '0x808080'
-
-    normal:
-      black:   '0x444a73'
-      red:     '0xff5370'
-      green:   '0x4fd6be'
-      yellow:  '0xffc777'
-      blue:    '0x3e68d7'
-      magenta: '0xfc7b7b'
-      cyan:    '0x86e1fc'
-      white:   '0xd0d0d0'
-
-    bright:
-      black:   '0x828bb8'
-      red:     '0xff98a4'
-      green:   '0xc3e88d'
-
-      yellow:  '0xffc777'
-      blue:    '0x82aaff'
-      magenta: '0xff966c'
-      cyan:    '0xb4f9f8'
-      white:   '0x5f8787'
-
-colors: *moonlight
+colors: *nightfox
 
 draw_bold_text_with_bright_colors: true
 
