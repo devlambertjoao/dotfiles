@@ -44,7 +44,7 @@ alias dotfiles-push="dotfiles add ~/.zshrc && \
                      dotfiles add ~/.tmux.conf && \ 
                      dotfiles add ~/.config/configuration.sh && \
                      dotfiles add ~/.config/alacritty/alacritty.yml && \
-                     dotfiles commit -m \"Updating\" && \
+                     dotfiles commit -m Updating && \
                      dotfiles push \         
                      "                       
 # Utils                                      
