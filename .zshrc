@@ -44,10 +44,12 @@ alias dotfiles-push='dotfiles add ~/.zshrc ~/.tmux.conf ~/.config/configuration.
     dotfiles commit -m Updating && dotfiles push
   '                       
 alias dotfiles-pull='dotfiles fetch origin && dotfiles reset --hard HEAD && dotfiles pull'
+
 # Utils                                      
 alias fa="cat ~/.zshrc | grep alias | less"
 alias fag="cat ~/.zshrc | grep"
 alias update-arch="sudo pacman-key --refresh-keys && sudo pacman -Syyu"
+
 # Update Pacman
 case `uname` in 
   Linux)
