@@ -2,23 +2,11 @@
 # "C:\Program Files\Alacritty\alacritty.exe" --command wsl -d Arch --cd ~
 
 font:
-  # normal:
-  #   family: "FantasqueSansMono Nerd Font"
-  #   style: Regular
-  # light:
-  #   family: "FantasqueSansMono Nerd Font"
-  #   style: Regular
-  # bold:
-  #   family: "FantasqueSansMono Nerd Font"
-  #   style: Bold 
-  # italic:
-  #   family: "FantasqueSansMono Nerd Font"
-  #   style: Italic
   size: 10.0
 
 window:
   title: Terminal
-  opacity: 0.80
+  opacity: 0.90
   padding:
     x: 16 
     y: 16
