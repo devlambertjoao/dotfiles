@@ -111,12 +111,29 @@ npm config set prefix '~/.npm-global'
 # If inside WSL: sudo pacman -S base-devel
 sudo pacman -S libyaml
 asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git
-echo rails > .default-gems
-echo solargraph >> .default-gems
-echo bundler >> .default-gems
-echo rsense >> .default-gems
-asdf install ruby 3.2.0
-asdf global ruby 3.2.0
+
+# Openssl dep
+cd /tmp
+curl -LO https://www.openssl.org/source/openssl-1.1.1.tar.gz
+tar -xvfz openssl-1.1.1.tar.gz
+cd openssl-1.1.1
+./config --prefix=/opt/openssl/1.1.1
+make
+sudo make install
+
+sudo ln -s /opt/openssl/1.1.1/lib/libssl.so.1.1 /usr/lib/
+sudo ln -s /opt/openssl/1.1.1/lib/libcrypto.so.1.1 /usr/lib/
+
+PKG_CONFIG_PATH=/opt/openssl/1.1.1/lib/pkgconfig \ 
+RUBY_EXTRA_CONFIGURE_OPTIONS="--with-openssl-dir=/opt/openssl/1.1.1" \
+asdf install ruby 3.2.1
+
+asdf global ruby 3.2.1
+
+gem install rails
+gem install solargraph
+gem install bundler
+gem install rsense
 ###################################################### END RUBY ######################################################
 
 ###################################################### START Python ######################################################
@@ -135,10 +152,6 @@ brew install fd # Telescope
 brew install ripgrep # Telescope
 brew install lazygit # Lazygit
 
-#pip install neovim
-#mkdir -p ~/.config/nvim
-#cd ~/.config/nvim
-
 # Packer
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
@@ -147,58 +160,6 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 cd ~/.config
 git clone git@github.com:devlambertjoao/nvim.git
 ###################################################### END Neovim ######################################################
-
-###################################################### START STS ######################################################
-mkdir ~/Programs
-cd ~/Programs
-wget https://download.springsource.com/release/STS4/4.11.0.RELEASE/dist/e4.20/spring-tool-suite-4-4.11.0.RELEASE-e4.20.0-linux.gtk.x86_64.tar.gz
-tar -zxvf spring-tool-suite-4-*.x86_64.tar.gz
-sudo rm spring-tool-suite-4-*.x86_64.tar.gz
-cd sts-*.RELEASE
-wget https://projectlombok.org/downloads/lombok.jar
-sudo echo "~/Programs/sts-4.11.0.RELEASE/SpringToolSuite4" > sts
-sudo chmod +x sts
-sudo mv sts /usr/bin/sts
-###################################################### END STS ######################################################
-
-###################################################### START Eclipse ######################################################
-cd ~/Programs
-wget https://eclipse.c3sl.ufpr.br/technology/epp/downloads/release/2021-06/R/eclipse-jee-2021-06-R-linux-gtk-x86_64.tar.gz
-tar -zxvf eclipse-jee-*-x86_64.tar.gz
-sudo rm eclipse-jee-*-x86_64.tar.gz
-cd eclipse
-wget https://projectlombok.org/downloads/lombok.jar
-sudo echo "~/Programs/eclipse/eclipse" > eclipse-starter
-sudo chmod +x eclipse-starter
-sudo mv eclipse-starter /usr/bin/eclipse
-###################################################### END Eclipse ######################################################
-
-###################################################### START Android Studio ######################################################
-cd ~/Downloads
-git clone https://aur.archlinux.org/android-studio.git
-cd android-studio
-makepkg --syncdeps
-sudo pacman -U android-studio-*.pkg.tar.zst
-
-# Accept Android Studio licenses
-sudo pacman -S jdk8-openjdk
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk 
-$ANDROID_HOME/tools/bin/sdkmanager --licenses 
-source ~/.zshrc
-
-# Device for React Native Development (need to create manually on Android Studio with API 28 and name of RN-Device)
-echo "~/Programs/Android/Sdk/emulator/emulator -avd RN-Device" > rndevice
-sudo chmod +x rndevice
-sudo mv rndevice /usr/bin/rndevice
-###################################################### END Android Studio ######################################################
-
-###################################################### START VS Code ######################################################
-cd ~/Downloads
-git clone https://aur.archlinux.org/visual-studio-code-bin.git
-cd visual-studio-code-bin
-makepkg --syncdeps
-sudo pacman -U visual-studio-code-bin-*.pkg.tar.zst
-###################################################### END VS Code ######################################################
 
 ###################################################### START Docker ######################################################
 sudo pacman -S docker
@@ -214,14 +175,3 @@ docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=password@1" -p 1433:1433 --name sq
 
 ###################################################### END Docker ######################################################
 
-###################################################### START Dbeaver ######################################################
-sudo pacman -S dbeaver
-###################################################### END Dbeaver ######################################################
-
-###################################################### START MongoDB Compass ######################################################
-cd ~/Downloads
-git clone https://aur.archlinux.org/mongodb-compass.git
-cd mongodb-compass
-makepkg --syncdeps
-sudo pacman -U mongodb-compass-*-x86_64.pkg.tar.zst
-###################################################### END MongoDB Compass ######################################################
