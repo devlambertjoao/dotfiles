@@ -1,11 +1,3 @@
-# Only for windows
-# Download and install Alacritty "Search in google lol"
-# Create a shortcut and add "-e wsl ~" on shortcut target
-# ####
-# or: 
-# shell:
-#  program: "C://Arch//Arch.exe"
-
 font:
   # normal:
   #   family: "FantasqueSansMono Nerd Font"
@@ -19,7 +11,7 @@ font:
   # italic:
   #   family: "FantasqueSansMono Nerd Font"
   #   style: Italic
-  size: 14.0
+  size: 10.0
 
 window:
   title: Terminal
@@ -28,9 +20,8 @@ window:
     x: 16 
     y: 16
   blur_background: blur
-  decorations: buttonless
   dimensions:
-    columns: 120 
+    columns: 160 
     lines: 80
 
 selection:
@@ -39,167 +30,9 @@ selection:
 cursor:
   blinking: On 
 
-draw_bold_text_with_bright_colors: false
-
 live_config_reload: true
 
 schemes:
-  nightfox: &nightfox
-    primary:
-      background: '0x192330'
-      foreground: '0xcdcecf'
-    normal:
-      black:   '0x393b44'
-      red:     '0xc94f6d'
-      green:   '0x81b29a'
-      yellow:  '0xdbc074'
-      blue:    '0x719cd6'
-      magenta: '0x9d79d6'
-      cyan:    '0x63cdcf'
-      white:   '0xdfdfe0'
-    bright:
-      black:   '0x575860'
-      red:     '0xd16983'
-      green:   '0x8ebaa4'
-      yellow:  '0xe0c989'
-      blue:    '0x86abdc'
-      magenta: '0xbaa1e2'
-      cyan:    '0x7ad5d6'
-      white:   '0xe4e4e5'
-    indexed_colors:
-      - { index: 16, color: '0xf4a261' }
-      - { index: 17, color: '0xd67ad2' }
-
-  dayfox: &dayfox
-    primary:
-      background: '0xf6f2ee'
-      foreground: '0x3d2b5a'
-    normal:
-      black:   '0x352c24'
-      red:     '0xa5222f'
-      green:   '0x396847'
-      yellow:  '0xac5402'
-      blue:    '0x2848a9'
-      magenta: '0x6e33ce'
-      cyan:    '0x287980'
-      white:   '0xf2e9e1'
-    bright:
-      black:   '0x534c45'
-      red:     '0xb3434e'
-      green:   '0x577f63'
-      yellow:  '0xb86e28'
-      blue:    '0x4863b6'
-      magenta: '0x8452d5'
-      cyan:    '0x488d93'
-      white:   '0xf4ece6'
-    indexed_colors:
-      - { index: 16, color: '0x955f61' }
-      - { index: 17, color: '0xa440b5' }
-
-  dawnfox: &dawnfox
-    primary:
-      background: '0xfaf4ed'
-      foreground: '0x575279'
-    normal:
-      black:   '0x575279'
-      red:     '0xb4637a'
-      green:   '0x618774'
-      yellow:  '0xea9d34'
-      blue:    '0x286983'
-      magenta: '0x907aa9'
-      cyan:    '0x56949f'
-      white:   '0xe5e9f0'
-    bright:
-      black:   '0x5f5695'
-      red:     '0xc26d85'
-      green:   '0x629f81'
-      yellow:  '0xeea846'
-      blue:    '0x2d81a3'
-      magenta: '0x9a80b9'
-      cyan:    '0x5ca7b4'
-      white:   '0xe6ebf3'
-    indexed_colors:
-      - { index: 16, color: '0xd7827e' }
-      - { index: 17, color: '0xd685af' }
-
-  duskfox: &duskfox
-    primary:
-      background: '0x232136'
-      foreground: '0xe0def4'
-    normal:
-      black:   '0x393552'
-      red:     '0xeb6f92'
-      green:   '0xa3be8c'
-      yellow:  '0xf6c177'
-      blue:    '0x569fba'
-      magenta: '0xc4a7e7'
-      cyan:    '0x9ccfd8'
-      white:   '0xe0def4'
-    bright:
-      black:   '0x47407d'
-      red:     '0xf083a2'
-      green:   '0xb1d196'
-      yellow:  '0xf9cb8c'
-      blue:    '0x65b1cd'
-      magenta: '0xccb1ed'
-      cyan:    '0xa6dae3'
-      white:   '0xe2e0f7'
-    indexed_colors:
-      - { index: 16, color: '0xea9a97' }
-      - { index: 17, color: '0xeb98c3' }
-
-  nordfox: &nordfox
-    primary:
-      background: '0x2e3440'
-      foreground: '0xcdcecf'
-    normal:
-      black:   '0x3b4252'
-      red:     '0xbf616a'
-      green:   '0xa3be8c'
-      yellow:  '0xebcb8b'
-      blue:    '0x81a1c1'
-      magenta: '0xb48ead'
-      cyan:    '0x88c0d0'
-      white:   '0xe5e9f0'
-    bright:
-      black:   '0x465780'
-      red:     '0xd06f79'
-      green:   '0xb1d196'
-      yellow:  '0xf0d399'
-      blue:    '0x8cafd2'
-      magenta: '0xc895bf'
-      cyan:    '0x93ccdc'
-      white:   '0xe7ecf4'
-    indexed_colors:
-      - { index: 16, color: '0xc9826b' }
-      - { index: 17, color: '0xbf88bc' }
-
-  terafox: &terafox
-    primary:
-      background: '0x152528'
-      foreground: '0xe6eaea'
-    normal:
-      black:   '0x2f3239'
-      red:     '0xe85c51'
-      green:   '0x7aa4a1'
-      yellow:  '0xfda47f'
-      blue:    '0x5a93aa'
-      magenta: '0xad5c7c'
-      cyan:    '0xa1cdd8'
-      white:   '0xebebeb'
-    bright:
-      black:   '0x4e5157'
-      red:     '0xeb746b'
-      green:   '0x8eb2af'
-      yellow:  '0xfdb292'
-      blue:    '0x73a3b7'
-      magenta: '0xb97490'
-      cyan:    '0xafd4de'
-      white:   '0xeeeeee'
-    indexed_colors:
-      - { index: 16, color: '0xff8349' }
-      - { index: 17, color: '0xcb7985' }
-
   carbonfox: &carbonfox
     primary:
       background: '0x161616'
