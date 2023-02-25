@@ -132,8 +132,16 @@ asdf global ruby 3.2.1
 
 gem install rails
 gem install solargraph
+gem install solargraph-rails
 gem install bundler
 gem install rsense
+
+mkdir ~/.config/solargraph
+echo "
+plugins:
+  - solargraph-rails
+" > ~/.config/solargraph/config.yml
+
 ###################################################### END RUBY ######################################################
 
 ###################################################### START Python ######################################################
