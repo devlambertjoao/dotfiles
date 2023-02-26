@@ -114,8 +114,8 @@ asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git
 
 # Openssl dep
 cd /tmp
-curl -LO https://www.openssl.org/source/openssl-1.1.1.tar.gz
-tar -xvfz openssl-1.1.1.tar.gz
+wget https://www.openssl.org/source/openssl-1.1.1.tar.gz
+tar -zxvf openssl-1.1.1.tar.gz
 cd openssl-1.1.1
 ./config --prefix=/opt/openssl/1.1.1
 make
