@@ -133,6 +133,7 @@ asdf global ruby 3.2.1
 gem install rails
 gem install solargraph
 gem install solargraph-rails
+gem install rubocop
 gem install bundler
 gem install rsense
 
@@ -140,6 +141,29 @@ mkdir ~/.config/solargraph
 echo "
 plugins:
   - solargraph-rails
+
+include:
+- "**/*.rb"
+
+exclude:
+- spec/**/*
+- test/**/*
+- vendor/**/*
+- ".bundle/**/*"
+
+require: []
+
+domains: []
+
+reporters:
+- rubocop
+- require_not_found
+- typecheck
+
+formatter:
+  rubocop:
+
+max_files: 5000
 " > ~/.config/solargraph/config.yml
 
 ###################################################### END RUBY ######################################################
