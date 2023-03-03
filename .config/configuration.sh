@@ -130,12 +130,12 @@ asdf install ruby 3.2.1
 
 asdf global ruby 3.2.1
 
-gem install rails
-gem install solargraph
-gem install solargraph-rails
-gem install rubocop
-gem install bundler
-gem install rsense
+gem install rails & \
+gem install solargraph & \
+gem install solargraph-rails & \
+gem install rubocop & \
+gem install bundler & \
+gem install rsense & \
 
 mkdir ~/.config/solargraph
 echo "
