@@ -135,7 +135,7 @@ gem install solargraph & \
 gem install solargraph-rails & \
 gem install rubocop & \
 gem install bundler & \
-gem install rsense & \
+gem install rsense
 
 mkdir ~/.config/solargraph
 echo "
