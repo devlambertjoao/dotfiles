@@ -55,7 +55,7 @@ alias fag="cat ~/.zshrc | grep"
 alias update-arch="sudo pacman-key --refresh-keys && sudo pacman -Syyu"
 
 # Update Pacman
-case `uname` in 
+case `uname` in
   Linux)
     alias update-pacman="
         sudo rm -R /etc/pacman.d/gnupg/ && \
@@ -75,22 +75,28 @@ alias nvcn="cd ~/.config/nvim && nvim && cd"
 alias nvcz="nvim ~/.zshrc"
 alias nvct="nvim ~/.tmux.conf"
 alias nvca="nvim ~/.config/alacritty/alacritty.yml"
+
 # Source
 alias soz="source ~/.zshrc"
 alias sot="source ~/.tmux.conf"
-# For Tmux
+
+# Tmux
 alias tx="tmux"
 alias devc="tmux split-window -c $PWD -l 10"
 alias tks="tmux kill-server"
+
 # Python
 alias py="python3"
 alias python="python3"
 alias pip="python3 -m pip"
+
 # React native
 alias rnl="yarn run react-native log-android"
+
 # Device Emulator
 alias asd="$HOME/Programs/Android/Sdk/emulator/emulator -avd RN-Device"
 alias acd="adb reverse tcp:9090 tcp:9090"
+
 # Git
 alias ga="git add"
 alias gaa="git add ."
@@ -103,10 +109,16 @@ alias gf="git fetch"
 alias gb="git branch"
 alias gl="git log --oneline --decorate --graph"
 alias grc="git rebase --continue"
+
+# Clean temp files with git
+alias cleanv="git clean -ndx" # print files to clean
+alias cleanc="git clean -dfx" # confirm files to clean
+
 # Spring boot
 alias rsb="mvn spring-boot:run" #java maven
 alias rst="mvn test" #java maven
 alias mvnc="mvn clean install -U -DskipTests=true" #java maven
+
 # Rails and Rake
 alias rc="rails console"
 alias rcp="rubocop"
@@ -124,6 +136,7 @@ alias rdd="rake db:drop" #rails
 alias rdm="rake db:migrate" #rails
 alias rds="rake db:seed" #rails
 alias rrg="rake routes | grep" #rails
+
 # Dotnet
 alias dnwa="dotnet new webapi"
 alias dncl="dotnet new classlibrary"
@@ -135,10 +148,12 @@ alias dnr="dotnet run"
 alias dnb="dotnet build"
 alias dnnr="dotnet nuget restore"
 alias dnc="dotnet clean"
+
 # WSL Programs
 case `uname` in 
   Linux)
     alias eclipse="~/Programs/eclipse/eclipse </dev/null &>/dev/null &"
+    export DONT_PROMPT_WSL_INSTALL="No_Prompt_Please"
     alias vscode="code . </dev/null &>/dev/null &"
     alias moz="firefox </dev/null &>/dev/null &"
   ;;
@@ -155,13 +170,6 @@ case `uname` in
 esac
 
 export PATH=$PATH:$JAVA_HOME
-
-# VsCode
-case `uname` in 
-  Linux)
-    export DONT_PROMPT_WSL_INSTALL="No_Prompt_Please"
-  ;;
-esac
 
 # Maven
 export M2_HOME=$HOME/Programs/apache-maven-3.8.2
@@ -196,4 +204,5 @@ export PATH=~/.npm-global/bin:$PATH
 # C#
 export PATH="$PATH:$HOME/.dotnet/tools"
 
+# Open Ssl
 export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
