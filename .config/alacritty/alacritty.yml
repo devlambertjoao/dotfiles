@@ -2,7 +2,7 @@
 # "C:\Program Files\Alacritty\alacritty.exe" --command wsl -d Arch --cd ~
 
 font:
-  size: 10.0
+  size: 14.0
 
 window:
   title: Terminal
