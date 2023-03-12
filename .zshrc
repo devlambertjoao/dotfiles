@@ -135,6 +135,10 @@ alias rdc="rake db:create" #rails
 alias rdd="rake db:drop" #rails
 alias rdm="rake db:migrate" #rails
 alias rds="rake db:seed" #rails
+alias rdct="rake db:create RAILS_ENV=test" #rails
+alias rddt="rake db:drop RAILS_ENV=test" #rails
+alias rdmt="rake db:migrate RAILS_ENV=test" #rails
+alias rdst="rake db:seed RAILS_ENV=test" #rails
 alias rrg="rake routes | grep" #rails
 
 # Dotnet
