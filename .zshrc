@@ -194,6 +194,9 @@ export PATH=$PATH:$FLUTTER_PATH_HOME/bin
 # Yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+# Dotnet old compatibility
+export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
+
 # Npm
 # mkdir ~/.npm-global
 # npm config set prefix '~/.npm-global'
