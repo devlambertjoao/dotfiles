@@ -6,9 +6,9 @@ font:
 
 window:
   title: Terminal
-  opacity: 0.92
+  opacity: 0.95
   padding:
-    x: 16 
+    x: 16
     y: 16
   blur_background: blur
   dimensions:
