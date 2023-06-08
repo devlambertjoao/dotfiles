@@ -1,5 +1,6 @@
 # For Use In windows (Inside Alacritty), create a shortcut with this target:
 # "C:\Program Files\Alacritty\alacritty.exe" --command wsl -d Arch --cd ~
+# https://www.nerdfonts.com/font-downloads for download VictorMono Font
 
 font:
   normal:
