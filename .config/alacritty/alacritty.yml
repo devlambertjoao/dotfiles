@@ -12,7 +12,7 @@ window:
     y: 16
   blur_background: blur
   dimensions:
-    columns: 160 
+    columns: 160
     lines: 80
 
 selection:
@@ -159,5 +159,5 @@ schemes:
         - { index: 16, color: "#FAB387" }
         - { index: 17, color: "#F5E0DC" }
 
-colors: *catpuccin_mocha
+colors: *nightfox
 
