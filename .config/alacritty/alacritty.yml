@@ -2,6 +2,21 @@
 # "C:\Program Files\Alacritty\alacritty.exe" --command wsl -d Arch --cd ~
 
 font:
+  normal:
+    family: VictorMono Nerd Font
+    style: Medium
+  light:
+    family: VictorMono Nerd Font Mono
+    style: Light
+  bold:
+    family: VictorMono Nerd Font Mono
+    style: Bold 
+  italic:
+    family: VictorMono Nerd Font Mono
+    style: Italic
+  bold_italic:
+    family: VictorMono Nerd Font Mono
+    style: Bold Italic
   size: 14.0
 
 window:
