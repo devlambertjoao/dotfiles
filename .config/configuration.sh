@@ -22,6 +22,7 @@ ssh-keygen -o -t rsa -C "mail@example.com"
 
 # Git Global User Name
 git config --global user.name "Name"
+git config --global user.email "email"
 
 # Comment FakerRoot on IgnorePkg and update pacman
 sudo nano /etc/pacman.conf 
@@ -48,7 +49,15 @@ sudo pacman -S zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/main/.zshrc
 mv .zshrc.1 .zshrc
+source .zshrc
 ###################################################### END ZSH ######################################################
+
+###################################################### START DOTFILES ######################################################
+git clone --bare git@github.com:devlambertjoao/dotfiles.git $HOME/.devlambertjoao
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.devlambertjoao/ --work-tree=$HOME'
+dotfiles checkout --force
+dotfiles config --local status.showUntrackedFiles no
+###################################################### END DOTFILES ######################################################
 
 ###################################################### START Homebrew ######################################################
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -136,36 +145,6 @@ gem install solargraph-rails & \
 gem install rubocop & \
 gem install bundler & \
 gem install rsense
-
-mkdir ~/.config/solargraph
-echo "
-plugins:
-  - solargraph-rails
-
-include:
-- "**/*.rb"
-
-exclude:
-- spec/**/*
-- test/**/*
-- vendor/**/*
-- ".bundle/**/*"
-
-require: []
-
-domains: []
-
-reporters:
-- rubocop
-- require_not_found
-- typecheck
-
-formatter:
-  rubocop:
-
-max_files: 5000
-" > ~/.config/solargraph/config.yml
-
 ###################################################### END RUBY ######################################################
 
 ###################################################### START Python ######################################################
