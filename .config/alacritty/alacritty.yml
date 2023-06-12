@@ -24,12 +24,12 @@ window:
   title: Terminal
   opacity: 0.95
   padding:
-    x: 16
-    y: 16
+    x: 2
+    y: 2
   blur_background: blur
   dimensions:
-    columns: 160
-    lines: 80
+    columns: 120
+    lines: 40
 
 selection:
   save_to_clipboard: true
