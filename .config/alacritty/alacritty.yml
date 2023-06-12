@@ -1,24 +1,24 @@
 # For Use In windows (Inside Alacritty), create a shortcut with this target:
 # "C:\Program Files\Alacritty\alacritty.exe" --command wsl -d Arch --cd ~
-# https://www.nerdfonts.com/font-downloads for download VictorMono Font
+# https://www.nerdfonts.com/font-downloads for download Fonts
 
 font:
   normal:
-    family: VictorMono Nerd Font Mono
-    style: Medium
-  light:
-    family: VictorMono Nerd Font Mono
-    style: Light
+    family: SpaceMono Nerd Font Propo
+    style: Regular
+  # light:
+    # family: SpaceMono Nerd Font Propo
+    # style: Light
   bold:
-    family: VictorMono Nerd Font Mono
-    style: Bold 
+    family: SpaceMono Nerd Font
+    style: Bold
   italic:
-    family: VictorMono Nerd Font Mono
+    family: SpaceMono Nerd Font
     style: Italic
   bold_italic:
-    family: VictorMono Nerd Font Mono
+    family: SpaceMono Nerd Font
     style: Bold Italic
-  size: 14.0
+  size: 12.0
 
 window:
   title: Terminal
@@ -29,7 +29,7 @@ window:
   blur_background: blur
   dimensions:
     columns: 120
-    lines: 40
+    lines: 20
 
 selection:
   save_to_clipboard: true
@@ -176,4 +176,3 @@ schemes:
         - { index: 17, color: "#F5E0DC" }
 
 colors: *nightfox
-
