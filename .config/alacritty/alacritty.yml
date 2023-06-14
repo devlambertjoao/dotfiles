@@ -66,6 +66,33 @@ schemes:
       - { index: 16, color: '0x3ddbd9' }
       - { index: 17, color: '0xff7eb6' }
 
+  twilight: &twilight
+    primary:
+      background: "#1e1e1e"
+      foreground: "#a7a7a7"
+    cursor:
+      text: "#1e1e1e"
+      cursor: "#a7a7a7"
+    normal:
+      black: "#1e1e1e"
+      red: "#cf6a4c"
+      green: "#8f9d6a"
+      yellow: "#f9ee98"
+      blue: "#7587a6"
+      magenta: "#9b859d"
+      cyan: "#afc4db"
+      white: "#a7a7a7"
+    bright:
+      black: "#5f5a60"
+      red: "#cf6a4c"
+      green: "#8f9d6a"
+      yellow: "#f9ee98"
+      blue: "#7587a6"
+
+      magenta: "#9b859d"
+      cyan: "#afc4db"
+      white: "#ffffff"
+
   nightfox: &nightfox
     primary:
       background: '0x192330'
@@ -175,4 +202,4 @@ schemes:
         - { index: 16, color: "#FAB387" }
         - { index: 17, color: "#F5E0DC" }
 
-colors: *nightfox
+colors: *twilight
