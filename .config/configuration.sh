@@ -162,6 +162,7 @@ sudo pacman -S neovim
 brew install fd # Telescope
 brew install ripgrep # Telescope
 brew install lazygit # Lazygit
+brew install bat # Bat
 
 # Packer
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
