@@ -18,17 +18,17 @@ font:
   bold_italic:
     family: SpaceMono Nerd Font
     style: Bold Italic
-  size: 12.0
+  size: 14.0
 
 window:
   title: Terminal
-  opacity: 0.95
+  opacity: 0.98
   padding:
     x: 2
     y: 2
   blur_background: blur
   dimensions:
-    columns: 120
+    columns: 100
     lines: 20
 
 selection:

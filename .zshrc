@@ -24,11 +24,7 @@ esac
 export ZSH="$HOME/.oh-my-zsh"
 
 # Theme
-ZSH_THEME="eastwood"
-# ZSH_THEME="sunaku"
-# ZSH_THEME="philips"
-# ZSH_THEME="nanotech"
-# ZSH_THEME="mgutz"
+ZSH_THEME="mgutz"
 
 # Settings
 ENABLE_CORRECTION="false"
