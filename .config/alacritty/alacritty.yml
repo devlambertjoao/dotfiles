@@ -2,34 +2,37 @@
 # "C:\Program Files\Alacritty\alacritty.exe" --command wsl -d Arch --cd ~
 # https://www.nerdfonts.com/font-downloads for download Fonts
 
+# JetBrainsMono font download 
+# https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/JetBrainsMono.zip
+
 font:
   normal:
-    family: SpaceMono Nerd Font Propo
+    family: JetBrainsMono Nerd Font
     style: Regular
-  # light:
-    # family: SpaceMono Nerd Font Propo
-    # style: Light
+  light:
+    family: JetBrainsMono Nerd Font
+    style: Light
   bold:
-    family: SpaceMono Nerd Font
+    family: JetBrainsMono Nerd Font
     style: Bold
   italic:
-    family: SpaceMono Nerd Font
+    family: JetBrainsMono Nerd Font
     style: Italic
   bold_italic:
-    family: SpaceMono Nerd Font
+    family: JetBrainsMono Nerd Font
     style: Bold Italic
   size: 14.0
 
 window:
   title: Terminal
-  opacity: 0.98
+  opacity: 0.99
   padding:
     x: 2
     y: 2
   blur_background: blur
   dimensions:
     columns: 100
-    lines: 20
+    lines: 30
 
 selection:
   save_to_clipboard: true
