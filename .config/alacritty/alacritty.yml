@@ -44,45 +44,46 @@ schemes:
     primary:
       background: '#191724'
       foreground: '#e0def4'
-      dim_foreground: "#CDD6F4" # text
-      bright_foreground: "#CDD6F4" # text
+      dim_foreground: "#908caa"
+      bright_foreground: "#e0def4"
 
     # Cursor colors
     cursor:
-      text: "#1E1E2E" # base
-      cursor: "#F5E0DC" # rosewater
+      text: "#e0def4"
+      cursor: "#524f67"
 
     vi_mode_cursor:
-      text: "#1E1E2E" # base
-      cursor: "#B4BEFE" # lavender
+      text: "#e0def4"
+      cursor: "#524f67"
 
-    # Search colors
     search:
       matches:
-          foreground: "#1E1E2E" # base
-          background: "#A6ADC8" # subtext0
+          foreground: "#908caa"
+          background: "#26233a"
       focused_match:
-          foreground: "#1E1E2E" # base
-          background: "#A6E3A1" # green
-      footer_bar:
-          foreground: "#1E1E2E" # base
-          background: "#A6ADC8" # subtext0
+          foreground: "#191724"
+          background: "#ebbcba"
 
-    # Keyboard regex hints
     hints:
       start:
-          foreground: "#1E1E2E" # base
-          background: "#F9E2AF" # yellow
+          foreground: "#908caa"
+          background: "#1f1d2e"
       end:
-          foreground: "#1E1E2E" # base
-          background: "#A6ADC8" # subtext0
+          foreground: "#6e6a86"
+          background: "#1f1d2e"
 
-    # Selection colors
+    line_indicator:
+      foreground: "None"
+      background: "None"
+
+    footer_bar:
+      foreground: "#e0def4"
+      background: "#1f1d2e"
+
     selection:
       text: "#1E1E2E" # base
       background: "#F5E0DC" # rosewater
 
-    # Normal colors
     normal:
       black: "#45475A" # surface1
       red: "#F38BA8" # red
