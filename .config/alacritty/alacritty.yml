@@ -81,43 +81,41 @@ schemes:
       background: "#1f1d2e"
 
     selection:
-      text: "#1E1E2E" # base
-      background: "#F5E0DC" # rosewater
+      text: "#e0def4"
+      background: "#403d52"
 
     normal:
-      black: "#45475A" # surface1
-      red: "#F38BA8" # red
-      green: "#A6E3A1" # green
-      yellow: "#F9E2AF" # yellow
-      blue: "#89B4FA" # blue
-      magenta: "#F5C2E7" # pink
-      cyan: "#94E2D5" # teal
-      white: "#BAC2DE" # subtext1
+      black: "#26233a"
+      red: "#eb6f92"
+      green: "#31748f"
+      yellow: "#f6c177"
+      blue: "#9ccfd8"
+      magenta: "#c4a7e7"
+      cyan: "#ebbcba"
+      white: "#e0def4"
 
-    # Bright colors
     bright:
-      black: "#585B70" # surface2
-      red: "#F38BA8" # red
-      green: "#A6E3A1" # green
-      yellow: "#F9E2AF" # yellow
-      blue: "#89B4FA" # blue
-      magenta: "#F5C2E7" # pink
-      cyan: "#94E2D5" # teal
-      white: "#A6ADC8" # subtext0
+      black: "#6e6a86"
+      red: "#eb6f92"
+      green: "#31748f"
+      yellow: "#f6c177"
+      blue: "#9ccfd8"
+      magenta: "#c4a7e7"
+      cyan: "#ebbcba"
+      white: "#e0def4"
 
-    # Dim colors
     dim:
-      black: "#45475A" # surface1
-      red: "#F38BA8" # red
-      green: "#A6E3A1" # green
-      yellow: "#F9E2AF" # yellow
-      blue: "#89B4FA" # blue
-      magenta: "#F5C2E7" # pink
-      cyan: "#94E2D5" # teal
-      white: "#BAC2DE" # subtext1
+      black: "#6e6a86"
+      red: "#eb6f92"
+      green: "#31748f"
+      yellow: "#f6c177"
+      blue: "#9ccfd8"
+      magenta: "#c4a7e7"
+      cyan: "#ebbcba"
+      white: "#e0def4"
 
-    indexed_colors:
-      - { index: 16, color: "#FAB387" }
-      - { index: 17, color: "#F5E0DC" }
+    # indexed_colors:
+      #   - { index: 16, color: "#FAB387" }
+      #   - { index: 17, color: "#F5E0DC" }
 
 colors: *rosepine
