@@ -52,7 +52,9 @@ alias dotfiles-pull='dotfiles fetch origin && dotfiles reset --hard HEAD && dotf
 # Utils                                      
 alias fa="cat ~/.zshrc | grep alias | less"
 alias fag="cat ~/.zshrc | grep"
-alias update-arch="sudo pacman-key --refresh-keys && sudo pacman -Syyu"
+alias update-arch="sudo pacman-key --refresh-keys && \
+  sudo pacman -Sy archlinux-keyring && \
+  sudo pacman -Syu"
 
 # Update Pacman
 case `uname` in
