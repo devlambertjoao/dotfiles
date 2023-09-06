@@ -40,63 +40,10 @@ cursor:
 live_config_reload: true
 
 schemes:
-  carbonfox: &carbonfox
+  rosepine: &rosepine
     primary:
-      background: '0x161616'
-      foreground: '0xf2f4f8'
-    normal:
-      black:   '0x282828'
-      red:     '0xee5396'
-      green:   '0x25be6a'
-      yellow:  '0x08bdba'
-      blue:    '0x78a9ff'
-      magenta: '0xbe95ff'
-      cyan:    '0x33b1ff'
-      white:   '0xdfdfe0'
-    bright:
-      black:   '0x484848'
-      red:     '0xf16da6'
-      green:   '0x46c880'
-      yellow:  '0x2dc7c4'
-      blue:    '0x8cb6ff'
-      magenta: '0xc8a5ff'
-      cyan:    '0x52bdff'
-      white:   '0xe4e4e5'
-    indexed_colors:
-      - { index: 16, color: '0x3ddbd9' }
-      - { index: 17, color: '0xff7eb6' }
-
-  twilight: &twilight
-    primary:
-      background: "#1e1e1e"
-      foreground: "#a7a7a7"
-    cursor:
-      text: "#1e1e1e"
-      cursor: "#a7a7a7"
-    normal:
-      black: "#1e1e1e"
-      red: "#cf6a4c"
-      green: "#8f9d6a"
-      yellow: "#f9ee98"
-      blue: "#7587a6"
-      magenta: "#9b859d"
-      cyan: "#afc4db"
-      white: "#a7a7a7"
-    bright:
-      black: "#5f5a60"
-      red: "#cf6a4c"
-      green: "#8f9d6a"
-      yellow: "#f9ee98"
-      blue: "#7587a6"
-
-      magenta: "#9b859d"
-      cyan: "#afc4db"
-      white: "#ffffff"
-
-  nightfox: &nightfox
-    primary:
-      background: '0x192330'
-      foreground: '0xcdcecf'
+      background: '#191724'
+      foreground: '#e0def4'
     # Normal colors
     normal:
       black:   '0x393b44'
@@ -202,4 +149,4 @@ schemes:
         - { index: 16, color: "#FAB387" }
         - { index: 17, color: "#F5E0DC" }
 
-colors: *twilight
+colors: *rosepine
