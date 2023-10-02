@@ -1,4 +1,15 @@
 ###################################################### START WSL SETUP ######################################################
+# Installing WSL 2
+
+# Open powershell as Admin
+Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform, Microsoft-Windows-Subsystem-Linux
+
+# After reboot
+wsl --set-default-version 2
+
+# Download and install kernel
+https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
+
 # For WSL "Run as root first"
 useradd -m -G wheel lambert
 # Add in /etc/sudoers: lambert ALL=(ALL) ALL
