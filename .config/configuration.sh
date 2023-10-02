@@ -84,23 +84,23 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 ###################################################### END Homebrew ######################################################
 
 ###################################################### START Tmux ######################################################
-sudo pacman -S tmux
-wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/main/.tmux.conf
+sudo pacman -S tmux && \
+wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/main/.tmux.conf && \
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ###################################################### END Tmux ######################################################
 
 ###################################################### START Asdf ######################################################
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0
-echo ". $HOME/.asdf/asdf.sh" >> .bashrc
-echo ". $HOME/.asdf/completions/asdf.bash" >> .bashrc
-source .bashrc
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0 && \
+echo ". $HOME/.asdf/asdf.sh" >> .bashrc && \
+echo ". $HOME/.asdf/completions/asdf.bash" >> .bashrc && \
+source .bashrc && \
 source .zshrc
 ###################################################### END Asdf ######################################################
 
 ###################################################### Start Rust ######################################################
-asdf plugin-add rust https://github.com/code-lever/asdf-rust.git
-asdf install rust stable
-asdf global rust stable
+asdf plugin-add rust https://github.com/code-lever/asdf-rust.git && \
+asdf install rust stable && \
+asdf global rust stable && \
 source "$HOME/.asdf/installs/rust/stable/env"
 ###################################################### END Rust ######################################################
 
@@ -114,6 +114,11 @@ tar -zxvf jdk-17.0.4_linux-x64_bin.tar.gz
 rm jdk-17.0.4_linux-x64_bin.tar.gz
 cd 
 
+# Java
+asdf plugin-add java && \
+asdf install java oracle-17 && \
+asdf global java oracle-17
+
 # Maven
 # sudo apt install maven
 sudo pacman -S maven
@@ -121,40 +126,38 @@ sudo pacman -S maven
 
 ###################################################### START Node, Npm, Yarn ######################################################
 # Nodejs
-asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-asdf install nodejs 18.12.1
+asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git && \
+asdf install nodejs 18.12.1 && \
 asdf global nodejs 18.12.1
 
 # Yarn
 sudo pacman -S yarn
 
 # Npm
-sudo pacman -S npm
-mkdir ~/.npm-global
+sudo pacman -S npm && \
+mkdir ~/.npm-global && \
 npm config set prefix '~/.npm-global'
 ###################################################### END Node, Npm, Yarn ######################################################
 
 ###################################################### START Ruby ######################################################
 # If inside WSL: sudo pacman -S base-devel
 sudo pacman -S libyaml
-asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git
 
 # Openssl dep
-cd /tmp
-wget https://www.openssl.org/source/openssl-1.1.1.tar.gz
-tar -zxvf openssl-1.1.1.tar.gz
-cd openssl-1.1.1
-./config --prefix=/opt/openssl/1.1.1
-make
-sudo make install
-
-sudo ln -s /opt/openssl/1.1.1/lib/libssl.so.1.1 /usr/lib/
+cd ~/tmp && \
+wget https://www.openssl.org/source/openssl-1.1.1.tar.gz && \
+tar -zxvf openssl-1.1.1.tar.gz && \
+cd openssl-1.1.1 && \
+./config --prefix=/opt/openssl/1.1.1 && \
+make && \
+sudo make install && \
+sudo ln -s /opt/openssl/1.1.1/lib/libssl.so.1.1 /usr/lib/ && \
 sudo ln -s /opt/openssl/1.1.1/lib/libcrypto.so.1.1 /usr/lib/
 
 PKG_CONFIG_PATH=/opt/openssl/1.1.1/lib/pkgconfig \ 
-RUBY_EXTRA_CONFIGURE_OPTIONS="--with-openssl-dir=/opt/openssl/1.1.1" \
-asdf install ruby 3.2.1
-
+RUBY_EXTRA_CONFIGURE_OPTIONS="--with-openssl-dir=/opt/openssl/1.1.1" && \
+asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git && \
+asdf install ruby 3.2.1 && \
 asdf global ruby 3.2.1
 
 gem install rails & \
@@ -170,24 +173,25 @@ sudo pacman -S python python-pip
 ###################################################### END Python ######################################################
 
 ###################################################### START .NET ######################################################
-sudo pacman -S dotnet-sdk aspnet-runtime
+sudo pacman -S dotnet-sdk aspnet-runtime && \
 dotnet tool install --global csharp-ls
 ###################################################### END .NET ######################################################
 
 ###################################################### START Neovim ######################################################
 sudo pacman -S neovim
 
-brew install fd # Telescope
-brew install ripgrep # Telescope
-brew install lazygit # Lazygit
-brew install bat # Bat
+# Deps for Telescope, Lazygit and Bat (file finder)
+brew install fd && \
+brew install ripgrep && \
+brew install lazygit && \
+brew install bat
 
 # Packer
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 # Nvim Configuration
-cd ~/.config
+cd ~/.config &&
 git clone git@github.com:devlambertjoao/nvim.git
 ###################################################### END Neovim ######################################################
 
