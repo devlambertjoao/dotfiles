@@ -14,11 +14,15 @@ https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
 useradd -m -G wheel lambert
 # Add in /etc/sudoers: lambert ALL=(ALL) ALL
 passwd lambert
+passwd
 pacman-key --init
 pacman-key --populate
 pacman-key --refresh-keys
 pacman -Sy archlinux-keyring
 pacman -Syyu
+
+# Setup your default user
+Arch.exe config --default-user lambert
 ###################################################### END WSL SETUP ######################################################
 
 ###################################################### START BASIC SETUP ######################################################
