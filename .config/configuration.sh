@@ -64,7 +64,8 @@ mkdir ~/.config
 
 ###################################################### START ZSH ######################################################
 sudo pacman -S zsh && \
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/main/.zshrc && \
 mv .zshrc.1 .zshrc && \
 source .zshrc
