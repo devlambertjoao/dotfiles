@@ -10,18 +10,21 @@ wsl --set-default-version 2
 # Download and install kernel
 https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
 
+# Setup users 
 # For WSL "Run as root first"
 useradd -m -G wheel lambert
 # Add in /etc/sudoers: lambert ALL=(ALL) ALL
+# Setup passwords
 passwd lambert
 passwd
-pacman-key --init
-pacman-key --populate
-pacman-key --refresh-keys
-pacman -Sy archlinux-keyring
+
+pacman-key --init && \
+pacman-key --populate && \
+pacman-key --refresh-keys && \
+pacman -Sy archlinux-keyring && \
 pacman -Syyu
 
-# Setup your default user
+# Setup your default user (WSL)
 Arch.exe config --default-user lambert
 ###################################################### END WSL SETUP ######################################################
 
@@ -53,30 +56,30 @@ pacman -S xfce4
 # https://sourceforge.net/projects/vcxsrv/
 
 # Create basic folders
-mkdir ~/Programs
-mkdir ~/Downloads
-mkdir ~/Development
+mkdir ~/Programs && \
+mkdir ~/Downloads && \
+mkdir ~/Development && \
 mkdir ~/.config
 ###################################################### END BASIC SETUP ######################################################
 
 ###################################################### START ZSH ######################################################
-sudo pacman -S zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/main/.zshrc
-mv .zshrc.1 .zshrc
+sudo pacman -S zsh && \
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
+wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/main/.zshrc && \
+mv .zshrc.1 .zshrc && \
 source .zshrc
 ###################################################### END ZSH ######################################################
 
 ###################################################### START DOTFILES ######################################################
-git clone --bare git@github.com:devlambertjoao/dotfiles.git $HOME/.devlambertjoao
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.devlambertjoao/ --work-tree=$HOME'
-dotfiles checkout --force
+git clone --bare git@github.com:devlambertjoao/dotfiles.git $HOME/.devlambertjoao && \
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.devlambertjoao/ --work-tree=$HOME' && \
+dotfiles checkout --force && \
 dotfiles config --local status.showUntrackedFiles no
 ###################################################### END DOTFILES ######################################################
 
 ###################################################### START Homebrew ######################################################
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $HOME/.zprofile
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && \
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $HOME/.zprofile && \
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 ###################################################### END Homebrew ######################################################
 
