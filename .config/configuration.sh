@@ -33,7 +33,7 @@ Arch.exe config --default-user lambert
 sudo pacman -Syyu
 
 # Essentials
-sudo pacman -S git wget openssh
+sudo pacman -S git wget openssh unzip
 
 # Generate ssh
 ssh-keygen -o -t rsa -C "mail@example.com"
@@ -43,7 +43,7 @@ git config --global user.name "Name"
 git config --global user.email "email"
 
 # Comment FakerRoot on IgnorePkg and update pacman
-sudo nano /etc/pacman.conf 
+sudo nano /etc/pacman.conf
 sudo pacman -Syu
 
 # Base Devel
