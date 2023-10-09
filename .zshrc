@@ -24,7 +24,9 @@ esac
 export ZSH="$HOME/.oh-my-zsh"
 
 # Theme
-ZSH_THEME="mgutz"
+ZSH_THEME="daveverwer"
+# ZSH_THEME="candy"
+# ZSH_THEME="mgutz"
 
 # Settings
 ENABLE_CORRECTION="false"
