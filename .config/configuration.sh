@@ -144,6 +144,9 @@ npm config set prefix '~/.npm-global'
 # If inside WSL: sudo pacman -S base-devel
 sudo pacman -S libyaml
 
+# Postgress dep
+sudo pacman -S postgresql-libs
+
 # Openssl dep
 cd ~/tmp && \
 wget https://www.openssl.org/source/openssl-1.1.1.tar.gz && \
@@ -154,6 +157,7 @@ make && \
 sudo make install && \
 sudo ln -s /opt/openssl/1.1.1/lib/libssl.so.1.1 /usr/lib/ && \
 sudo ln -s /opt/openssl/1.1.1/lib/libcrypto.so.1.1 /usr/lib/
+
 
 PKG_CONFIG_PATH=/opt/openssl/1.1.1/lib/pkgconfig \ 
 RUBY_EXTRA_CONFIGURE_OPTIONS="--with-openssl-dir=/opt/openssl/1.1.1" && \
