@@ -38,6 +38,30 @@ sudo pacman -S git wget openssh unzip
 # Generate ssh
 ssh-keygen -o -t rsa -C "mail@example.com"
 
+# Multiple ssh -keys (InnerAI)
+
+# 1. Add this to .shh/config
+
+##      Host github.com-devlambertjoao
+##         HostName github.com
+##         IdentityFile ~/.ssh/id_rsa
+##         IdentitiesOnly yes
+##
+##      # Other github account: innerplay
+##      Host github.com-innerai
+##         HostName github.com
+##         IdentityFile ~/.ssh/innerai_id_rsa
+##         IdentitiesOnly yes
+#
+# 2. Add the keys
+# ssh-add ~/.ssh/id_rsa
+# ssh-add ~/.ssh/innerai_id_rsa
+#
+# 3. Setup remote urls for innerai like that
+# git remote set-url origin git@github-innerai:innerplay/writer-frontend.git
+#                                              USERNAME / REPO_NAME
+
+
 # Git Global User Name
 git config --global user.name "Name"
 git config --global user.email "email"
