@@ -24,7 +24,8 @@ esac
 export ZSH="$HOME/.oh-my-zsh"
 
 # Theme
-ZSH_THEME="daveverwer"
+ZSH_THEME="pmcgee"
+# ZSH_THEME="daveverwer"
 # ZSH_THEME="candy"
 # ZSH_THEME="mgutz"
 
