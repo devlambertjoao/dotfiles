@@ -5,6 +5,9 @@
 # JetBrainsMono font download 
 # https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/JetBrainsMono.zip
 
+env:
+  TERM: xterm-256color
+
 font:
   normal:
     family: JetBrainsMono Nerd Font
