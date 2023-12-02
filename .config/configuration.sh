@@ -61,6 +61,7 @@ ssh-keygen -o -t rsa -C "mail@example.com"
 # git remote set-url origin git@github-innerai:innerplay/writer-frontend.git
 #                                              USERNAME / REPO_NAME
 
+# git clone git@github.com-innerai:innerplay/inner-chat.git
 
 # Git Global User Name
 git config --global user.name "Name"
