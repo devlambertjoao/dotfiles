@@ -214,3 +214,7 @@ export PATH="$PATH:$HOME/.dotnet/tools"
 
 # Open Ssl
 export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
