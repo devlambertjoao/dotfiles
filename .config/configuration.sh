@@ -186,6 +186,7 @@ dotnet tool install --global csharp-ls
 sudo pacman -S neovim
 
 # Deps for Telescope, Lazygit and Bat (file finder)
+brew install neovim && \
 brew install fd && \
 brew install ripgrep && \
 brew install lazygit && \
