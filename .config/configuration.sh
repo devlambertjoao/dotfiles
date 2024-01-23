@@ -10,7 +10,7 @@ wsl --set-default-version 2
 # Download and install kernel
 https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
 
-# Setup users 
+# Setup users
 # For WSL "Run as root first"
 useradd -m -G wheel lambert
 # Add in /etc/sudoers: lambert ALL=(ALL) ALL
@@ -79,23 +79,17 @@ dotfiles config --local status.showUntrackedFiles no
 ###################################################### END DOTFILES ######################################################
 
 ###################################################### START Homebrew ######################################################
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && \
-echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $HOME/.zprofile && \
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ###################################################### END Homebrew ######################################################
 
 ###################################################### START Tmux ######################################################
-sudo pacman -S tmux && \
+brew install tmux && \
 wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/main/.tmux.conf && \
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ###################################################### END Tmux ######################################################
 
 ###################################################### START Asdf ######################################################
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0 && \
-echo ". $HOME/.asdf/asdf.sh" >> .bashrc && \
-echo ". $HOME/.asdf/completions/asdf.bash" >> .bashrc && \
-source .bashrc && \
-source .zshrc
+brew install asdf
 ###################################################### END Asdf ######################################################
 
 ###################################################### Start Rust ######################################################
@@ -105,26 +99,6 @@ asdf global rust stable && \
 source "$HOME/.asdf/installs/rust/stable/env"
 ###################################################### END Rust ######################################################
 
-###################################################### START Java, Maven ######################################################
-# JDK from oracle
-cd Downloads
-wget https://download.oracle.com/java/17/archive/jdk-17.0.4_linux-x64_bin.tar.gz
-mv ~/Downloads/jdk-17.0.4_linux-x64_bin.tar.gz ~/Programs/jdk-17.0.4_linux-x64_bin.tar.gz
-cd ~/Programs
-tar -zxvf jdk-17.0.4_linux-x64_bin.tar.gz
-rm jdk-17.0.4_linux-x64_bin.tar.gz
-cd 
-
-# Java
-asdf plugin-add java && \
-asdf install java oracle-17 && \
-asdf global java oracle-17
-
-# Maven
-# sudo apt install maven
-sudo pacman -S maven
-###################################################### END Java, Maven ######################################################
-
 ###################################################### START Node, Npm, Yarn ######################################################
 # Nodejs
 asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git && \
@@ -132,35 +106,16 @@ asdf install nodejs 20.9.0 && \
 asdf global nodejs 20.9.0
 
 # Yarn
-sudo pacman -S yarn
+brew install yarn
 
 # Npm
-sudo pacman -S npm && \
 mkdir ~/.npm-global && \
 npm config set prefix '~/.npm-global'
 ###################################################### END Node, Npm, Yarn ######################################################
 
 ###################################################### START Ruby ######################################################
 # If inside WSL: sudo pacman -S base-devel
-sudo pacman -S libyaml
 
-# Postgress dep
-sudo pacman -S postgresql-libs
-
-# Openssl dep
-cd ~/tmp && \
-wget https://www.openssl.org/source/openssl-1.1.1.tar.gz && \
-tar -zxvf openssl-1.1.1.tar.gz && \
-cd openssl-1.1.1 && \
-./config --prefix=/opt/openssl/1.1.1 && \
-make && \
-sudo make install && \
-sudo ln -s /opt/openssl/1.1.1/lib/libssl.so.1.1 /usr/lib/ && \
-sudo ln -s /opt/openssl/1.1.1/lib/libcrypto.so.1.1 /usr/lib/
-
-
-PKG_CONFIG_PATH=/opt/openssl/1.1.1/lib/pkgconfig \ 
-RUBY_EXTRA_CONFIGURE_OPTIONS="--with-openssl-dir=/opt/openssl/1.1.1" && \
 asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git && \
 asdf install ruby 3.3.0 && \
 asdf global ruby 3.3.0
@@ -177,14 +132,7 @@ gem install rsense
 sudo pacman -S python python-pip
 ###################################################### END Python ######################################################
 
-###################################################### START .NET ######################################################
-sudo pacman -S dotnet-sdk aspnet-runtime && \
-dotnet tool install --global csharp-ls
-###################################################### END .NET ######################################################
-
 ###################################################### START Neovim ######################################################
-sudo pacman -S neovim
-
 # Deps for Telescope, Lazygit and Bat (file finder)
 brew install neovim && \
 brew install fd && \
@@ -210,4 +158,3 @@ docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=password@1" -p 1433:1433 --name sq
 # docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=password@1' --name sql -p 1433:1433 --restart always -d mcr.microsoft.com/azure-sql-edge:latest
 
 ###################################################### END Docker ######################################################
-
