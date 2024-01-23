@@ -128,8 +128,8 @@ sudo pacman -S maven
 ###################################################### START Node, Npm, Yarn ######################################################
 # Nodejs
 asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git && \
-asdf install nodejs 18.12.1 && \
-asdf global nodejs 18.12.1
+asdf install nodejs 20.9.0 && \
+asdf global nodejs 20.9.0
 
 # Yarn
 sudo pacman -S yarn
@@ -162,8 +162,8 @@ sudo ln -s /opt/openssl/1.1.1/lib/libcrypto.so.1.1 /usr/lib/
 PKG_CONFIG_PATH=/opt/openssl/1.1.1/lib/pkgconfig \ 
 RUBY_EXTRA_CONFIGURE_OPTIONS="--with-openssl-dir=/opt/openssl/1.1.1" && \
 asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git && \
-asdf install ruby 3.2.1 && \
-asdf global ruby 3.2.1
+asdf install ruby 3.3.0 && \
+asdf global ruby 3.3.0
 
 gem install rails & \
 gem install solargraph & \
