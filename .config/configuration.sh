@@ -116,6 +116,10 @@ npm config set prefix '~/.npm-global'
 ###################################################### START Ruby ######################################################
 # If inside WSL: sudo pacman -S base-devel
 
+brew install pkg-config && \
+brew install sqlite && \
+brew install postgresql && \
+
 asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git && \
 asdf install ruby 3.3.0 && \
 asdf global ruby 3.3.0

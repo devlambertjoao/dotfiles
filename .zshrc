@@ -97,3 +97,8 @@ export PATH=~/.npm-global/bin:$PATH
 . $(brew --prefix)/opt/asdf/libexec/asdf.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# sqlite3
+export PATH="/usr/local/opt/sqlite/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/sqlite/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/sqlite/include"
