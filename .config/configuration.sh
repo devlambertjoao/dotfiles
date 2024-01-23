@@ -10,7 +10,7 @@ wsl --set-default-version 2
 # Download and install kernel
 https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
 
-# Setup users 
+# Setup users
 # For WSL "Run as root first"
 useradd -m -G wheel lambert
 # Add in /etc/sudoers: lambert ALL=(ALL) ALL
@@ -158,4 +158,3 @@ docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=password@1" -p 1433:1433 --name sq
 # docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=password@1' --name sql -p 1433:1433 --restart always -d mcr.microsoft.com/azure-sql-edge:latest
 
 ###################################################### END Docker ######################################################
-

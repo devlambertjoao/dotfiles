@@ -23,10 +23,10 @@ export EDITOR="nvim"
 alias dotfiles='git --git-dir=$HOME/.devlambertjoao/ --work-tree=$HOME'
 alias dotfiles-push='dotfiles add ~/.zshrc ~/.tmux.conf ~/.config/configuration.sh ~/.config/alacritty/ ~/.rubocop.yml ~/.config/solargraph/config.yml && \
     dotfiles commit -m Updating && dotfiles push
-  '                       
+  '
 alias dotfiles-pull='dotfiles fetch origin && dotfiles reset --hard HEAD && dotfiles pull'
 
-# Utils                                      
+# Utils
 alias fa="cat ~/.zshrc | grep alias | less"
 alias fag="cat ~/.zshrc | grep"
 
@@ -97,4 +97,3 @@ export PATH=~/.npm-global/bin:$PATH
 . $(brew --prefix)/opt/asdf/libexec/asdf.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
