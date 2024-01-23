@@ -191,10 +191,6 @@ brew install ripgrep && \
 brew install lazygit && \
 brew install bat
 
-# Packer
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-
 # Nvim Configuration
 cd ~/.config &&
 git clone git@github.com:devlambertjoao/nvim.git
