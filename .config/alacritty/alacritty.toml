@@ -1,0 +1,16 @@
+live_config_reload = true
+
+[font]
+size = 14
+
+[window]
+title = "Terminal"
+padding = { x = 2, y = 2 }
+opacity = 0.95
+dimensions = { columns = 100, lines = 30 }
+
+[selection]
+save_to_clipboard =  true
+
+[cursor]
+style = { shape = "Block", blinking = "On" }
