@@ -55,7 +55,7 @@ alias nv="nvim"
 alias nvcn="cd ~/.config/nvim && nvim && cd"
 alias nvcz="nvim ~/.zshrc"
 alias nvct="nvim ~/.tmux.conf"
-alias nvca="nvim ~/.config/alacritty/alacritty.yml"
+alias nvca="nvim ~/.config/alacritty/alacritty.toml"
 
 # Source
 alias soz="source ~/.zshrc"
