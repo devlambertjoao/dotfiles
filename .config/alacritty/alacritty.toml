@@ -16,8 +16,8 @@ save_to_clipboard =  true
 style = { shape = "Block", blinking = "On" }
 
 [colors.primary]
-background = '#1e282d'
-foreground = '#c4c7d1'
+background = '#1a1b26'
+foreground = '#a9b1d6'
 
 [colors.normal]
 black   = '#32344a'
