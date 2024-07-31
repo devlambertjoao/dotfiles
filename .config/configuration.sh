@@ -56,7 +56,9 @@ brew install neovim && \
 brew install fd && \
 brew install ripgrep && \
 brew install lazygit && \
-brew install bat
+brew install bat && \
+brew install lua && \
+brew install luarocks
 
 cd ~/.config &&
 git clone git@github.com:devlambertjoao/nvim.git
