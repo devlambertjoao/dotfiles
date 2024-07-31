@@ -50,3 +50,13 @@ gem install solargraph-rails & \
 gem install rubocop & \
 gem install bundler & \
 gem install rsense
+
+# Installing Neovim
+brew install neovim && \
+brew install fd && \
+brew install ripgrep && \
+brew install lazygit && \
+brew install bat
+
+cd ~/.config &&
+git clone git@github.com:devlambertjoao/nvim.git
