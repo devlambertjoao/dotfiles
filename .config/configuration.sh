@@ -60,5 +60,8 @@ brew install bat && \
 brew install lua && \
 brew install luarocks
 
-cd ~/.config &&
-git clone git@github.com:devlambertjoao/nvim.git
+cd ~/.config && \
+git clone git@github.com:devlambertjoao/nvim.git && \
+cd nvim && \
+git checkout v4
+
