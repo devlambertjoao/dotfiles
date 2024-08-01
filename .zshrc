@@ -6,6 +6,12 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+# Tmux Alias
+alias tx="tmux"
+alias tks="tmux kill-server"
+
+# Neovim Alias
+alias nv="nvim"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
