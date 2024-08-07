@@ -54,6 +54,7 @@ asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git && \
 asdf install ruby 3.3.0 && \
 asdf global ruby 3.3.0
 
+# Restart before install these gems
 gem install rails & \
 gem install solargraph & \
 gem install solargraph-rails & \
