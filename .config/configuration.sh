@@ -4,12 +4,22 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # Installing homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+## Homebrew Post Install
+- MacOS 
 (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/lambert/.zshrc
     eval "$(/opt/homebrew/bin/brew shellenv)"
+- Linux
+(echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/lambert/.zshrc
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Installing asdf
 brew install asdf
-echo “. /opt/homebrew/opt/asdf/libexec/asdf.sh” >> .zshrc
+
+## asdf post install
+- MacOS
+echo ". /opt/homebrew/opt/asdf/libexec/asdf.sh" >> .zshrc
+- Linux
+echo ". /home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.sh"a >> .zshrc
 
 # Config git user name and email
 git config --global user.name "Name"
