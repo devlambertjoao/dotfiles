@@ -51,8 +51,8 @@ brew install postgresql && \
 brew install redis
 
 asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git && \
-asdf install ruby 3.3.4 && \
-asdf global ruby 3.3.4
+asdf install ruby 3.3.0 && \
+asdf global ruby 3.3.0
 
 gem install rails & \
 gem install solargraph & \
