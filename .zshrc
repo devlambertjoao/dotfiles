@@ -11,8 +11,10 @@ source $ZSH/oh-my-zsh.sh
 # Tmux Alias
 alias tx="tmux"
 alias tks="tmux kill-server"
+alias tcd="tmuxifier load-session crushonu"
 
-# Tmuxifier
+# Tmuxifier 
+export PATH="$HOME/.tmuxifier/bin:$PATH"
 eval "$(tmuxifier init -)"
 
 # Neovim Alias
@@ -21,6 +23,8 @@ alias nv="nvim"
 # Git alias
 alias gaa="git add ."
 alias gs="git status"
+alias gc="git commit"
+alias gp="git push"
 
 # For Mac OS
 eval "$(/opt/homebrew/bin/brew shellenv)"
