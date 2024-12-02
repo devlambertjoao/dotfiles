@@ -12,6 +12,9 @@ source $ZSH/oh-my-zsh.sh
 alias tx="tmux"
 alias tks="tmux kill-server"
 
+# Tmuxifier
+eval "$(tmuxifier init -)"
+
 # Neovim Alias
 alias nv="nvim"
 
