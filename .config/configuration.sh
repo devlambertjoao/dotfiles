@@ -34,7 +34,8 @@ brew install wget
 # Installing tmux
 brew install tmux && \
 wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/main/.tmux.conf && \
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && \
+git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
 
 # NodeJS Development
 asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git && \
