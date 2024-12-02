@@ -35,7 +35,10 @@ brew install wget
 brew install tmux && \
 wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/main/.tmux.conf && \
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && \
-git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
+git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier && \
+cd ~/.tmuxifier/layouts && \
+wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/refs/heads/main/.tmuxifier/layouts/crushonu.session.sh && \
+cd ~
 
 # NodeJS Development
 asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git && \
