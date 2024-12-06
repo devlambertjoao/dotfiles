@@ -13,9 +13,9 @@ if initialize_session "crushonu"; then
   new_window "api_utils"
   split_v 70
   select_pane 0
-  run_cmd "rails console"
+  run_cmd "cd crushonu-api && rails console"
   select_pane 1
-  run_cmd "stripe listen --forward-to localhost:3000/webhooks/stripe"
+  run_cmd "cd crushonu-api && stripe listen --forward-to localhost:3000/webhooks/stripe"
 
   # Api
   new_window "api"
