@@ -66,6 +66,10 @@ gem install rubocop & \
 gem install bundler & \
 gem install rsense
 
+# Install stripe cli
+brew install stripe-cli && \
+stripe login
+
 # Installing Neovim
 brew install neovim && \
 brew install fd && \
