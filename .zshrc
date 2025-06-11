@@ -1,12 +1,16 @@
+# Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="af-magic"
+# Theme
+ZSH_THEME="robbyrussell"
 
-export EDITOR="nvim"
-
+# Plugins
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+
+# Editor
+export EDITOR='nvim'
 
 # Tmux Alias
 alias tx="tmux"
@@ -26,10 +30,16 @@ alias gs="git status"
 alias gc="git commit"
 alias gp="git push"
 
-# For Mac OS
+########## For Mac OS
+# Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# asdf
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
-# For Linux
+########## For Linux
 # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # . /home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.sh
+
+# Path
+export PATH="$HOME/.local/bin:$PATH"
