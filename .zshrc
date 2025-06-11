@@ -12,19 +12,14 @@ source $ZSH/oh-my-zsh.sh
 # Editor
 export EDITOR='nvim'
 
-# Tmux Alias
+# Alias
+alias nv="nvim"
+alias vim="nvim"
+alias vi="nvim"
+
 alias tx="tmux"
 alias tks="tmux kill-server"
-alias tcd="tmuxifier load-session crushonu"
 
-# Tmuxifier 
-export PATH="$HOME/.tmuxifier/bin:$PATH"
-eval "$(tmuxifier init -)"
-
-# Neovim Alias
-alias nv="nvim"
-
-# Git alias
 alias gaa="git add ."
 alias gs="git status"
 alias gc="git commit"
