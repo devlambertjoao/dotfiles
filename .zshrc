@@ -38,7 +38,10 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 ########## For Linux
+# Homebrew
 # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# asdf
 # . /home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.sh
 
 # Path
