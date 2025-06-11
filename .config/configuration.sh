@@ -84,3 +84,13 @@ git clone git@github.com:devlambertjoao/nvim.git && \
 cd nvim && \
 git checkout v4
 
+# Setup clipboard in WSL (For neovim and vim compatible)
+curl -Lo ~/.local/bin/win32yank.exe https://github.com/equalsraf/win32yank/releases/download/v0.0.4/win32yank-x64.zip
+cd ~/.local/bin
+unzip win32yank.exe
+chmod +x win32yank.exe
+
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+
+
