@@ -21,6 +21,9 @@ echo ". /opt/homebrew/opt/asdf/libexec/asdf.sh" >> .zshrc
 - Linux
 echo ". /home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.sh"a >> .zshrc
 
+# Openssh
+brew install openssh
+
 # Config git user name and email
 git config --global user.name "Name"
 git config --global user.email "email"
