@@ -17,6 +17,8 @@ alias nv="nvim"
 alias vim="nvim"
 alias vi="nvim"
 
+alias nn="nvim ~/Documents/notes.md"
+
 alias tx="tmux"
 alias tks="tmux kill-server"
 
