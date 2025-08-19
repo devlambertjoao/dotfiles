@@ -49,7 +49,7 @@ cd ~
 # NodeJS Development
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git && \
 asdf install nodejs 20.16.0 && \
-asdf global nodejs 20.16.0
+asdf set -u nodejs 20.16.0
 
 mkdir ~/.npm-global && \
 npm config set prefix '~/.npm-global'
@@ -62,7 +62,7 @@ brew install redis
 
 asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git && \
 asdf install ruby 3.3.0 && \
-asdf global ruby 3.3.0
+asdf set -u ruby 3.3.0
 
 # Restart before install these gems
 gem install rails & \
