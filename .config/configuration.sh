@@ -44,7 +44,7 @@ wget https://raw.githubusercontent.com/devlambertjoao/dotfiles/refs/heads/main/.
 cd ~
 
 # NodeJS Development
-asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git && \
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git && \
 asdf install nodejs 20.16.0 && \
 asdf global nodejs 20.16.0
 
@@ -57,7 +57,7 @@ brew install sqlite && \
 brew install postgresql && \
 brew install redis
 
-asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git && \
+asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git && \
 asdf install ruby 3.3.0 && \
 asdf global ruby 3.3.0
 
