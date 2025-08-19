@@ -67,10 +67,7 @@ asdf set -u ruby 3.3.0
 # Restart before install these gems
 gem install rails & \
 gem install solargraph & \
-gem install solargraph-rails & \
-gem install rubocop & \
-gem install bundler & \
-gem install rsense
+gem install rubocop
 
 # Install stripe cli
 brew install stripe-cli && \
