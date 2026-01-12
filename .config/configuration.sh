@@ -45,8 +45,8 @@ cd ~
 
 # NodeJS Development
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git && \
-asdf install nodejs 20.16.0 && \
-asdf set -u nodejs 20.16.0
+asdf install nodejs 24.12.0 && \
+asdf set -u nodejs 24.12.0
 
 mkdir ~/.npm-global && \
 npm config set prefix '~/.npm-global'
@@ -58,8 +58,8 @@ brew install postgresql && \
 brew install redis
 
 asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git && \
-asdf install ruby 3.3.0 && \
-asdf set -u ruby 3.3.0
+asdf install ruby 4.0.0 && \
+asdf set -u ruby 4.0.0
 
 # Restart before install these gems
 gem install rails & \
