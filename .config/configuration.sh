@@ -58,8 +58,8 @@ brew install postgresql && \
 brew install redis
 
 asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git && \
-asdf install ruby 4.0.0 && \
-asdf set -u ruby 4.0.0
+asdf install ruby 4.0.1 && \
+asdf set -u ruby 4.0.1
 
 # Restart before install these gems
 gem install rails & \
