@@ -62,7 +62,7 @@ asdf install ruby 4.0.1 && \
 asdf set -u ruby 4.0.1
 
 # Restart before install these gems
-gem install rails & \
+gem install rails -v 8.1.2 & \
 gem install solargraph & \
 gem install rubocop
 
