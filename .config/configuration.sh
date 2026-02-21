@@ -22,7 +22,7 @@ brew install asdf
 - MacOS
 echo ". /opt/homebrew/opt/asdf/libexec/asdf.sh" >> .zshrc
 - Linux
-echo ". /home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.sh"a >> .zshrc
+echo ". /home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.sh" >> .zshrc
 
 # Openssh
 brew install openssh
