@@ -55,7 +55,8 @@ npm config set prefix '~/.npm-global'
 brew install pkg-config && \
 brew install sqlite && \
 brew install postgresql && \
-brew install redis
+brew install redis && \
+brew install libyaml
 
 asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git && \
 asdf install ruby 4.0.1 && \
