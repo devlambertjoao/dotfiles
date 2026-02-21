@@ -33,6 +33,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # asdf
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
+export ASDF_DATA_DIR="/Users/lambert/.asdf"
 
 ########## For Linux
 # Homebrew
@@ -40,6 +41,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # asdf
 # . /home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.sh
+# export ASDF_DATA_DIR="/home/lambert/.asdf"
 
 # Path
 export PATH="$HOME/.local/bin:$PATH"
