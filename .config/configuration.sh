@@ -18,9 +18,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # Installing asdf
 brew install asdf
 
-## asdf post install
-echo "export PATH=\"${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH\"" >> .zshrc
-
 # Openssh
 brew install openssh
 
