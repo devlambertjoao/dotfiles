@@ -54,7 +54,7 @@ npm config set prefix '~/.npm-global'
 # Ruby On Rails Development
 brew install pkg-config && \
 brew install sqlite && \
-brew install postgresql && \
+# brew install postgresql && \
 brew install redis && \
 brew install libyaml
 
