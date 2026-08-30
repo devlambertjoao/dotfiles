@@ -19,10 +19,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 brew install asdf
 
 ## asdf post install
-- MacOS
-echo ". /opt/homebrew/opt/asdf/libexec/asdf.sh" >> .zshrc
-- Linux
-echo ". /home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.sh" >> .zshrc
+echo "export PATH=\"${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH\"" >> .zshrc
 
 # Openssh
 brew install openssh
