@@ -79,7 +79,18 @@ git clone git@github.com:devlambertjoao/nvim.git && \
 cd nvim && \
 git checkout v5
 
+# gh
+brew install gh
+gh auth login
 
+# Claude Code
+curl -fsSL https://claude.ai/install.sh | bash
+
+# Codex
+curl -fsSL https://chatgpt.com/codex/install.sh | sh
+
+# Grok Build
+curl -fsSL https://x.ai/cli/install.sh | bash
 
 ########################################## WSL SECTION ##########################################
 # Setup clipboard in WSL (For neovim and vim compatible)
